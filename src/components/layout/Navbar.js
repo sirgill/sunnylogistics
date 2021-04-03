@@ -16,7 +16,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import theme from "./ui/Theme";
-import  './ui/Theme.css';
+import './ui/Theme.css';
 
 
 
@@ -35,7 +35,7 @@ function ElevationScroll(props) {
 
 const useStyles = makeStyles(theme => ({
   toolbarMargin: {
-    ...theme.mixins.toolbar
+    minHeight: "30px"
   },
   tabContainer: {
     marginLeft: "auto"
@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
   },
   drawerItemSelected: {
     "& .MuiListItemText-root": {
-        opacity: 1
+      opacity: 1
     }
   },
   appbar: {
@@ -101,16 +101,16 @@ const Navbar = () => {
     switch (window.location.pathname) {
       case "/":
         setValue(0);
-      break;
+        break;
       case "/Drivers":
         setValue(3);
-      break;
+        break;
       case "/About":
         setValue(4);
-      break;
+        break;
 
       default:
-      break;
+        break;
     }
   }, []);
 
@@ -139,7 +139,7 @@ const Navbar = () => {
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
       >
-      <div className={classes.toolbarMargin} />
+        <div className={classes.toolbarMargin} />
         <List disablePadding>
           <ListItem
             onClick={() => {
@@ -150,7 +150,7 @@ const Navbar = () => {
             component={Link}
             to="/"
             selected={value === 0}
-            classes={{selected: classes.drawerItemSelected}}
+            classes={{ selected: classes.drawerItemSelected }}
           >
             <ListItemText
               className={classes.drawerItem}
@@ -172,10 +172,10 @@ const Navbar = () => {
             component={Link}
             to="/drivers"
             selected={value === 3}
-            classes={{selected: classes.drawerItemSelected}}
+            classes={{ selected: classes.drawerItemSelected }}
           >
             <ListItemText className={
-                classes.drawerItem
+              classes.drawerItem
             } disableTypography>
               Drivers
             </ListItemText>
@@ -190,10 +190,10 @@ const Navbar = () => {
             component={Link}
             to="/about"
             selected={value === 4}
-            classes={{selected: classes.drawerItemSelected}}
+            classes={{ selected: classes.drawerItemSelected }}
           >
             <ListItemText className={
-                classes.drawerItem
+              classes.drawerItem
             } disableTypography>
               About
             </ListItemText>

@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   sunnyFreight: {
-    paddingTop: "180px",
+    paddingTop: "170px",
 
 
   },
