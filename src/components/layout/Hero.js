@@ -13,12 +13,13 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 import * as emailjs from 'emailjs-com';
+import { Hidden } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 
   root: {
     //minHeight: "100vh",
-
+    paddingBottom: "30px"
   },
 
   img: {
@@ -160,9 +161,11 @@ export default function Hero() {
 
 
         </Grid>
-        <Grid container xs={12} sd={12} md={7}>
-          <img className={classes.img} src={warehouse} />
-        </Grid>
+        <Hidden only="xs">
+          <Grid container xs={12} sd={12} md={7}>
+            <img className={classes.img} src={warehouse} />
+          </Grid>
+        </Hidden>
       </Grid>
     </div>
 

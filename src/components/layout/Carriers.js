@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import warehouse from './ui/Network.png';
 import theme from "./ui/Theme";
 import './ui/Theme.css';
+import { Hidden } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -71,9 +72,11 @@ export default function Carriers() {
 
     <Grid container direction="row">
 
-      <Grid container xs={12} sm={12} md={6}>
-        <img className={classes.img} src={warehouse} />
-      </Grid>
+      <Hidden only="xs">
+        <Grid container xs={12} sm={12} md={6}>
+          <img className={classes.img} src={warehouse} />
+        </Grid>
+      </Hidden>
 
 
       <Grid container xs={12} sm={12} md={6} justify="center">
