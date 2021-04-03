@@ -3,11 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import theme from "./ui/Theme";
-import  './ui/Theme.css';
+import './ui/Theme.css';
 
 const useStyles = makeStyles((theme) => ({
 
-  root : {
+  root: {
 
   },
   Font: {
@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   Para: {
     fontSize: '1.2rem',
     color: "#34495E",
+    textAlign:"justify"
   },
 
 
@@ -42,28 +43,28 @@ export default function About() {
 
   return (
     <div className={classes.root}>
-    <Grid container direction="row">
-    <Grid container xs={12} justify="center" className={classes.Values}>
-    <Typography align="center">
-    <h1 className={classes.Font}>
-    Who we are
+      <Grid container direction="row">
+        <Grid container xs={12} justify="center" className={classes.Values}>
+          <Typography align="center">
+            <h1 className={classes.Font}>
+              Who we are
     </h1>
-    </Typography>
+          </Typography>
 
-    </Grid>
-    <Grid container xs={12} justify="center" className={classes.SubValues}>
-    <Typography align="center">
-    <p className={classes.Para}>
-    We are a digital freight startup based in Indianapolis with a mission to digitize the way freight is booked and moved in the Midwest.<br/>
-    Founded on the idea of three core principles Trust, Transparency, and Fairness. These values constitue the <br/>
+        </Grid>
+        <Grid container xs={12} justify="center" className={classes.SubValues}>
+          <Typography align="center">
+            <p className={classes.Para}>
+              We are a digital freight startup based in Indianapolis with a mission to digitize the way freight is booked and moved in the Midwest.<br />
+    Founded on the idea of three core principles Trust, Transparency, and Fairness. These values constitue the <br />
     foundation for how we build our platform and provide service to our customers.
 
     </p>
-    </Typography>
+          </Typography>
 
-    </Grid>
+        </Grid>
 
-    </Grid>
+      </Grid>
     </div>
   )
 };

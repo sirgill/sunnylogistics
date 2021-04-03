@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import warehouse from './ui/Group66.png';
 import theme from "./ui/Theme";
 import Navbar from './Navbar';
-import  './ui/Theme.css';
+import './ui/Theme.css';
 import ASDJobs from './jobs/ASDJobs';
 import ASDJobDetails from './jobs/ASDJobDetails';
 
@@ -21,8 +21,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
 
-  root : {
-    height: "100vh",
+  root: {
+    minHeight: "100vh",
 
   },
   Opportunties: {
@@ -63,21 +63,17 @@ const useStyles = makeStyles((theme) => ({
     justify: "center"
 
   },
-  descriptionOne : {
+  descriptionOne: {
     color: "#34495E",
     fontFamily: "myriad-pro",
 
   },
-  OppTwo:{
-    paddingTop: 100
+  OppTwo: {
+    paddingTop: 100,
+    ['@media (max-width:959px)']: {
+      paddingTop: 0
+    }
   },
-
-
-
-
-
-
-
 }));
 
 
@@ -99,34 +95,34 @@ export default function Drivers() {
 
   return (
     <div className={classes.root}>
-    <Grid container direction="row">
+      <Grid container direction="row">
 
-    <Grid container direction="row" xs={6} justify="center" className={classes.Opp}>
-      <h1 className={classes.Opportunties}> Carrier Partners </h1>
-      <Typography>
-      <p className={classes.Para}> We are partnering with small to midsize trucking compaines in the Midwest to help scale their operations. Our partners are aligned with our core values to
+        <Grid container direction="row" xs={12} sm={12} md={6} justify="center" className={classes.Opp}>
+          <h1 className={classes.Opportunties}> Carrier Partners </h1>
+          <Typography>
+            <p className={classes.Para}> We are partnering with small to midsize trucking compaines in the Midwest to help scale their operations. Our partners are aligned with our core values to
       provide trust, transparency, and fairness to customers and employees. If you are a driver looking for opportunties, check out our carrier partners. </p>
-      </Typography>
-    </Grid>
+          </Typography>
+        </Grid>
 
 
-    <Grid container direction="row" xs={6} justify="center" >
-    <Grid  className={classes.OppTwo}>
-    <Button onClick={handleClickOpen}>
-    <ASDJobs />
-    </Button>
-    </Grid>
-    <Dialog
-       fullScreen={fullScreen}
-       open={open}
-       onClose={handleClose}
-       aria-labelledby="responsive-dialog-title"
-     >
-      <ASDJobDetails />
-     </Dialog>
+        <Grid container direction="row" xs={12} sm={12} md={6} justify="center" >
+          <Grid className={classes.OppTwo}>
+            <Button onClick={handleClickOpen}>
+              <ASDJobs />
+            </Button>
+          </Grid>
+          <Dialog
+            fullScreen={fullScreen}
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="responsive-dialog-title"
+          >
+            <ASDJobDetails />
+          </Dialog>
 
-    </Grid>
-    </Grid>
+        </Grid>
+      </Grid>
 
     </div>
 

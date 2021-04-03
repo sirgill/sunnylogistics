@@ -3,14 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import theme from "./ui/Theme";
-import  './ui/Theme.css';
+import './ui/Theme.css';
 import Divider from '@material-ui/core/Divider';
 import AboutHeader from "./AboutHeader";
 
 const useStyles = makeStyles((theme) => ({
 
-  root : {
-    height: "90vh",
+  root: {
+    minHeight: "90vh",
   },
 
   TTF: {
@@ -45,35 +45,35 @@ export default function About() {
 
   return (
     <div className={classes.root}>
-    <AboutHeader />
-    <Grid container direction="row" className={classes.TTF}>
-    <Grid container xs={4} justify="center">
-    <Typography align="center" className={classes.coreHeader}> Trust </Typography>
-    <Typography align="center">
-    <p className={classes.Para}> Trust is the social glue of relationships and the success of any organization is built off the trust of employees, customers, and partners. We build trust moving one load at a time, one hire at a time, and one customer at a time.
+      <AboutHeader />
+      <Grid container direction="row" className={classes.TTF}>
+        <Grid container xs={12} sm={12} md={4} justify="center">
+          <Typography align="center" className={classes.coreHeader}> Trust </Typography>
+          <Typography align="center">
+            <p className={classes.Para}> Trust is the social glue of relationships and the success of any organization is built off the trust of employees, customers, and partners. We build trust moving one load at a time, one hire at a time, and one customer at a time.
     </p>
-    </Typography>
-    </Grid>
-    <Grid container xs={4} justify="center">
-    <Typography align="center" className={classes.coreHeader}> Transparency </Typography>
-    <Typography align="center">
-    <p className={classes.Para}>
-    Transparency is the key for balancing power between shippers, brokers, and carriers in our ecosystem. In order to foster growth, increase accountability, and create value, we need a transparent ecosystem.
+          </Typography>
+        </Grid>
+        <Grid container xs={12} sm={12} md={4} justify="center">
+          <Typography align="center" className={classes.coreHeader}> Transparency </Typography>
+          <Typography align="center">
+            <p className={classes.Para}>
+              Transparency is the key for balancing power between shippers, brokers, and carriers in our ecosystem. In order to foster growth, increase accountability, and create value, we need a transparent ecosystem.
 
     </p>
-    </Typography>
-    </Grid>
+          </Typography>
+        </Grid>
 
-    <Grid container xs={4} justify="center">
-    <Typography align="center" className={classes.coreHeader}> Fairness </Typography>
-    <Typography align="center">
-    <p className={classes.Para}>
-    Fairness embodies trust and transparency. To serve our customers we have created a platform that puts fairness in the forefront of our product and service. No hidden fees, bloated margins, or pocketed accessorials.
+        <Grid container xs={12} sm={12} md={4} justify="center">
+          <Typography align="center" className={classes.coreHeader}> Fairness </Typography>
+          <Typography align="center">
+            <p className={classes.Para}>
+              Fairness embodies trust and transparency. To serve our customers we have created a platform that puts fairness in the forefront of our product and service. No hidden fees, bloated margins, or pocketed accessorials.
     </p>
-    </Typography>
-    </Grid>
+          </Typography>
+        </Grid>
 
-    </Grid>
+      </Grid>
     </div>
 
 

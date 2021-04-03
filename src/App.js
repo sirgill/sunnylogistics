@@ -12,29 +12,30 @@ import About from './components/layout/About';
 
 
 import { Provider } from "react-redux";
+import { Container } from "@material-ui/core";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-
+      <Container>
         <BrowserRouter>
-            <Route exact path="/" component={Navbar} />
-            <Route exact path="/" component={Hero} />
-            <Route exact path="/" component={Shipper} />
-            <Route exact path="/" component={Carriers} />
-            <Route exact path="/" component={Footer} />
+          <Route exact path="/" component={Navbar} />
+          <Route exact path="/" component={Hero} />
+          <Route exact path="/" component={Shipper} />
+          <Route exact path="/" component={Carriers} />
+          <Route exact path="/" component={Footer} />
 
-            <Route exact path="/drivers" component={Navbar} />
-            <Route exact path="/drivers" component={Drivers} />
-            <Route exact path="/drivers" component={Footer} />
+          <Route exact path="/drivers" component={Navbar} />
+          <Route exact path="/drivers" component={Drivers} />
+          <Route exact path="/drivers" component={Footer} />
 
-            <Route exact path="/about" component={Navbar} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/about" component={Footer} />
+          <Route exact path="/about" component={Navbar} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/about" component={Footer} />
 
 
-      </BrowserRouter>
-
+        </BrowserRouter>
+      </Container>
     </ThemeProvider>
   );
 };

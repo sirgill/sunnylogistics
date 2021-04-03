@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import theme from "./ui/Theme";
-import  './ui/Theme.css';
+import './ui/Theme.css';
 
 
 import List from '@material-ui/core/List';
@@ -71,40 +71,40 @@ export default function Shipper() {
   return (
 
     <Grid container direction="row">
-    <Grid container xs={6} justify="flex-end">
-    <Typography >
-    <h1 className={classes.Font}>Shippers: </h1>
-    <h4 className={classes.SubText}>Freight Ecosystem</h4>
-    <p className={classes.Para}>Our vision aims to create a digital freight ecosystem driven by <br />
-    data, automation, and service. Increase visability,  <br/>automate your booking, and capture your data. </p>
-    </Typography>
+      <Grid container xs={12} sm={6} justify="flex-end">
+        <Typography >
+          <h1 className={classes.Font}>Shippers: </h1>
+          <h4 className={classes.SubText}>Freight Ecosystem</h4>
+          <p className={classes.Para}>Our vision aims to create a digital freight ecosystem driven by <br />
+    data, automation, and service. Increase visability,  <br />automate your booking, and capture your data. </p>
+        </Typography>
 
 
-    </Grid>
-    <Grid container xs={6} justify="center">
-    <List className={classes.root}>
-      <ListItem>
-        <ListItemAvatar>
-            <HeadsetMicOutlinedIcon  style={{fontSize: 50, color: "#34495E"}} />
-        </ListItemAvatar>
-        <ListItemText className={classes.ListText}><h3>24/7 Support Team</h3></ListItemText>
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-            <PhonelinkOutlinedIcon style={{fontSize: 50, color: "#34495E"}} />
-        </ListItemAvatar>
-          <ListItemText className={classes.ListText}><h3>Tech-Enabled Fleet</h3></ListItemText>
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <NotificationsActiveOutlinedIcon style={{fontSize: 50, color: "#34495E"}} />
-        </ListItemAvatar>
-        <ListItemText className={classes.ListText}><h3>Notification Updates</h3></ListItemText>
-      </ListItem>
-    </List>
+      </Grid>
+      <Grid container xs={12} sm={6} justify="center">
+        <List className={classes.root}>
+          <ListItem>
+            <ListItemAvatar>
+              <HeadsetMicOutlinedIcon style={{ fontSize: 50, color: "#34495E" }} />
+            </ListItemAvatar>
+            <ListItemText className={classes.ListText}><h3>24/7 Support Team</h3></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+              <PhonelinkOutlinedIcon style={{ fontSize: 50, color: "#34495E" }} />
+            </ListItemAvatar>
+            <ListItemText className={classes.ListText}><h3>Tech-Enabled Fleet</h3></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+              <NotificationsActiveOutlinedIcon style={{ fontSize: 50, color: "#34495E" }} />
+            </ListItemAvatar>
+            <ListItemText className={classes.ListText}><h3>Notification Updates</h3></ListItemText>
+          </ListItem>
+        </List>
 
 
-    </Grid>
+      </Grid>
     </Grid>
 
 
