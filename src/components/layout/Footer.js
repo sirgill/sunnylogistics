@@ -50,7 +50,7 @@ export default function Footer() {
     <Divider orientation="vertical" flexItem />
     <Tab className={classes.description} component={Link} to="/drivers" label="Drivers" />
     <Divider orientation="vertical" flexItem />
-    <Tab className={classes.description} component={Link} to="/" label="About" />
+    <Tab className={classes.description} component={Link} to="/about" label="About" />
     </Tabs>
 
     </Grid>
