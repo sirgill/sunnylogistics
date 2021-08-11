@@ -58,7 +58,7 @@ export default function About() {
           <Typography align="center" className={classes.coreHeader}> Transparency </Typography>
           <Typography align="center">
             <p className={classes.Para}>
-              Transparency is the key for balancing power between shippers, brokers, and carriers in our ecosystem. In order to foster growth, increase accountability, and create value, we need a transparent ecosystem.
+              Transparency is key for the balance power between shippers, brokers, and carriers in our ecosystem. In order to foster growth, increase accountability, and create value, we are focused on creating a transparent ecosystem.
 
     </p>
           </Typography>
@@ -68,7 +68,7 @@ export default function About() {
           <Typography align="center" className={classes.coreHeader}> Fairness </Typography>
           <Typography align="center">
             <p className={classes.Para}>
-              Fairness embodies trust and transparency. To serve our customers we have created a platform that puts fairness in the forefront of our product and service. No hidden fees, bloated margins, or pocketed accessorials.
+              Fairness embodies trust and transparency. To serve our customers we have created a platform that puts fairness in the forefront of our product and service. 
     </p>
           </Typography>
         </Grid>

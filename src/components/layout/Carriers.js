@@ -84,7 +84,7 @@ export default function Carriers() {
           <h1 className={classes.Font}>Carriers: </h1>
           <h4 className={classes.SubText}>Carrier Ecosystem</h4>
           <p className={classes.Para}>We have partnered with freightdok to create a transparent digital <br />
-    ecosystem for our carrier partners. With the support of freightdok technology we are able build a freight network around your operations while reducing your cost to operate your fleet.
+    ecosystem for our carrier partners. With the support of freightdok technology we are able build a freight network around your operations while reducing your cost to operate.
     <br />  </p>
         </Typography>
 

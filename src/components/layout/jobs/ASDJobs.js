@@ -63,7 +63,7 @@ export default function ASDJobs() {
     Over-the-Road (OTR) Van Truckload truck driver - Regional
     </h3>
     <Grid className={classes.list} >
-    <p className={classes.descriptionOne}>Average earnings: $55,000 - $60,000</p>
+    <p className={classes.descriptionOne}>Average earnings: $62000 - $75000</p>
     <p className={classes.description}>Home time: Daily</p>
     <p className={classes.description}>Company: Sunny Freight</p>
     </Grid>

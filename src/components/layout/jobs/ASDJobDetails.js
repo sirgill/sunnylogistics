@@ -77,7 +77,7 @@ export default function ASDJobDetails() {
     </DialogTitle>
     <h4 className={classes.secondtitledes} align="center">Over-the-Road (OTR) Van Truckload truck driver - Local</h4>
       <DialogContent>
-      <p className={classes.shortDes}>Average earnings: $60,000+</p>
+      <p className={classes.shortDes}>Average earnings: $62,000+</p>
       <p className={classes.shortDes}>Home time: Daily</p>
       <p className={classes.shortDes}>Experience: 2 years or more</p>
       <p className={classes.shortDes}>Location: Indianapolis, IN</p>
@@ -87,10 +87,10 @@ export default function ASDJobDetails() {
       <DialogContent>
       <h4 className={classes.secondtitledes}>Description: </h4>
       <DialogContentText><p>Come Join our team at Sunny Freight, we are a regional carrier operating in the Eastern North Central Midwest.
-      Our team focuses on Dry Van, no touch freight. Enjoy perks such as paid vacation, paid holidays, great home time, and Medical/Vision/Dental benifits.</p>
+      Our team focuses on Dry Van, no touch freight. Enjoy perks such as paid vacation, paid holidays, and daily home time</p>
       </DialogContentText>
       <div align="center">
-      <Button component={Link} href="http://www.driver-reach.com/l/948vq" variant="contained" color="primary" > Apply Here </Button>
+      <Button component={Link} href="http://www.driver-reach.com/l/948vq?ls=34670" variant="contained" color="primary" > Apply Here </Button>
       </div>
       </DialogContent>
 
