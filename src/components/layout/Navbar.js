@@ -124,7 +124,7 @@ const Navbar = () => {
         className={classes.tabContainer}
       >
         <Tab className={classes.tab} component={Link} to="/" label="Shippers" />
-        <Tab className={classes.tab} component={Link} to="/drivers" label="Drivers" />
+        <Tab className={classes.tab} component={Link} to="/drivers" label="Carriers" />
         <Tab className={classes.tab} component={Link} to="/about" label="About" />
       </Tabs>
     </React.Fragment>

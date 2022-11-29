@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -95,33 +96,17 @@ export default function Drivers() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction="row">
+      <Grid container direction="row" className={classes.Opp}>
 
-        <Grid container direction="row" xs={12} sm={12} md={6} justify="center" className={classes.Opp}>
+
           <h1 className={classes.Opportunties}> Carrier Partners </h1>
           <Typography>
-            <p className={classes.Para}> We are partnering with small to midsize trucking compaines in the Midwest to help scale their operations. Our partners are aligned with our core values to
-      provide trust, transparency, and fairness to customers and employees. If you are a driver looking for opportunties, check out our carrier partners. </p>
+            <p className={classes.Para}> With <Link style={{ textDecoration: 'none' }} to={{ pathname:"https://freightdok.io/"}} target="_blank">freightdok.</Link> you can now manage, book, bid, and track your freight all in one place including freight with Sunny Logistics. Freightdok is a digital carrier ecosystem that offers the best rates, service levels, and carrier partnerships. Simplify your carrier operations through the freightdok platform. </p>
           </Typography>
-        </Grid>
+        
 
 
-        <Grid container direction="row" xs={12} sm={12} md={6} justify="center" >
-          <Grid className={classes.OppTwo}>
-            <Button onClick={handleClickOpen}>
-              <ASDJobs />
-            </Button>
-          </Grid>
-          <Dialog
-            fullScreen={fullScreen}
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="responsive-dialog-title"
-          >
-            <ASDJobDetails />
-          </Dialog>
 
-        </Grid>
       </Grid>
 
     </div>
