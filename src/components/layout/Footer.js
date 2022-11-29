@@ -48,8 +48,6 @@ export default function Footer() {
     <Tabs value={value} onChange={handleChange} className={classes.tabContainer}>
     <Tab className={classes.description} component={Link} to="/" label="Contact Us" />
     <Divider orientation="vertical" flexItem />
-    <Tab className={classes.description} component={Link} to="/drivers" label="Carriers" />
-    <Divider orientation="vertical" flexItem />
     <Tab className={classes.description} component={Link} to="/about" label="About" />
     </Tabs>
 

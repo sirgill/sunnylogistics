@@ -102,9 +102,9 @@ const Navbar = () => {
       case "/":
         setValue(0);
         break;
-      case "/Drivers":
-        setValue(3);
-        break;
+      // case "/Drivers":
+      //   setValue(3);
+      //   break;
       case "/About":
         setValue(4);
         break;
@@ -124,7 +124,6 @@ const Navbar = () => {
         className={classes.tabContainer}
       >
         <Tab className={classes.tab} component={Link} to="/" label="Shippers" />
-        <Tab className={classes.tab} component={Link} to="/drivers" label="Carriers" />
         <Tab className={classes.tab} component={Link} to="/about" label="About" />
       </Tabs>
     </React.Fragment>
@@ -163,23 +162,6 @@ const Navbar = () => {
 
 
 
-          <ListItem
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(3);
-            }}
-            button
-            component={Link}
-            to="/drivers"
-            selected={value === 3}
-            classes={{ selected: classes.drawerItemSelected }}
-          >
-            <ListItemText className={
-              classes.drawerItem
-            } disableTypography>
-              Drivers
-            </ListItemText>
-          </ListItem>
 
           <ListItem
             onClick={() => {
