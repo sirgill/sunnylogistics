@@ -76,7 +76,7 @@ export default function Shipper() {
           <h1 className={classes.Font}>Shippers: </h1>
           <h4 className={classes.SubText}>Freight Ecosystem</h4>
           <p className={classes.Para}>Our vision aims to create a digital freight ecosystem driven by <br />
-    data, automation, and service. Increase visability,  <br />automate your booking, and capture your data. </p>
+    data, automation, and service. Increase visibility,  <br />automate your booking, and capture your data. </p>
         </Typography>
 
 
