@@ -55,7 +55,7 @@ export default function About() {
         <Grid container xs={12} justify="center" className={classes.SubValues}>
           <Typography align="center">
             <p className={classes.Para}>
-              We are Sunny Logistics, a digital freight startup based in Indianapolis, IN. Our mission is to digitize the way freight is booked and moved in the Central Midwest.
+              We are Sunny Logistics, a freight company based in Indianapolis, IN. Our mission is to digitize the way freight is booked and moved in the Central Midwest.
     Founded on the idea of three core principles: trust, transparency, and fairness. These values constitute the
     foundation of our company and drive everything we do.
 

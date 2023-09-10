@@ -100,7 +100,7 @@ export default function Hero() {
         <Grid container xs={12} sd={12} md={5} justify="flex-end" >
           <Typography align="center" className={classes.sunnyFreight}>
             <h1 className={classes.Font}>Sunny logistics</h1>
-            <h2 className={classes.SubText}>Building the Next Digital Freight <br /> Ecosystem For the Midwest (Pilot Mode) <br />
+            <h2 className={classes.SubText}>Building the Next Freight <br /> Ecosystem For the Midwest <br />
               <Button variant="contained" color="primary" onClick={handleClickOpen} className={classes.sunnyFreightTwo}>
                 Contact Us
      </Button>
@@ -111,7 +111,7 @@ export default function Hero() {
               <DialogContent>
                 <DialogContentText>
                   Sunny logistics hauls dry van full truckload freight in the eastern north central U.S and services drop shipments through our carrier partners trailer pool.
-                  As of now we do not support pickups or deliveries at farms or ports, and don’t service hazmat shipments. Currently running pilot programs, connect with us to learn more!
+                  As of now we do not support pickups or deliveries at farms or ports, and don’t service hazmat shipments. Connect with us to learn more!
            </DialogContentText>
               </DialogContent>
               <form onSubmit={sendEmail}>
