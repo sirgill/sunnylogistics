@@ -2,24 +2,23 @@ import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Button from '@material-ui/core/Button';
-import warehouse from './ui/Group66.png';
+import Button from "@material-ui/core/Button";
+import warehouse from "./ui/Group66.png";
 import theme from "./ui/Theme";
-import './ui/Theme.css';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import TextField from '@material-ui/core/TextField';
-import * as emailjs from 'emailjs-com';
+import "./ui/Theme.css";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import TextField from "@material-ui/core/TextField";
+import * as emailjs from "emailjs-com";
 import { Hidden } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-
   root: {
     //minHeight: "100vh",
-    paddingBottom: "30px"
+    paddingBottom: "30px",
   },
 
   img: {
@@ -27,61 +26,52 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "90%",
     maxHeight: "80%",
     display: "block",
-    paddingTop: "50px"
+    paddingTop: "50px",
   },
 
   sunnyFreight: {
     paddingTop: "170px",
-
-
   },
   Font: {
     fontFamily: "pacifico",
     fontWeight: 400,
-    fontSize: '3.5rem',
+    fontSize: "3.5rem",
     fontStyle: "normal",
     color: "#F5292F",
     margin: 0,
-
   },
   SubText: {
     color: "#34495E",
     margin: 0,
     fontFamily: "myriad-pro",
     fontWeight: 400,
-    fontSize: '1.2rem',
+    fontSize: "1.2rem",
     fontStyle: "normal",
-
   },
-
-
-
-
-
 }));
-
 
 export default function Hero() {
   const classes = useStyles();
 
-
-
   function sendEmail(e) {
     e.preventDefault();
 
-
-
-    emailjs.sendForm('service_t546ap3', 'template_na0m4rv', e.target, 'user_o94NVKKc9YSMTPXXiIGIG')
-      .then((result) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
+    emailjs
+      .sendForm(
+        "service_t546ap3",
+        "template_na0m4rv",
+        e.target,
+        "user_o94NVKKc9YSMTPXXiIGIG"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   }
-
-
-
-
 
   const [open, setOpen] = React.useState(false);
 
@@ -93,26 +83,37 @@ export default function Hero() {
     setOpen(false);
   };
 
-
   return (
     <div className={classes.root}>
       <Grid container direction="row">
-        <Grid container xs={12} sd={12} md={5} justify="flex-end" >
+        <Grid container xs={12} sd={12} md={5} justify="flex-end">
           <Typography align="center" className={classes.sunnyFreight}>
             <h1 className={classes.Font}>Sunny logistics</h1>
-            <h2 className={classes.SubText}>Building the Next Freight <br /> Ecosystem For the Midwest <br />
-              <Button variant="contained" color="primary" onClick={handleClickOpen} className={classes.sunnyFreightTwo}>
+            <h2 className={classes.SubText}>
+              Building the Next Freight <br /> Ecosystem For the Midwest <br />
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleClickOpen}
+                className={classes.sunnyFreightTwo}
+              >
                 Contact Us
-     </Button>
+              </Button>
             </h2>
 
-
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+            <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="form-dialog-title"
+            >
               <DialogContent>
                 <DialogContentText>
-                  Sunny logistics hauls dry van full truckload freight in the eastern north central U.S and services drop shipments through our carrier partners trailer pool.
-                  As of now we do not support pickups or deliveries at farms or ports, and don’t service hazmat shipments. Connect with us to learn more!
-           </DialogContentText>
+                  Sunny logistics hauls dry van full truckload freight in the
+                  eastern north central U.S and services drop shipments through
+                  our carrier partners trailer pool. As of now we do not support
+                  pickups or deliveries at farms or ports, and don’t service
+                  hazmat shipments. Connect with us to learn more!
+                </DialogContentText>
               </DialogContent>
               <form onSubmit={sendEmail}>
                 <DialogContent>
@@ -147,19 +148,20 @@ export default function Hero() {
                   <DialogActions>
                     <Button onClick={handleClose} color="primary">
                       Cancel
-           </Button>
-                    <Button type="submit" value="Send" onClick={handleClose} color="primary">
+                    </Button>
+                    <Button
+                      type="submit"
+                      value="Send"
+                      onClick={handleClose}
+                      color="primary"
+                    >
                       Submit
-           </Button>
+                    </Button>
                   </DialogActions>
                 </DialogContent>
               </form>
-
             </Dialog>
           </Typography>
-
-
-
         </Grid>
         <Hidden only="xs">
           <Grid container xs={12} sd={12} md={7}>
@@ -168,9 +170,5 @@ export default function Hero() {
         </Hidden>
       </Grid>
     </div>
-
-
-
-
-  )
-};
+  );
+}

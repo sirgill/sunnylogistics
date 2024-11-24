@@ -16,69 +16,67 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import theme from "./ui/Theme";
-import './ui/Theme.css';
-
-
+import "./ui/Theme.css";
 
 function ElevationScroll(props) {
   const { children } = props;
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 0
+    threshold: 0,
   });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0
+    elevation: trigger ? 4 : 0,
   });
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
-    minHeight: "30px"
+    minHeight: "30px",
   },
   tabContainer: {
-    marginLeft: "auto"
+    marginLeft: "auto",
   },
 
   tab: {
     ...theme.typography.tab,
     minWidth: 10,
-    marginLeft: "15px"
+    marginLeft: "15px",
   },
 
   drawerIconContainer: {
     marginLeft: "auto",
     "&:hover": {
-      backgroundColor: "transparent"
-    }
+      backgroundColor: "transparent",
+    },
   },
   drawerIcon: {
     color: "#F5292F",
     height: "30px",
-    width: "30px"
+    width: "30px",
   },
   drawerItem: {
     ...theme.typography.tab,
     color: "#F5292F",
-    opacity: 0.7
+    opacity: 0.7,
   },
   drawerItemSelected: {
     "& .MuiListItemText-root": {
-      opacity: 1
-    }
+      opacity: 1,
+    },
   },
   appbar: {
     zIndex: theme.zIndex.modal + 1,
-    boxShadow: "none"
+    boxShadow: "none",
   },
   Logo: {
     fontFamily: "pacifico",
     fontWeight: 400,
-    fontSize: '1.5rem',
+    fontSize: "1.5rem",
     fontStyle: "normal",
     color: "#F5292F",
-  }
+  },
 }));
 
 const Navbar = () => {
@@ -90,12 +88,9 @@ const Navbar = () => {
 
   const [value, setValue] = useState(0);
 
-
-
   const handleChange = (e, value) => {
     setValue(value);
   };
-
 
   useEffect(() => {
     switch (window.location.pathname) {
@@ -114,8 +109,6 @@ const Navbar = () => {
     }
   }, []);
 
-
-
   const tabs = (
     <React.Fragment>
       <Tabs
@@ -124,7 +117,12 @@ const Navbar = () => {
         className={classes.tabContainer}
       >
         <Tab className={classes.tab} component={Link} to="/" label="Shippers" />
-        <Tab className={classes.tab} component={Link} to="/about" label="About" />
+        <Tab
+          className={classes.tab}
+          component={Link}
+          to="/about"
+          label="About"
+        />
       </Tabs>
     </React.Fragment>
   );
@@ -151,17 +149,10 @@ const Navbar = () => {
             selected={value === 0}
             classes={{ selected: classes.drawerItemSelected }}
           >
-            <ListItemText
-              className={classes.drawerItem}
-              disableTypography
-            >
+            <ListItemText className={classes.drawerItem} disableTypography>
               Shippers
             </ListItemText>
           </ListItem>
-
-
-
-
 
           <ListItem
             onClick={() => {
@@ -174,15 +165,11 @@ const Navbar = () => {
             selected={value === 4}
             classes={{ selected: classes.drawerItemSelected }}
           >
-            <ListItemText className={
-              classes.drawerItem
-            } disableTypography>
+            <ListItemText className={classes.drawerItem} disableTypography>
               About
             </ListItemText>
           </ListItem>
         </List>
-
-
       </SwipeableDrawer>
       <IconButton
         className={classes.drawerIconContainer}
@@ -209,4 +196,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
