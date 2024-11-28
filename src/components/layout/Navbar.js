@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -67,8 +68,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appbar: {
-    zIndex: theme.zIndex.modal + 1,
+    // zIndex: theme.zIndex.modal + 1,
     boxShadow: "none",
+    borderRadius: "10px", // Add border radius
+    width: "100%", // Set width to 100%
   },
   Logo: {
     fontFamily: "pacifico",
@@ -76,6 +79,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.5rem",
     fontStyle: "normal",
     color: "#F5292F",
+  },
+  requestQuoteButton: {
+    marginLeft: "20px",
+    backgroundColor: "#F5292F",
+    color: "white",
+    '&:hover': {
+      backgroundColor: "#d4232a",
+    },
   },
 }));
 
@@ -97,13 +108,15 @@ const Navbar = () => {
       case "/":
         setValue(0);
         break;
-      // case "/Drivers":
-      //   setValue(3);
-      //   break;
-      case "/About":
-        setValue(4);
+      case "/carriers":
+        setValue(1);
         break;
-
+      case "/about":
+        setValue(2);
+        break;
+      case "/quote":
+        setValue(3);
+        break;
       default:
         break;
     }
@@ -120,10 +133,24 @@ const Navbar = () => {
         <Tab
           className={classes.tab}
           component={Link}
+          to="/carriers"
+          label="Carriers"
+        />
+        <Tab
+          className={classes.tab}
+          component={Link}
           to="/about"
           label="About"
         />
       </Tabs>
+      <Button
+        variant="contained"
+        className={classes.requestQuoteButton}
+        component={Link}
+        to="/quote"
+      >
+        Request Quote
+      </Button>
     </React.Fragment>
   );
 
@@ -157,16 +184,48 @@ const Navbar = () => {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(4);
+              setValue(1);
+            }}
+            button
+            component={Link}
+            to="/carriers"
+            selected={value === 1}
+            classes={{ selected: classes.drawerItemSelected }}
+          >
+            <ListItemText className={classes.drawerItem} disableTypography>
+              Carriers
+            </ListItemText>
+          </ListItem>
+
+          <ListItem
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(2);
             }}
             button
             component={Link}
             to="/about"
-            selected={value === 4}
+            selected={value === 2}
             classes={{ selected: classes.drawerItemSelected }}
           >
             <ListItemText className={classes.drawerItem} disableTypography>
               About
+            </ListItemText>
+          </ListItem>
+
+          <ListItem
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(3);
+            }}
+            button
+            component={Link}
+            to="/quote"
+            selected={value === 3}
+            classes={{ selected: classes.drawerItemSelected }}
+          >
+            <ListItemText className={classes.drawerItem} disableTypography>
+              Request Quote
             </ListItemText>
           </ListItem>
         </List>
