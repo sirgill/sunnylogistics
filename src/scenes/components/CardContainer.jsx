@@ -6,10 +6,17 @@ const CardContainerWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   margin-top: 16px;
+  width: 70%;
 `;
-
+const StoryContainerWrapper = styled.div`
+  margin: 16px;
+  padding: 10px;
+  width: 80%;
+`;
 const CardContainer = ({ children }) => {
   return <CardContainerWrapper>{children}</CardContainerWrapper>;
 };
-
-export default CardContainer;
+const StoryContainer = ({ children }) => {
+  return <StoryContainerWrapper>{children}</StoryContainerWrapper>;
+};
+export { CardContainer, StoryContainer };

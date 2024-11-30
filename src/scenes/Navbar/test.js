@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import styled from "@emotion/styled";
-import { AppBar, Toolbar, Typography, Button, Tabs, Tab, IconButton, SwipeableDrawer, List, ListItem, ListItemText, useMediaQuery } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, Button, Tabs, Tab, IconButton, SwipeableDrawer, List, ListItem, ListItemText } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    backgroundColor: "#FFFFFF",
+    zIndex: theme.zIndex.modal + 1,
+    boxShadow: "0px 4px 6px -1px rgba(0,0,0,0.1), 0px 10px 15px -3px rgba(0,0,0,0.1)",
+    backgroundColor: "#f9f9f9",
     padding: "10px 20px",
-    width: '100%',
-    borderRadius: '10px',
   },
   toolbarMargin: {
     minHeight: "30px",
@@ -57,22 +57,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DrawerContainer = styled.div`
-  width: 250px;
-  background-color: #141b2a;
-  height: 100%;
-`;
-
-const CenteredContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 10px; // Add margin to prevent sticking to the top
-`;
-
 const Navbar = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -85,7 +74,7 @@ const Navbar = () => {
       onClose={handleDrawerToggle}
       onOpen={handleDrawerToggle}
     >
-      <DrawerContainer>
+      <div className={classes.drawerContainer}>
         <List>
           <ListItem button component={Link} to="/shippers" onClick={handleDrawerToggle}>
             <ListItemText className={classes.drawerItemText}>Shippers</ListItemText>
@@ -100,38 +89,36 @@ const Navbar = () => {
             <ListItemText className={classes.drawerItemText}>Request Quote</ListItemText>
           </ListItem>
         </List>
-      </DrawerContainer>
+      </div>
     </SwipeableDrawer>
   );
 
   return (
     <React.Fragment>
-      <CenteredContainer>
-        <AppBar position="static" className={classes.appbar}>
-          <Toolbar disableGutters>
-            <Typography className={classes.logo}>Sunny Logistics</Typography>
-            {matches ? (
-              <IconButton className={classes.drawerIcon} onClick={handleDrawerToggle}>
-                <MenuIcon />
-              </IconButton>
-            ) : (
-              <Tabs className={classes.tabContainer}>
-                <Tab className={classes.tab} component={Link} to="/shippers" label="Shippers" />
-                <Tab className={classes.tab} component={Link} to="/carriers" label="Carriers" />
-                <Tab className={classes.tab} component={Link} to="/about" label="About" />
-                <Button
-                  variant="contained"
-                  className={classes.requestQuoteButton}
-                  component={Link}
-                  to="/quote"
-                >
-                  Request Quote
-                </Button>
-              </Tabs>
-            )}
-          </Toolbar>
-        </AppBar>
-      </CenteredContainer>
+      <AppBar position="static" className={classes.appbar}>
+        <Toolbar disableGutters>
+          <Typography className={classes.logo}>Sunny Logistics</Typography>
+          {matches ? (
+            <IconButton className={classes.drawerIcon} onClick={handleDrawerToggle}>
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <Tabs className={classes.tabContainer}>
+              <Tab className={classes.tab} component={Link} to="/shippers" label="Shippers" />
+              <Tab className={classes.tab} component={Link} to="/carriers" label="Carriers" />
+              <Tab className={classes.tab} component={Link} to="/about" label="About" />
+              <Button
+                variant="contained"
+                className={classes.requestQuoteButton}
+                component={Link}
+                to="/quote"
+              >
+                Request Quote
+              </Button>
+            </Tabs>
+          )}
+        </Toolbar>
+      </AppBar>
       {drawer}
     </React.Fragment>
   );

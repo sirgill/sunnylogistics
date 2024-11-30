@@ -1,58 +1,76 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Card, CardContent, Typography, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import BuildIcon from "@material-ui/icons/Build";
+import {
+  Card,
+  CardContent,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
+import WatchLaterOutlinedIcon from "@material-ui/icons/WatchLaterOutlined";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForwardIos";
+import { CardsHeading } from "../components/Heading";
+import { colors } from "../assets/colors/colors";
 
 const CardContainer = styled(Card)`
   margin: 16px;
-  padding: 16px;
+  padding: 10px;
+  width: 80%;
 `;
 
-const IconWrapper = styled.div`
-  display: flex;
-  color: #F5292F;
-  margin-bottom: 16px;
+const IconWrapper = styled(ListItemIcon)`
+  color: #f5292f;
+`;
+
+const StyledListItem = styled(ListItem)`
+  padding: 4px 0;
+`;
+
+const StyledListItemIcon = styled(ListItemIcon)`
+  min-width: 25px;
+`;
+
+const StyledArrowForwardIcon = styled(ArrowForwardIcon)`
+  color: ${colors.theme};
+  font-size: 14px;
 `;
 
 const ProactiveServiceModelCard = () => {
+  const listItems = [
+    "Capacity forecasting",
+    "Market rate analysis",
+    "Performance metrics",
+    "Continuous improvement"
+  ];
+
   return (
     <CardContainer>
       <CardContent>
         <IconWrapper>
-          <BuildIcon fontSize="large" />
+          <WatchLaterOutlinedIcon fontSize="large" style={{ color: colors.theme }} />
         </IconWrapper>
-        <Typography variant="h5" component="h2" gutterBottom>
-          Proactive Service Model
-        </Typography>
-        <Typography variant="body1" gutterBottom>
+        <CardsHeading>Proactive Service Model</CardsHeading>
+        <Typography
+          variant="body1"
+          gutterBottom
+          style={{ color: colors.paragraphText, fontSize: "16px" }}
+        >
           We don't wait for problems to occur. Our team actively monitors your shipments and market conditions to anticipate and prevent issues before they impact your supply chain.
         </Typography>
         <List>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Capacity forecasting" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Market rate analysis" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Performance metrics" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Continuous improvement" />
-          </ListItem>
+          {listItems.map((item, index) => (
+            <StyledListItem key={index}>
+              <StyledListItemIcon>
+                <StyledArrowForwardIcon />
+              </StyledListItemIcon>
+              <ListItemText
+                primary={item}
+                style={{ color: colors.paragraphText, fontSize: "16px" }}
+              />
+            </StyledListItem>
+          ))}
         </List>
       </CardContent>
     </CardContainer>

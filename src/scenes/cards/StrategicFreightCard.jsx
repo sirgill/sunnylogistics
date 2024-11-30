@@ -1,68 +1,75 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Card, CardContent, Typography, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForwardIos";
-import LocalShippingIcon from "@material-ui/icons/LocalShipping";
+import HierarchyIcon from '@material-ui/icons/AccountTreeOutlined';
+import { CardsHeading } from "../components/Heading";
+import { colors } from "../assets/colors/colors";
 
 const CardContainer = styled(Card)`
   margin: 16px;
-  padding: 16px;
+  padding: 10px;
+  width: 80%;
 `;
 
 const IconWrapper = styled(ListItemIcon)`
-  color: #F5292F;
+  color: #f5292f;
+`;
+
+const StyledListItem = styled(ListItem)`
+  padding: 4px 0;
+`;
+
+const StyledListItemIcon = styled(ListItemIcon)`
+  min-width: 25px;
 `;
 
 const StrategicFreightCard = () => {
+  const listItems = [
+    "Nationwide carrier network",
+    "Specialized equipment options",
+    "Custom routing solutions",
+    "Competitive spot and contract rates",
+    "Dedicated capacity agreements",
+    "Multi-modal shipping options"
+  ];
+
   return (
     <CardContainer>
       <CardContent>
         <IconWrapper>
-          <LocalShippingIcon fontSize="large" />
+          <HierarchyIcon fontSize="large" style={{ color: colors.theme }} />
         </IconWrapper>
-        <Typography variant="h5" component="h2" gutterBottom>
-          Strategic Freight Solutions
-        </Typography>
-        <Typography variant="body1" gutterBottom>
+        <CardsHeading>Strategic Freight Solutions</CardsHeading>
+        <Typography
+          variant="body1"
+          gutterBottom
+          style={{ color: colors.paragraphText, fontSize: "16px" }}
+        >
           Leveraging our extensive carrier network and industry expertise to provide reliable, cost-effective shipping solutions.
         </Typography>
         <List>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Nationwide carrier network" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Specialized equipment options" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Custom routing solutions" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Competitive spot and contract rates" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dedicated capacity agreements" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ArrowForwardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Multi-modal shipping options" />
-          </ListItem>
+          {listItems.map((item, index) => (
+            <StyledListItem key={index}>
+              <StyledListItemIcon>
+                <ArrowForwardIcon
+                  style={{ color: colors.theme, fontSize: "14px" }}
+                />
+              </StyledListItemIcon>
+              <ListItemText
+                primary={item}
+                style={{ color: colors.paragraphText, fontSize: "16px" }}
+              />
+            </StyledListItem>
+          ))}
         </List>
       </CardContent>
     </CardContainer>
