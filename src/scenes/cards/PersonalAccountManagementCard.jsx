@@ -44,7 +44,10 @@ const PersonalAccountManagementCard = () => {
     <CardContainer>
       <CardContent>
         <IconWrapper>
-          <PeopleAltOutlinedIcon fontSize="large" style={{ color: colors.theme }} />
+          <PeopleAltOutlinedIcon
+            fontSize="large"
+            style={{ color: colors.theme }}
+          />
         </IconWrapper>
         <CardsHeading>Personal Account Management</CardsHeading>
         <Typography
@@ -52,7 +55,10 @@ const PersonalAccountManagementCard = () => {
           gutterBottom
           style={{ color: colors.paragraphText, fontSize: "16px" }}
         >
-          Experience the difference of having a dedicated account manager who understands your business inside and out. Our team members average 8+ years of logistics experience and are empowered to make decisions that benefit your supply chain.
+          Experience the difference of having a dedicated account manager who
+          understands your business inside and out. Our team members average 8+
+          years of logistics experience and are empowered to make decisions that
+          benefit your supply chain.
         </Typography>
         <List>
           {listItems.map((item, index) => (

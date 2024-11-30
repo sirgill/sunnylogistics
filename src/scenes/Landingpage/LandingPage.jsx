@@ -90,7 +90,12 @@ const LandingPage = () => {
       </div>
       <SectionContainer>
         <Heading2>Complete Logistics Solutions</Heading2>
-        <StyledTypography variant="body1" marginTop="15px">
+        <StyledTypography
+          variant="body1"
+          style={{
+            marginTop: "15px",
+          }}
+        >
           Since 2019, we've successfully moved thousands of loads for our valued
           customers,
         </StyledTypography>
@@ -111,20 +116,35 @@ const LandingPage = () => {
         <StrategicFreightCard />
         <StoryContainer>
           <Heading2>Our Story</Heading2>
-          <StyledTypography variant="body1" marginTop="20px">
+          <StyledTypography
+            variant="body1"
+            style={{
+              marginTop: "15px",
+            }}
+          >
             Founded in 2019 in Indianapolis, Sunny Logistics began with a single
             truck and a vision to revolutionize Midwest freight transportation.
             Our founders recognized the need for a logistics provider that could
             combine the reliability of asset-based operations with the
             flexibility of a tech-enabled brokerage.
           </StyledTypography>
-          <StyledTypography variant="body1" marginTop="12px">
+          <StyledTypography
+            variant="body1"
+            style={{
+              marginTop: "12px",
+            }}
+          >
             Starting from humble beginnings, we've grown to operate a fleet of
             40+ trucks and 50+ trailers, while building a technology platform
             that sets new standards for efficiency and transparency in the
             logistics industry.
           </StyledTypography>
-          <StyledTypography variant="body1" marginTop="12px">
+          <StyledTypography
+            variant="body1"
+            style={{
+              marginTop: "12px",
+            }}
+          >
             Today, we're proud to be a trusted partner for hundreds of shippers
             across the Midwest, combining our asset-based capabilities with
             strategic brokerage solutions to meet any logistics challenge.

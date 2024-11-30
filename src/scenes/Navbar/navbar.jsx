@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     fontFamily: "Pacifico, cursive",
-    fontWeight: 400,
+    fontWeight: 500,
     fontSize: "1.5rem",
     color: "#F5292F",
   },
@@ -66,7 +66,6 @@ const DrawerContainer = styled.div`
 const CenteredContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 10px; // Add margin to prevent sticking to the top
 `;
 
 const Navbar = () => {

@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Card, CardContent, Typography, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForwardIos";
 import { CardsHeading } from "../components/Heading";
@@ -34,14 +42,17 @@ const OperationsCenterCard = () => {
     "Live load tracking",
     "Immediate issue resolution",
     "Weather monitoring",
-    "Route optimization"
+    "Route optimization",
   ];
 
   return (
     <CardContainer>
       <CardContent>
         <IconWrapper>
-          <NotificationsNoneOutlinedIcon fontSize="large" style={{ color: colors.theme }} />
+          <NotificationsNoneOutlinedIcon
+            fontSize="large"
+            style={{ color: colors.theme }}
+          />
         </IconWrapper>
         <CardsHeading>24/7 Operations Center</CardsHeading>
         <Typography
@@ -49,13 +60,18 @@ const OperationsCenterCard = () => {
           gutterBottom
           style={{ color: colors.paragraphText, fontSize: "16px" }}
         >
-          Our round-the-clock operations center in Indianapolis ensures you're never alone. With real-time tracking and immediate response capabilities, we handle everything from routine updates to emergency situations with professional efficiency.
+          Our round-the-clock operations center in Indianapolis ensures you're
+          never alone. With real-time tracking and immediate response
+          capabilities, we handle everything from routine updates to emergency
+          situations with professional efficiency.
         </Typography>
         <List>
           {listItems.map((item, index) => (
             <StyledListItem key={index}>
               <StyledListItemIcon>
-                <StyledArrowForwardIcon />
+                <ArrowForwardIcon
+                  style={{ color: colors.theme, fontSize: "14px" }}
+                />
               </StyledListItemIcon>
               <ListItemText
                 primary={item}

@@ -42,14 +42,17 @@ const ProactiveServiceModelCard = () => {
     "Capacity forecasting",
     "Market rate analysis",
     "Performance metrics",
-    "Continuous improvement"
+    "Continuous improvement",
   ];
 
   return (
     <CardContainer>
       <CardContent>
         <IconWrapper>
-          <WatchLaterOutlinedIcon fontSize="large" style={{ color: colors.theme }} />
+          <WatchLaterOutlinedIcon
+            fontSize="large"
+            style={{ color: colors.theme }}
+          />
         </IconWrapper>
         <CardsHeading>Proactive Service Model</CardsHeading>
         <Typography
@@ -57,13 +60,17 @@ const ProactiveServiceModelCard = () => {
           gutterBottom
           style={{ color: colors.paragraphText, fontSize: "16px" }}
         >
-          We don't wait for problems to occur. Our team actively monitors your shipments and market conditions to anticipate and prevent issues before they impact your supply chain.
+          We don't wait for problems to occur. Our team actively monitors your
+          shipments and market conditions to anticipate and prevent issues
+          before they impact your supply chain.
         </Typography>
         <List>
           {listItems.map((item, index) => (
             <StyledListItem key={index}>
               <StyledListItemIcon>
-                <StyledArrowForwardIcon />
+                <ArrowForwardIcon
+                  style={{ color: colors.theme, fontSize: "14px" }}
+                />
               </StyledListItemIcon>
               <ListItemText
                 primary={item}
