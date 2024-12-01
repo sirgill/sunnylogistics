@@ -1,164 +1,161 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Typography } from "@material-ui/core";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForwardIos";
-import { colors } from "../assets/colors/colors";
-import HeroSectionContainer from "../components/HeroSectionContainer";
-import SectionContainer from "../components/SectionContainer";
-import { Heading, Heading2, CardsHeading } from "../components/Heading";
-import StatsContainer from "../components/StatsContainer";
-import StatBox from "../components/StatBox";
-import ButtonsContainer from "../components/ButtonsContainer";
-import StyledButton from "../components/StyledButton";
-import { CardContainer, StoryContainer } from "../components/CardContainer";
-import AssetBasedCard from "../cards/AssetBasedCard";
-import StrategicFreightCard from "../cards/StrategicFreightCard";
-import VisionCard from "../cards/VisionCard";
-import ValuesCard from "../cards/ValuesCard";
-import PersonalAccountManagementCard from "../cards/PersonalAccountManagementCard";
-import OperationsCenterCard from "../cards/OperationsCenterCard";
-import ProactiveServiceModelCard from "../cards/ProactiveServiceModelCard";
-import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/navbar";
+import { Grid, Typography, Button } from "@material-ui/core";
+import HeroSectionContainer from "../components/HeroSectionContainer";  
+import SectionContainer from "../components/SectionContainer";         
+import StatBox from "../cards/StatBox";
+import ServiceCard from "../cards/ServiceCard";
+import { Truck, Network } from "lucide-react";
 
-const LandingPageContainer = styled.div`
-  padding: 16px;
-`;
-
-const WhiteTypography = styled(Typography)`
-  color: #fff;
-`;
-
-const CustomStyledButton = styled(StyledButton)`
-  &.MuiButton-containedPrimary {
-    background-color: ${colors.theme};
-    color: #ffffff;
-    padding: 15px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    box-shadow: none;
-    margin: 10px;
-  }
-  &.MuiButton-outlinedSecondary {
-    color: #ffffff;
-    border-color: #ffffff;
-    padding: 15px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    box-shadow: none;
-    margin: 10px;
-  }
-`;
-
-const StyledTypography = styled(Typography)`
-  color: ${colors.paragraphText};
-  margin-top: ${({ marginTop }) => marginTop || "0px"};
+const HeroActionButtons = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
 `;
 
 const LandingPage = () => {
   return (
-    <LandingPageContainer>
-      <div
-        style={{
-          padding: "5%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#141B2A",
-          width: "90%",
-          borderRadius: "5px",
-        }}
-      >
-        <Heading>Hybrid Logistics Solutions</Heading>
-        <WhiteTypography variant="body1" style={{ marginTop: "20px" }}>
-          Asset-Based Carrier & Tech-Enabled Freight Brokerage serving the
-          Midwest since 2019
-        </WhiteTypography>
-        <ButtonsContainer>
-          <CustomStyledButton
-            variant="contained"
-            color="primary"
-            endIcon={<ArrowForwardIcon />}
-          >
+    <>
+      {/* Hero Section */}
+      <HeroSectionContainer>
+        <Typography variant="h1" gutterBottom>
+          Hybrid Logistics Solutions
+        </Typography>
+        <Typography variant="h5" component="p" gutterBottom>
+          Asset-Based Carrier & Tech-Enabled Freight Brokerage serving the Midwest since 2019
+        </Typography>
+        <HeroActionButtons>
+          <Button variant="contained" color="secondary" size="large">
             Ship Now
-          </CustomStyledButton>
-          <CustomStyledButton variant="outlined" color="secondary">
+          </Button>
+          <Button variant="outlined" color="inherit" size="large">
             Join Our Network
-          </CustomStyledButton>
-        </ButtonsContainer>
-      </div>
+          </Button>
+        </HeroActionButtons>
+      </HeroSectionContainer>
+
+      {/* Stats Overview */}
       <SectionContainer>
-        <Heading2>Complete Logistics Solutions</Heading2>
-        <StyledTypography
-          variant="body1"
-          style={{
-            marginTop: "15px",
-          }}
-        >
-          Since 2019, we've successfully moved thousands of loads for our valued
-          customers,
-        </StyledTypography>
-        <StyledTypography variant="body1">
-          maintaining a 98.5% on-time delivery rate. Our commitment to
-          excellence
-        </StyledTypography>
-        <StyledTypography variant="body1">
-          has earned us long-term partnerships with leading manufacturers and
-          distributors across the Midwest.
-        </StyledTypography>
-        <StatsContainer>
-          <StatBox value="15,000+" label="Loads Delivered" />
-          <StatBox value="98.5%" label="On-Time Delivery" />
-          <StatBox value="100+" label="Active Customers" />
-        </StatsContainer>
-        <AssetBasedCard />
-        <StrategicFreightCard />
-        <StoryContainer>
-          <Heading2>Our Story</Heading2>
-          <StyledTypography
-            variant="body1"
-            style={{
-              marginTop: "15px",
-            }}
-          >
-            Founded in 2019 in Indianapolis, Sunny Logistics began with a single
-            truck and a vision to revolutionize Midwest freight transportation.
-            Our founders recognized the need for a logistics provider that could
-            combine the reliability of asset-based operations with the
-            flexibility of a tech-enabled brokerage.
-          </StyledTypography>
-          <StyledTypography
-            variant="body1"
-            style={{
-              marginTop: "12px",
-            }}
-          >
-            Starting from humble beginnings, we've grown to operate a fleet of
-            40+ trucks and 50+ trailers, while building a technology platform
-            that sets new standards for efficiency and transparency in the
-            logistics industry.
-          </StyledTypography>
-          <StyledTypography
-            variant="body1"
-            style={{
-              marginTop: "12px",
-            }}
-          >
-            Today, we're proud to be a trusted partner for hundreds of shippers
-            across the Midwest, combining our asset-based capabilities with
-            strategic brokerage solutions to meet any logistics challenge.
-          </StyledTypography>
-        </StoryContainer>
-        <VisionCard />
-        <ValuesCard />
-        <Heading2>Dedicated Support Excellence</Heading2>
-        <PersonalAccountManagementCard />
-        <OperationsCenterCard />
-        <ProactiveServiceModelCard />
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h3" gutterBottom>
+              Complete Logistics Solutions
+            </Typography>
+            <Typography variant="body1">
+              Since 2019, we've successfully moved thousands of loads for our valued customers, 
+              maintaining a 98.5% on-time delivery rate. Our commitment to excellence has earned 
+              us long-term partnerships with leading manufacturers and distributors across the Midwest.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Grid container spacing={3}>
+              <Grid item xs={6}>
+                <StatBox title="10,000+" description="Loads Delivered" />
+              </Grid>
+              <Grid item xs={6}>
+                <StatBox title="1:1" description="Single Point of Contact" />
+              </Grid>
+              <Grid item xs={6}>
+                <StatBox title="100+" description="Active Shippers" />
+              </Grid>
+              <Grid item xs={6}>
+                <StatBox title="24/7" description="Support" />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </SectionContainer>
-      <Footer />
-    </LandingPageContainer>
+
+      {/* Services Section */}
+      <SectionContainer background="light">
+        <Typography variant="h3" align="center" gutterBottom>
+          Our Services
+        </Typography>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <ServiceCard
+              icon={<Truck />}
+              title="For Shippers"
+              description="Service, responsiveness and consistent results"
+              features={[
+                "Dedicated capacity",
+                "Real-time tracking",
+                "Analytics dashboard",
+                "24/7 support"
+              ]}
+              buttonText="Learn More"
+              buttonLink="/shippers"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <ServiceCard
+              icon={<Network />}
+              title="For Carriers"
+              description="The support you need to be successful"
+              features={[
+                "Consistent freight",
+                "Quick pay options",
+                "Digital load booking",
+                "Dedicated support"
+              ]}
+              buttonText="Learn More"
+              buttonLink="/carriers"
+            />
+          </Grid>
+        </Grid>
+      </SectionContainer>
+
+      {/* Technology Platform */}
+      <SectionContainer>
+        <Typography variant="h3" align="center" gutterBottom>
+          Carrier Network
+        </Typography>
+        <Typography variant="h5" align="center" gutterBottom>
+          Our carrier network is powered by freightdok capacity network, providing cutting-edge 
+          technology and seamless operations
+        </Typography>
+        <Grid container spacing={4} justifyContent="center" style={{ marginTop: '2rem' }}>
+          <Grid item xs={12} md={8}>
+            <Grid container spacing={3}>
+              <Grid item xs={6}>
+                <StatBox title="Digital Booking" description="Instant load booking" />
+              </Grid>
+              <Grid item xs={6}>
+                <StatBox title="Real-Time Updates" description="Automated notifications" />
+              </Grid>
+              <Grid item xs={6}>
+                <StatBox title="Fast Pay" description="Quick payment options" />
+              </Grid>
+              <Grid item xs={6}>
+                <StatBox title="24/7 Support" description="Always available" />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </SectionContainer>
+
+      {/* CTA Section */}
+      <SectionContainer background="primary">
+        <Typography variant="h3" align="center" gutterBottom>
+          Ready to Streamline.Connect.Deliver?
+        </Typography>
+        <Typography variant="h5" align="center" gutterBottom>
+          Experience the power of hybrid logistics solutions
+        </Typography>
+        <Grid container justifyContent="center" spacing={2}>
+          <Grid item>
+            <Button variant="contained" color="secondary" size="large">
+              Request a Quote
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" color="inherit" size="large">
+              Contact Sales
+            </Button>
+          </Grid>
+        </Grid>
+      </SectionContainer>
+    </>
   );
 };
 
