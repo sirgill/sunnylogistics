@@ -156,10 +156,16 @@ const LandingPage = () => {
 
       {/* Technology Platform */}
       <SectionContainer>
-        <Typography variant="h3" align="center" gutterBottom>
-          Carrier Network
-        </Typography>
-        <Typography variant="h5" align="center" gutterBottom>
+        <MainHeading
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: "30px",
+              padding: "20px",
+            }}
+          >
+             Carrier Network
+          </MainHeading>
+        <Typography variant="h6" align="center" gutterBottom>
           Our carrier network is powered by freightdok capacity network,
           providing cutting-edge technology and seamless operations
         </Typography>
