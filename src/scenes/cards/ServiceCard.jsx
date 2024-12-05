@@ -1,72 +1,45 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { Typography } from "@material-ui/core";
-import { CheckCircle } from "lucide-react";
+import React from 'react';
+import styled from '@emotion/styled';
+import { ChevronRight } from 'lucide-react';
 
-const Card = styled.div`
-  background-color: white;
-  padding: 2rem;
+const ServiceCardContainer = styled.div`
+  background-color: #ffffff;
+  padding: 8px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  transition: box-shadow 0.3s ease;
-  
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border: 1px solid #f0f0f0;
+  transition: box-shadow 0.2s;
   &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   }
 `;
 
-const IconWrapper = styled.div`
-  color: ${props => props.theme.palette.primary.main};
-  margin-bottom: 1.5rem;
-  
-  svg {
-    width: 48px;
-    height: 48px;
-  }
+const Title = styled.h3`
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 8px;
 `;
 
-const FeatureList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0 0;
+const Description = styled.p`
+  color: #666666;
+  margin-bottom: 8px;
 `;
 
-const FeatureItem = styled.li`
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  
-  svg {
-    color: ${props => props.theme.palette.primary.main};
-    margin-right: 0.75rem;
-    width: 16px;
-    height: 16px;
-  }
-`;
-
-const ServiceCard = ({ icon, title, description, features }) => {
-  return (
-    <Card>
-      {icon && <IconWrapper>{icon}</IconWrapper>}
-      <Typography variant="h5" gutterBottom>
-        {title}
-      </Typography>
-      <Typography variant="body1" color="textSecondary">
-        {description}
-      </Typography>
-      {features && (
-        <FeatureList>
-          {features.map((feature, index) => (
-            <FeatureItem key={index}>
-              <CheckCircle />
-              <Typography variant="body2">{feature}</Typography>
-            </FeatureItem>
-          ))}
-        </FeatureList>
-      )}
-    </Card>
-  );
-};
+const ServiceCard = ({ icon, title, description, features, buttonText, buttonLink }) => (
+  <ServiceCardContainer>
+    <div>{icon}</div>
+    <Title>{title}</Title>
+    <Description>{description}</Description>
+    <ul>
+      {features.map((feature, index) => (
+        <li key={index}>
+          <ChevronRight size={16} color="#F5292F" style={{ marginRight: 8 }} />
+          {feature}
+        </li>
+      ))}
+    </ul>
+    <a href={buttonLink}>{buttonText}</a>
+  </ServiceCardContainer>
+);
 
 export default ServiceCard;

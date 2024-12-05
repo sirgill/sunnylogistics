@@ -1,41 +1,18 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+// components/layout/ui/Theme.ts
+import { createTheme } from '@material-ui/core/styles';
 
-import  './Theme.css';
-
-const font = "myriad-pro, sans-serif";
-const fontLanding = "pacifico, sans-serif";
-
-
-const blue = "#F5292F";
-const white = "#FFFFFF";
-
-export default createMuiTheme({
+const theme = createTheme({
   palette: {
-    common: {
-      blue: `${blue}`,
-      white: `${white}`,
-    },
     primary: {
-      main: `${blue}`
+      main: '#F5292F',
     },
     secondary: {
-      main: `${white}`
-    }
+      main: '#FFFFFF',
+    },
   },
   typography: {
-    tab: {
-      fontweight: 400,
-      color: "#F5292F",
-      fontFamily: "myriad-pro",
-      fontSize: '1.1rem',
-      textTransform: "none"
-    },
-    h2: {
-      fontFamily: "pacifico",
-      fontWeight: 400,
-      fontSize: '2.5rem',
-      color: `${blue}`
-    }
+    fontFamily: 'Inter, Arial, sans-serif',
   },
-
 });
+
+export default theme;

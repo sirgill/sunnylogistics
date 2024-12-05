@@ -1,182 +1,133 @@
-import React, { useState } from "react";
-import styled from "@emotion/styled";
-import { 
-  AppBar, 
-  Toolbar, 
-  Button,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  useTheme,
-  useMediaQuery
-} from "@material-ui/core";
-import { Menu as MenuIcon, X as CloseIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+// Navbar.tsx
+import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import { AppBar, Toolbar, Typography, Button, Tabs, Tab, IconButton, SwipeableDrawer, List, ListItem, ListItemText, useMediaQuery } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const StyledAppBar = styled(AppBar)`
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-`;
+const useStyles = makeStyles((theme) => ({
+  appbar: {
+    backgroundColor: '#FFFFFF',
+    padding: '10px 20px',
+    width: '100%',
+    borderRadius: '10px',
+  },
+  tabContainer: {
+    marginLeft: 'auto',
+  },
+  tab: {
+    minWidth: 10,
+    marginLeft: '15px',
+    color: '#F5292F',
+    '&:hover': {
+      color: '#F5292F',
+      opacity: 1,
+    },
+  },
+  requestQuoteButton: {
+    marginLeft: '20px',
+    backgroundColor: '#F5292F',
+    color: '#FFFFFF',
+    '&:hover': {
+      backgroundColor: '#F5292F',
+    },
+  },
+  logo: {
+    fontFamily: 'Pacifico, cursive',
+    fontWeight: 500,
+    fontSize: '1.5rem',
+    color: '#F5292F',
+  },
+  drawerIcon: {
+    color: '#F5292F',
+  },
+  drawerContainer: {
+    width: 250,
+    backgroundColor: '#141B2A',
+    height: '100%',
+  },
+  drawerItemText: {
+    color: '#F5F5F5',
+  },
+}));
 
-const Logo = styled(Link)`
-  color: ${props => props.theme.palette.primary.main};
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-`;
-
-const NavLinks = styled.div`
-  margin-left: auto;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-
-  @media (max-width: 960px) {
-    display: none;
-  }
-`;
-
-const NavLink = styled(Link)`
-  color: ${props => props.theme.palette.text.primary};
-  text-decoration: none;
-  font-weight: 500;
-  
-  &:hover {
-    color: ${props => props.theme.palette.primary.main};
-  }
-`;
-
-const QuoteButton = styled(Button)`
-  margin-left: 1.5rem;
-`;
-
-const MenuButton = styled(IconButton)`
-  margin-left: auto;
-  display: none;
-
-  @media (max-width: 960px) {
-    display: block;
-  }
-`;
-
-const DrawerContent = styled.div`
+const DrawerContainer = styled.div`
   width: 250px;
-  padding: 1rem;
+  background-color: #141b2a;
+  height: 100%;
 `;
 
-const DrawerHeader = styled.div`
+const CenteredContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid ${props => props.theme.palette.divider};
-`;
-
-const MobileNavLink = styled(Link)`
-  color: ${props => props.theme.palette.text.primary};
-  text-decoration: none;
-  width: 100%;
-`;
-
-const MobileQuoteButton = styled(Button)`
-  width: 100%;
-  margin-top: 1rem;
+  justify-content: center;
 `;
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const classes = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setOpenDrawer(!openDrawer);
   };
 
-  const navItems = [
-    { text: 'What We Do', path: '/' },
-    { text: 'Shippers', path: '/shippers' },
-    { text: 'Carriers', path: '/carriers' },
-    { text: 'About', path: '/about' },
-  ];
-
   const drawer = (
-    <DrawerContent>
-      <DrawerHeader>
-        <Logo to="/" onClick={handleDrawerToggle}>
-          Sunny logistics
-        </Logo>
-        <IconButton onClick={handleDrawerToggle}>
-          <CloseIcon />
-        </IconButton>
-      </DrawerHeader>
-      <List>
-        {navItems.map((item) => (
-          <ListItem button key={item.text} onClick={handleDrawerToggle}>
-            <MobileNavLink to={item.path}>
-              <ListItemText primary={item.text} />
-            </MobileNavLink>
+    <SwipeableDrawer
+      open={openDrawer}
+      onClose={handleDrawerToggle}
+      onOpen={handleDrawerToggle}
+    >
+      <DrawerContainer>
+        <List>
+          <ListItem button component={Link} to="/shippers" onClick={handleDrawerToggle}>
+            <ListItemText className={classes.drawerItemText}>Shippers</ListItemText>
           </ListItem>
-        ))}
-        <ListItem>
-          <MobileQuoteButton
-            variant="contained"
-            color="primary"
-            fullWidth
-          >
-            Request Quote
-          </MobileQuoteButton>
-        </ListItem>
-      </List>
-    </DrawerContent>
+          <ListItem button component={Link} to="/carriers" onClick={handleDrawerToggle}>
+            <ListItemText className={classes.drawerItemText}>Carriers</ListItemText>
+          </ListItem>
+          <ListItem button component={Link} to="/about" onClick={handleDrawerToggle}>
+            <ListItemText className={classes.drawerItemText}>About</ListItemText>
+          </ListItem>
+          <ListItem button component={Link} to="/quote" onClick={handleDrawerToggle}>
+            <ListItemText className={classes.drawerItemText}>Request Quote</ListItemText>
+          </ListItem>
+        </List>
+      </DrawerContainer>
+    </SwipeableDrawer>
   );
 
   return (
-    <>
-      <StyledAppBar position="sticky">
-        <Toolbar>
-          <Logo to="/">
-            Sunny logistics
-          </Logo>
-          <NavLinks>
-            {navItems.map((item) => (
-              <NavLink key={item.text} to={item.path}>
-                {item.text}
-              </NavLink>
-            ))}
-            <QuoteButton
-              variant="contained"
-              color="primary"
-              size="medium"
-            >
-              Request Quote
-            </QuoteButton>
-          </NavLinks>
-          {isMobile && (
-            <MenuButton
-              color="primary"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon />
-            </MenuButton>
-          )}
-        </Toolbar>
-      </StyledAppBar>
-      <Drawer
-        variant="temporary"
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true // Better open performance on mobile.
-        }}
-      >
-        {drawer}
-      </Drawer>
-    </>
+    <React.Fragment>
+      <CenteredContainer>
+        <AppBar position="static" className={classes.appbar}>
+          <Toolbar disableGutters>
+            <Typography className={classes.logo}>Sunny Logistics</Typography>
+            {matches ? (
+              <IconButton className={classes.drawerIcon} onClick={handleDrawerToggle}>
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              <Tabs className={classes.tabContainer}>
+                <Tab className={classes.tab} component={Link} to="/shippers" label="Shippers" />
+                <Tab className={classes.tab} component={Link} to="/carriers" label="Carriers" />
+                <Tab className={classes.tab} component={Link} to="/about" label="About" />
+                <Button
+                  variant="contained"
+                  className={classes.requestQuoteButton}
+                  component={Link}
+                  to="/quote"
+                >
+                  Request Quote
+                </Button>
+              </Tabs>
+            )}
+          </Toolbar>
+        </AppBar>
+      </CenteredContainer>
+      {drawer}
+    </React.Fragment>
   );
 };
 
