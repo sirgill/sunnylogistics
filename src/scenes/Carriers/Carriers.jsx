@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import HeroSectionContainer from "../components/HeroSectionContainer";
 import SectionContainer from "../components/SectionContainer";
 import StatBox from "../cards/StatBox";
-import ServiceCard from "../cards/ServiceCard";
+import ServiceCard from "../components/ServiceCard";
 import FeatureCard from "../cards/FeatureCard";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { Truck, Network, Shield, Clock, Target, DollarSign, Users, CheckCircle, BarChart } from "lucide-react";

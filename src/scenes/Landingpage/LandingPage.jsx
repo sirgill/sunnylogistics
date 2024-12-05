@@ -1,78 +1,127 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Grid, Typography, Button } from "@material-ui/core";
-import HeroSectionContainer from "../components/HeroSectionContainer";  
-import SectionContainer from "../components/SectionContainer";         
-import StatBox from "../cards/StatBox";
-import ServiceCard from "../cards/ServiceCard";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import HeroSectionContainer from "../components/HeroSectionContainer";
+import SectionContainer from "../components/SectionContainer";
+import StatBox from "../components/StatBox";
+import ServiceCard from "../components/ServiceCard";
 import { Truck, Network } from "lucide-react";
+import { MainHeading, SectionHeading } from "../heading/index";
+import BodyText from "../heading/bodyText";
 
 const HeroActionButtons = styled.div`
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
+  justify-content: center;
 `;
 
+const useStyles = makeStyles((theme) => ({
+  shipNowButton: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
+    fontFamily: "Inter, Arial, sans-serif",
+    textTransform: "none",
+    "&:hover": {
+      backgroundColor: theme.palette.hover.main,
+    },
+  },
+  joinNetworkButton: {
+    color: theme.palette.secondary.main,
+    borderColor: theme.palette.secondary.main,
+    fontFamily: "Inter, Arial, sans-serif",
+    textTransform: "none",
+    "&:hover": {
+      borderColor: theme.palette.secondary.main,
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+    },
+  },
+}));
+
 const LandingPage = () => {
+  const classes = useStyles();
+  const theme = useTheme();
+
   return (
     <>
       {/* Hero Section */}
-      <HeroSectionContainer>
-        <Typography variant="h1" gutterBottom>
+      <HeroSectionContainer backgroundColor="#141B2A">
+        <MainHeading
+          style={{ color: "#FFFFFF", fontSize: "40px", fontFamily: "Inter", textAlign: "center" }}
+        >
           Hybrid Logistics Solutions
-        </Typography>
-        <Typography variant="h5" component="p" gutterBottom>
-          Asset-Based Carrier & Tech-Enabled Freight Brokerage serving the Midwest since 2019
-        </Typography>
+        </MainHeading>
+        <SectionHeading style={{ textAlign: "center" }}>
+          Asset-Based Carrier & Tech-Enabled Freight Brokerage serving the
+          Midwest since 2019
+        </SectionHeading>
         <HeroActionButtons>
-          <Button variant="contained" color="secondary" size="large">
+          <Button
+            variant="contained"
+            className={classes.shipNowButton}
+            size="large"
+          >
             Ship Now
           </Button>
-          <Button variant="outlined" color="inherit" size="large">
+          <Button
+            variant="outlined"
+            className={classes.joinNetworkButton}
+            size="large"
+          >
             Join Our Network
           </Button>
         </HeroActionButtons>
       </HeroSectionContainer>
 
-      {/* Stats Overview */}
+      {/* About Section */}
       <SectionContainer>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Typography variant="h3" gutterBottom>
-              Complete Logistics Solutions
-            </Typography>
-            <Typography variant="body1">
-              Since 2019, we've successfully moved thousands of loads for our valued customers, 
-              maintaining a 98.5% on-time delivery rate. Our commitment to excellence has earned 
-              us long-term partnerships with leading manufacturers and distributors across the Midwest.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Grid container spacing={3}>
-              <Grid item xs={6}>
-                <StatBox title="10,000+" description="Loads Delivered" />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="1:1" description="Single Point of Contact" />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="100+" description="Active Shippers" />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="24/7" description="Support" />
-              </Grid>
-            </Grid>
-          </Grid>
+        <Grid item xs={12} md={6} style={{ textAlign: "center", margin: "0 auto" }}>
+          <MainHeading
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: "30px",
+              padding: "20px",
+            }}
+          >
+            Complete Logistics Solutions
+          </MainHeading>
+          <BodyText
+            style={{
+              marginTop: "20px",
+              color: theme.palette.text.main,
+              fontFamily: 'Inter, Arial, sans-serif',
+              fontSize: "18px",
+            }}
+          >
+            Since 2019, we've successfully moved thousands of loads for our
+            valued customers, maintaining a 98.5% on-time delivery rate. Our
+            commitment to excellence has earned us long-term partnerships with
+            leading manufacturers and distributors across the Midwest.
+          </BodyText>
+        </Grid>
+        <Grid style={{ display: "flex", justifyContent: "center", gap: "2rem" }}>
+          <StatBox title="10,000+" description="Loads Delivered" />
+          <StatBox title="1:1" description="Single Point of Contact" />
+          <StatBox title="100+" description="Active Shippers" />
+          <StatBox title="24/7" description="Support" />
         </Grid>
       </SectionContainer>
 
       {/* Services Section */}
-      <SectionContainer background="light">
-        <Typography variant="h3" align="center" gutterBottom>
+      <SectionContainer background="#fff">
+        <MainHeading
+          style={{
+            color: theme.palette.darkGrey.main,
+            fontSize: "30px",
+            textAlign: "center",
+            padding: "20px",
+          }}
+        >
           Our Services
-        </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+        </MainHeading>
+        <Grid container style={{ justifyContent: "center" }}>
+          <Grid item xs={12} md={8} style={{ width: "100%" }}>
             <ServiceCard
               icon={<Truck />}
               title="For Shippers"
@@ -81,13 +130,13 @@ const LandingPage = () => {
                 "Dedicated capacity",
                 "Real-time tracking",
                 "Analytics dashboard",
-                "24/7 support"
+                "24/7 support",
               ]}
               buttonText="Learn More"
               buttonLink="/shippers"
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={8} style={{ width: "100%" }}>
             <ServiceCard
               icon={<Network />}
               title="For Carriers"
@@ -96,7 +145,7 @@ const LandingPage = () => {
                 "Consistent freight",
                 "Quick pay options",
                 "Digital load booking",
-                "Dedicated support"
+                "Dedicated support",
               ]}
               buttonText="Learn More"
               buttonLink="/carriers"
@@ -111,10 +160,10 @@ const LandingPage = () => {
           Carrier Network
         </Typography>
         <Typography variant="h5" align="center" gutterBottom>
-          Our carrier network is powered by freightdok capacity network, providing cutting-edge 
-          technology and seamless operations
+          Our carrier network is powered by freightdok capacity network,
+          providing cutting-edge technology and seamless operations
         </Typography>
-        <Grid container spacing={4} justifyContent="center" style={{ marginTop: '2rem' }}>
+        <Grid container spacing={4} justifyContent="center" style={{ marginTop: "2rem" }}>
           <Grid item xs={12} md={8}>
             <Grid container spacing={3}>
               <Grid item xs={6}>
@@ -135,24 +184,40 @@ const LandingPage = () => {
       </SectionContainer>
 
       {/* CTA Section */}
-      <SectionContainer background="primary">
-        <Typography variant="h3" align="center" gutterBottom>
-          Ready to Streamline.Connect.Deliver?
-        </Typography>
-        <Typography variant="h5" align="center" gutterBottom>
+      <SectionContainer style={{ padding: "5%" }} background={theme.palette.primary.main}>
+        <MainHeading style={{ color: "#FFFFFF", fontSize: "40px" }}>
+          Ready to Streamline. Connect. Deliver?
+        </MainHeading>
+        <BodyText
+          style={{
+            textAlign: "center",
+            marginTop: "20px",
+            color: "#FFFFFF",
+            fontSize: "20px",
+          }}
+        >
           Experience the power of hybrid logistics solutions
-        </Typography>
-        <Grid container justifyContent="center" spacing={2}>
-          <Grid item>
-            <Button variant="contained" color="secondary" size="large">
-              Request a Quote
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button variant="outlined" color="inherit" size="large">
-              Contact Sales
-            </Button>
-          </Grid>
+        </BodyText>
+        <Grid container justifyContent="center" spacing={2} style={{ marginTop: "2rem" }}>
+          {[
+            { text: "Request a Quote", variant: "contained", color: "#FFFFFF" },
+            { text: "Contact Sales", variant: "outlined", color: "#FFFFFF" },
+          ].map((cta, index) => (
+            <Grid item key={index}>
+              <Button
+                variant={cta.variant}
+                style={{
+                  backgroundColor: cta.variant === "contained" ? "#FFFFFF" : "transparent",
+                  color:cta.variant === "contained"? theme.palette.primary.main: '#FFFFFF',
+                  borderColor: "#FFFFFF",
+                  textTransform: "none",
+                }}
+                size="large"
+              >
+                {cta.text}
+              </Button>
+            </Grid>
+          ))}
         </Grid>
       </SectionContainer>
     </>

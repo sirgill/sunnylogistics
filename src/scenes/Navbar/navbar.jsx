@@ -1,4 +1,4 @@
-// Navbar.tsx
+// src/scenes/Navbar/navbar.js
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { AppBar, Toolbar, Typography, Button, Tabs, Tab, IconButton, SwipeableDrawer, List, ListItem, ListItemText, useMediaQuery } from '@material-ui/core';
@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#FFFFFF',
     padding: '10px 20px',
     width: '100%',
-    borderRadius: '10px',
+    height:60,
+    justifyContent:'center',
   },
   tabContainer: {
     marginLeft: 'auto',
@@ -19,36 +20,42 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     minWidth: 10,
     marginLeft: '15px',
-    color: '#F5292F',
+    color: theme.palette.darkGrey.main,
     '&:hover': {
-      color: '#F5292F',
+      color: theme.palette.hover.main,
       opacity: 1,
     },
+    textTransform:'none',
+    fontFamily: 'Inter, Arial, sans-serif',
   },
   requestQuoteButton: {
     marginLeft: '20px',
-    backgroundColor: '#F5292F',
-    color: '#FFFFFF',
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
     '&:hover': {
-      backgroundColor: '#F5292F',
+      backgroundColor: theme.palette.hover.main,
     },
+    borderRadius:'5px',
+    height:40,
+    textTransform:'none',
+    fontFamily: 'Inter, Arial, sans-serif',
   },
   logo: {
-    fontFamily: 'Pacifico, cursive',
-    fontWeight: 500,
+    fontFamily: 'Inter, Arial, sans-serif',
+    fontWeight: 700,
     fontSize: '1.5rem',
-    color: '#F5292F',
+    color: theme.palette.primary.main,
   },
   drawerIcon: {
-    color: '#F5292F',
+    color: theme.palette.primary.main,
   },
   drawerContainer: {
     width: 250,
-    backgroundColor: '#141B2A',
+    backgroundColor: theme.palette.darkGrey.main,
     height: '100%',
   },
   drawerItemText: {
-    color: '#F5F5F5',
+    color: theme.palette.secondary.main,
   },
 }));
 

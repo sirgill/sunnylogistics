@@ -3,15 +3,16 @@ import styled from "@emotion/styled";
 import { Paper } from "@material-ui/core";
 
 const SectionContainerWrapper = styled(Paper)`
-  padding: 5%;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: ${({ background }) => background} !important; 
 `;
 
-const SectionContainer = ({ children }) => {
-  return <SectionContainerWrapper>{children}</SectionContainerWrapper>;
+const SectionContainer = ({ children, background }) => {
+  return <SectionContainerWrapper background={background}>{children}</SectionContainerWrapper>;
 };
 
 export default SectionContainer;
