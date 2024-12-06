@@ -1,4 +1,3 @@
-// src/components/HeroSectionContainer.js
 import React from 'react';
 import styled from '@emotion/styled';
 import { Paper } from '@material-ui/core';
@@ -11,6 +10,7 @@ const HeroSectionContainerWrapper = styled(Paper)`
   align-items: center;
   justify-content: center;
   background-color: ${({ backgroundColor }) => backgroundColor || '#141B2A'} !important; 
+  text-Align :center
 `;
 
 const HeroSectionContainer = ({ children, backgroundColor }) => {

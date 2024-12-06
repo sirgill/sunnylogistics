@@ -39,6 +39,14 @@ const ServiceCardContainer = styled.div`
   border: 1px solid #f0f0f0;
   transition: box-shadow 0.2s;
   margin-top: 10px;
+
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the left */
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
 `;
 
 const ServiceCard = ({ icon, title, description, features }) => {
@@ -51,8 +59,8 @@ const ServiceCard = ({ icon, title, description, features }) => {
           {icon}
         </IconWrapper>
       )}
-      <CardHeading style={{ fontSize: "24px" }}>{title}</CardHeading>
-      <BodyText style={{ color: theme.palette.text.main, fontSize: "16px", marginTop:20 }}>
+      <CardHeading style={{ fontSize: "24px", textAlign: "left" }}>{title}</CardHeading>
+      <BodyText style={{ color: theme.palette.text.main, fontSize: "16px", marginTop: 20, textAlign: "left" }}>
         {description}
       </BodyText>
       {features && (
@@ -68,7 +76,7 @@ const ServiceCard = ({ icon, title, description, features }) => {
                 style={{
                   color: theme.palette.text.main,
                   fontSize: "16px",
-                  marginTop:0
+                  marginTop: 0,
                 }}
               >
                 {feature}
