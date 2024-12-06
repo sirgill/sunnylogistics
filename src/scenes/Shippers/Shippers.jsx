@@ -4,7 +4,7 @@ import { Grid, Typography, Button } from "@material-ui/core";
 import HeroSectionContainer from "../components/HeroSectionContainer";
 import SectionContainer from "../components/SectionContainer";
 import StatBox from "../cards/StatBox";
-import ServiceCard from "../cards/ServiceCard";
+import ServiceCard from "../components/ServiceCard";
 import FeatureCard from "../cards/FeatureCard";
 import { Truck, Network, Shield, Clock, Target, Box, BarChart } from "lucide-react";
 
