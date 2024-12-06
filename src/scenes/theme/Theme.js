@@ -9,13 +9,8 @@ const theme = createTheme({
     darkGrey: { main: "#111827" },
     text: { main: "#4B5563" },
   },
-  fonts: {
-    fontFamily: "Inter, Arial, sans-serif",
-    h1: { fontWeight: 400 },
-    h2: { fontWeight: 500 },
-    h3: { fontWeight: 600 },
-    h4: { fontWeight: 700 },
-    body1: { fontWeight: 400 },
+  typography: {
+    fontFamily: "Inter",
   },
 });
 

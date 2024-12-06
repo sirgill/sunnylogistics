@@ -17,7 +17,7 @@ import {
 } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import { useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
 import "@fontsource/inter";
 
@@ -34,8 +34,37 @@ const NavbarContainer = styled.div`
   width: 80%;
 `;
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    marginLeft: "20px",
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
+    textTransform: "none",
+    fontSize: "16px",
+    borderRadius: "7px",
+    height: 50,
+    fontFamily: "Inter",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.secondary.light,
+    },
+  },
+  tab: {
+    minWidth: 10,
+    marginLeft: '15px',
+    textTransform: 'none',
+    fontSize: '16px',
+    color: theme.palette.darkGrey.main,
+    fontFamily: 'Inter',
+    '&:hover': {
+      color: theme.palette.primary.light, 
+    },
+  },
+}));
+
 const Navbar = () => {
   const theme = useTheme();
+  const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const location = useLocation();
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -124,30 +153,14 @@ const Navbar = () => {
                     label={label}
                     component={Link}
                     to={["/shippers", "/carriers", "/about"][index]}
-                    style={{
-                      minWidth: 10,
-                      marginLeft: "15px",
-                      textTransform: "none",
-                      fontSize: "16px",
-                      color: theme.palette.text.main,
-                      fontFamily: "Inter",
-                    }}
+                    className={classes.tab}
                   />
                 ))}
                 <Button
                   variant="contained"
                   component={Link}
                   to="/quote"
-                  style={{
-                    marginLeft: "20px",
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.secondary.main,
-                    textTransform: "none",
-                    fontSize: "16px",
-                    borderRadius: "7px",
-                    height: 50,
-                    fontFamily: "Inter",
-                  }}
+                  className={classes.button}
                 >
                   Request Quote
                 </Button>

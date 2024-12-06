@@ -7,8 +7,8 @@ import SectionContainer from "../components/SectionContainer";
 import StatBox from "../components/StatBox";
 import ServiceCard from "../components/ServiceCard";
 import { Truck, Network } from "lucide-react";
-import { MainHeading, SectionHeading } from "../heading/index";
-import BodyText from "../heading/bodyText";
+import { MainHeading, SectionHeading, BodyText } from "../heading/index";
+import { ChevronRight } from "lucide-react";
 
 const HeroActionButtons = styled.div`
   margin-top: 2rem;
@@ -18,24 +18,35 @@ const HeroActionButtons = styled.div`
 `;
 
 const useStyles = makeStyles((theme) => ({
-  shipNowButton: {
+  Button: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.secondary.main,
-    fontFamily: "Inter, Arial, sans-serif",
     textTransform: "none",
-    "&:hover": {
-      backgroundColor: theme.palette.hover.main,
+    padding: 12,
+    borderRadius: 8,
+    fontSize: "16px",
+    fontFamily: "Inter, sans-serif", 
+    '&:hover': {
+      backgroundColor: theme.palette.primary.dark, 
+      color: theme.palette.secondary.light,
     },
+    fontWeight:400,
+    width:150
   },
-  joinNetworkButton: {
+  outlinedButton: {
     color: theme.palette.secondary.main,
     borderColor: theme.palette.secondary.main,
-    fontFamily: "Inter, Arial, sans-serif",
     textTransform: "none",
+    // padding: 12,
+    borderRadius: 8,
+    fontSize: "16px",
+    fontFamily: "Inter, sans-serif", 
+    borderWidth: 2, 
     "&:hover": {
-      borderColor: theme.palette.secondary.main,
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      borderColor: theme.palette.secondary.main, 
+      backgroundColor: "rgba(255, 255, 255, 0.1)", 
     },
+    fontWeight:400,
   },
 }));
 
@@ -47,26 +58,25 @@ const LandingPage = () => {
     <>
       {/* Hero Section */}
       <HeroSectionContainer backgroundColor="#141B2A">
-        <MainHeading
-          style={{ color: "#FFFFFF", fontSize: "40px", fontFamily: "Inter", textAlign: "center" }}
-        >
+        <MainHeading style={{ color: "#FFFFFF" }}>
           Hybrid Logistics Solutions
         </MainHeading>
-        <SectionHeading style={{ textAlign: "center" }}>
+        <SectionHeading style={{ color: "#D1D5DB" }}>
           Asset-Based Carrier & Tech-Enabled Freight Brokerage serving the
           Midwest since 2019
         </SectionHeading>
         <HeroActionButtons>
           <Button
             variant="contained"
-            className={classes.shipNowButton}
+            className={classes.Button} 
             size="large"
+            endIcon={<ChevronRight />}
           >
             Ship Now
           </Button>
           <Button
             variant="outlined"
-            className={classes.joinNetworkButton}
+            className={classes.outlinedButton} 
             size="large"
           >
             Join Our Network
@@ -76,21 +86,20 @@ const LandingPage = () => {
 
       {/* About Section */}
       <SectionContainer>
-        <Grid item xs={12} md={6} style={{ textAlign: "center", margin: "0 auto" }}>
-          <MainHeading
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: "30px",
-              padding: "20px",
-            }}
-          >
+        <Grid
+          item
+          xs={12}
+          md={6}
+          style={{ textAlign: "center", margin: "0 auto" }}
+        >
+          <MainHeading style={{ color: theme.palette.darkGrey.main }}>
             Complete Logistics Solutions
           </MainHeading>
           <BodyText
             style={{
               marginTop: "20px",
               color: theme.palette.text.main,
-              fontFamily: 'Inter, Arial, sans-serif',
+              fontFamily: "Inter, Arial, sans-serif",
               fontSize: "18px",
             }}
           >
@@ -100,7 +109,9 @@ const LandingPage = () => {
             leading manufacturers and distributors across the Midwest.
           </BodyText>
         </Grid>
-        <Grid style={{ display: "flex", justifyContent: "center", gap: "2rem" }}>
+        <Grid
+          style={{ display: "flex", justifyContent: "center", gap: "2rem" }}
+        >
           <StatBox title="10,000+" description="Loads Delivered" />
           <StatBox title="1:1" description="Single Point of Contact" />
           <StatBox title="100+" description="Active Shippers" />
@@ -110,14 +121,7 @@ const LandingPage = () => {
 
       {/* Services Section */}
       <SectionContainer background="#fff">
-        <MainHeading
-          style={{
-            color: theme.palette.darkGrey.main,
-            fontSize: "30px",
-            textAlign: "center",
-            padding: "20px",
-          }}
-        >
+        <MainHeading style={{ color: theme.palette.darkGrey.main }}>
           Our Services
         </MainHeading>
         <Grid container style={{ justifyContent: "center" }}>
@@ -156,27 +160,32 @@ const LandingPage = () => {
 
       {/* Technology Platform */}
       <SectionContainer>
-        <MainHeading
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: "30px",
-              padding: "20px",
-            }}
-          >
-             Carrier Network
-          </MainHeading>
+        <MainHeading style={{ color: theme.palette.darkGrey.main }}>
+          Carrier Network
+        </MainHeading>
         <Typography variant="h6" align="center" gutterBottom>
           Our carrier network is powered by freightdok capacity network,
           providing cutting-edge technology and seamless operations
         </Typography>
-        <Grid container spacing={4} justifyContent="center" style={{ marginTop: "2rem" }}>
+        <Grid
+          container
+          spacing={4}
+          justifyContent="center"
+          style={{ marginTop: "2rem" }}
+        >
           <Grid item xs={12} md={8}>
             <Grid container spacing={3}>
               <Grid item xs={6}>
-                <StatBox title="Digital Booking" description="Instant load booking" />
+                <StatBox
+                  title="Digital Booking"
+                  description="Instant load booking"
+                />
               </Grid>
               <Grid item xs={6}>
-                <StatBox title="Real-Time Updates" description="Automated notifications" />
+                <StatBox
+                  title="Real-Time Updates"
+                  description="Automated notifications"
+                />
               </Grid>
               <Grid item xs={6}>
                 <StatBox title="Fast Pay" description="Quick payment options" />
@@ -190,7 +199,10 @@ const LandingPage = () => {
       </SectionContainer>
 
       {/* CTA Section */}
-      <SectionContainer style={{ padding: "5%" }} background={theme.palette.primary.main}>
+      <SectionContainer
+        style={{ padding: "5%" }}
+        background={theme.palette.primary.main}
+      >
         <MainHeading style={{ color: "#FFFFFF", fontSize: "40px" }}>
           Ready to Streamline. Connect. Deliver?
         </MainHeading>
@@ -204,7 +216,12 @@ const LandingPage = () => {
         >
           Experience the power of hybrid logistics solutions
         </BodyText>
-        <Grid container justifyContent="center" spacing={2} style={{ marginTop: "2rem" }}>
+        <Grid
+          container
+          justifyContent="center"
+          spacing={2}
+          style={{ marginTop: "2rem" }}
+        >
           {[
             { text: "Request a Quote", variant: "contained", color: "#FFFFFF" },
             { text: "Contact Sales", variant: "outlined", color: "#FFFFFF" },
@@ -213,8 +230,12 @@ const LandingPage = () => {
               <Button
                 variant={cta.variant}
                 style={{
-                  backgroundColor: cta.variant === "contained" ? "#FFFFFF" : "transparent",
-                  color:cta.variant === "contained"? theme.palette.primary.main: '#FFFFFF',
+                  backgroundColor:
+                    cta.variant === "contained" ? "#FFFFFF" : "transparent",
+                  color:
+                    cta.variant === "contained"
+                      ? theme.palette.primary.main
+                      : "#FFFFFF",
                   borderColor: "#FFFFFF",
                   textTransform: "none",
                 }}

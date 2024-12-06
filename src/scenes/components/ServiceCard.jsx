@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Typography } from "@material-ui/core";
-import { CheckCircle, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useTheme } from "@material-ui/core/styles";
 import CardHeading from "../heading/cardHeading";
 
