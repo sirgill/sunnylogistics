@@ -7,11 +7,11 @@ const BodyText = ({ children, style }) => {
 
   return (
     <div
-      className="text-4xl md:text-6xl font-bold"
       style={{
-        fontFamily: 'Inter, Arial, sans-serif',
-        fontWeight: theme.typography.body1.fontWeight,
-        ...style,
+        fontFamily: theme.typography.fontFamily,
+        color: style.color || "#000",
+        fontSize: style.fontSize,
+        marginTop:30
       }}
     >
       {children}
@@ -21,12 +21,16 @@ const BodyText = ({ children, style }) => {
 
 BodyText.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.object,
+  style: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.string,
+  }),
 };
 
 BodyText.defaultProps = {
-  style: { color: '#000' },
+  style: { color: "#000" }, // Default color is black
 };
 
 export default BodyText;
+
 

@@ -8,11 +8,11 @@ const MainHeading = ({ children, style }) => {
   return (
     <div
       style={{
-        fontFamily:theme.typography.fontFamily,
-        fontWeight: 'Bold',
-        color: style.color || '#000',
-        fontSize:'35px',
-        letterSpacing:'1px'
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: "Bold",
+        color: style.color || "#000",
+        letterSpacing: "1px",
+        fontSize: style.fontSize,
       }}
     >
       {children}
@@ -24,11 +24,12 @@ MainHeading.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({
     color: PropTypes.string,
+    fontSize: PropTypes.string,
   }),
 };
 
 MainHeading.defaultProps = {
-  style: { color: '#000' }, // Default color is black
+  style: { color: "#000" }, // Default color is black
 };
 
 export default MainHeading;

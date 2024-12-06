@@ -7,7 +7,7 @@ const theme = createTheme({
     secondary: { main: "#FFFFFF" },
     hover: { main: "#DC2626" },
     darkGrey: { main: "#111827" },
-    text: { main: "#4B5563" },
+    text: { main: "#515863" },
   },
   typography: {
     fontFamily: "Inter",

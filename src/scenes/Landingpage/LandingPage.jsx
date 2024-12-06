@@ -25,28 +25,27 @@ const useStyles = makeStyles((theme) => ({
     padding: 12,
     borderRadius: 8,
     fontSize: "16px",
-    fontFamily: "Inter, sans-serif", 
-    '&:hover': {
-      backgroundColor: theme.palette.primary.dark, 
+    fontFamily: "Inter, sans-serif",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.dark,
       color: theme.palette.secondary.light,
     },
-    fontWeight:400,
-    width:150
+    fontWeight: 400,
+    width: 150,
   },
   outlinedButton: {
     color: theme.palette.secondary.main,
     borderColor: theme.palette.secondary.main,
     textTransform: "none",
-    // padding: 12,
     borderRadius: 8,
     fontSize: "16px",
-    fontFamily: "Inter, sans-serif", 
-    borderWidth: 2, 
+    fontFamily: "Inter, sans-serif",
+    borderWidth: 2,
     "&:hover": {
-      borderColor: theme.palette.secondary.main, 
-      backgroundColor: "rgba(255, 255, 255, 0.1)", 
+      borderColor: theme.palette.secondary.main,
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
     },
-    fontWeight:400,
+    fontWeight: 400,
   },
 }));
 
@@ -58,7 +57,7 @@ const LandingPage = () => {
     <>
       {/* Hero Section */}
       <HeroSectionContainer backgroundColor="#141B2A">
-        <MainHeading style={{ color: "#FFFFFF" }}>
+        <MainHeading style={{ color: "#FFFFFF", fontSize: "40px" }}>
           Hybrid Logistics Solutions
         </MainHeading>
         <SectionHeading style={{ color: "#D1D5DB" }}>
@@ -68,7 +67,7 @@ const LandingPage = () => {
         <HeroActionButtons>
           <Button
             variant="contained"
-            className={classes.Button} 
+            className={classes.Button}
             size="large"
             endIcon={<ChevronRight />}
           >
@@ -76,7 +75,7 @@ const LandingPage = () => {
           </Button>
           <Button
             variant="outlined"
-            className={classes.outlinedButton} 
+            className={classes.outlinedButton}
             size="large"
           >
             Join Our Network
@@ -85,23 +84,20 @@ const LandingPage = () => {
       </HeroSectionContainer>
 
       {/* About Section */}
-      <SectionContainer>
+      <SectionContainer background={theme.palette.secondary.main}>
         <Grid
           item
           xs={12}
           md={6}
           style={{ textAlign: "center", margin: "0 auto" }}
         >
-          <MainHeading style={{ color: theme.palette.darkGrey.main }}>
+          <MainHeading
+            style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
+          >
             Complete Logistics Solutions
           </MainHeading>
           <BodyText
-            style={{
-              marginTop: "20px",
-              color: theme.palette.text.main,
-              fontFamily: "Inter, Arial, sans-serif",
-              fontSize: "18px",
-            }}
+            style={{ color: theme.palette.text.main, fontSize: "20px" }}
           >
             Since 2019, we've successfully moved thousands of loads for our
             valued customers, maintaining a 98.5% on-time delivery rate. Our
@@ -109,14 +105,14 @@ const LandingPage = () => {
             leading manufacturers and distributors across the Midwest.
           </BodyText>
         </Grid>
-        <Grid
-          style={{ display: "flex", justifyContent: "center", gap: "2rem" }}
+        <div
+          style={{ display: "flex", justifyContent: "center", gap: "2rem",marginTop:30 }}
         >
           <StatBox title="10,000+" description="Loads Delivered" />
           <StatBox title="1:1" description="Single Point of Contact" />
           <StatBox title="100+" description="Active Shippers" />
           <StatBox title="24/7" description="Support" />
-        </Grid>
+        </div>
       </SectionContainer>
 
       {/* Services Section */}

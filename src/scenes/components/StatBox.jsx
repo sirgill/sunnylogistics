@@ -10,7 +10,7 @@ const StatContainer = styled.div`
 `;
 
 const StatValue = styled(Typography)`
-  margin-bottom: 0.5rem;
+  // margin-bottom: 0.5rem;
 `;
 
 const StatLabel = styled(Typography)`
@@ -26,14 +26,14 @@ const StatBox = ({ title, description }) => {
       <StatValue
         style={{
           color: theme.palette.primary.main,
-          fontFamily: 'Inter, Arial, sans-serif',
-          fontWeight: theme.typography.h4.fontWeight,
-          fontSize:'30px'
+          fontFamily: theme.typography.fontFamily,
+          fontWeight: 'bold',
+          fontSize:'24px'
         }}
       >
         {title}
       </StatValue>
-      <StatLabel style={{ color: theme.palette.text.main }}>
+      <StatLabel style={{ color: theme.palette.text.main ,fontSize:'14px'}}>
         {description}
       </StatLabel>
     </StatContainer>
