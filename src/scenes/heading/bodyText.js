@@ -11,7 +11,7 @@ const BodyText = ({ children, style }) => {
         fontFamily: theme.typography.fontFamily,
         color: style.color || "#000",
         fontSize: style.fontSize,
-        marginTop:style.marginTop
+        marginTop:style.marginTop,
       }}
     >
       {children}

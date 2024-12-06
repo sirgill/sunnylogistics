@@ -9,7 +9,7 @@ import ServiceCard from "../components/ServiceCard";
 import { Truck, Network } from "lucide-react";
 import { MainHeading, SectionHeading, BodyText } from "../heading/index";
 import { ChevronRight } from "lucide-react";
-import dictionary from "../dictionary"; 
+import dictionary from "../dictionary";
 
 const HeroActionButtons = styled.div`
   margin-top: 2rem;
@@ -65,6 +65,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const StatContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const StatRow = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  margin: 10px 0;
+`;
+
 const LandingPage = () => {
   const classes = useStyles();
   const theme = useTheme();
@@ -106,7 +120,7 @@ const LandingPage = () => {
           item
           xs={12}
           md={6}
-          style={{ textAlign: "center", margin: "0 auto" }}
+          style={{ textAlign: "center"}}
         >
           <MainHeading
             style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
@@ -123,19 +137,16 @@ const LandingPage = () => {
             {dictionary.about.body}
           </BodyText>
         </Grid>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            marginTop: 30,
-          }}
-        >
-          <StatBox title="10,000+" description="Loads Delivered" />
-          <StatBox title="1:1" description="Single Point of Contact" />
-          <StatBox title="100+" description="Active Shippers" />
-          <StatBox title="24/7" description="Support" />
-        </div>
+        <StatContainer className={classes.statContainer}>
+          <StatRow className={classes.statRow}>
+            <StatBox title="10,000+" description="Loads Delivered" />
+            <StatBox title="1:1" description="Single Point of Contact" />
+          </StatRow>
+          <StatRow className={classes.statRow}>
+            <StatBox title="100+" description="Active Shippers" />
+            <StatBox title="24/7" description="Support" />
+          </StatRow>
+        </StatContainer>
       </SectionContainer>
 
       {/* Services Section */}
@@ -170,45 +181,74 @@ const LandingPage = () => {
       </SectionContainer>
 
       {/* Technology Platform */}
-      <SectionContainer>
-  <MainHeading style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}>
-    {dictionary.carrierNetwork.main}
-  </MainHeading>
-  <SectionHeading style={{ color: theme.palette.darkGrey }}>
-    {dictionary.carrierNetwork.description}
-  </SectionHeading>
-  <Grid container spacing={4} justifyContent="center" style={{ marginTop: "2rem" }}>
-    <Grid item xs={12} md={8}>
-      <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginTop: 30 }}>
-        <Grid item xs={6}>
-          <StatBox
-            title={dictionary.carrierNetwork.statBoxes.digitalBooking.title}
-            description={dictionary.carrierNetwork.statBoxes.digitalBooking.description}
-          />
+      <SectionContainer background={theme.palette.secondary.main}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          style={{ textAlign: "center", margin: "0 auto" }}
+        >
+          <MainHeading
+            style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
+          >
+            {dictionary.carrierNetwork.main}
+          </MainHeading>
+          <SectionHeading style={{ color: theme.palette.darkGrey }}>
+            {dictionary.carrierNetwork.description}
+          </SectionHeading>
         </Grid>
-        <Grid item xs={7}>
-          <StatBox
-            title={dictionary.carrierNetwork.statBoxes.realTimeUpdates.title}
-            description={dictionary.carrierNetwork.statBoxes.realTimeUpdates.description}
-          />
+        <Grid
+          container
+          spacing={4}
+          justifyContent="center"
+          style={{ marginTop: "2rem" }}
+        >
+          <Grid item xs={12} md={8}>
+            <div className={classes.statContainer}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <StatBox
+                    title={
+                      dictionary.carrierNetwork.statBoxes.digitalBooking.title
+                    }
+                    description={
+                      dictionary.carrierNetwork.statBoxes.digitalBooking
+                        .description
+                    }
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <StatBox
+                    title={
+                      dictionary.carrierNetwork.statBoxes.realTimeUpdates.title
+                    }
+                    description={
+                      dictionary.carrierNetwork.statBoxes.realTimeUpdates
+                        .description
+                    }
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <StatBox
+                    title={dictionary.carrierNetwork.statBoxes.fastPay.title}
+                    description={
+                      dictionary.carrierNetwork.statBoxes.fastPay.description
+                    }
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <StatBox
+                    title={dictionary.carrierNetwork.statBoxes.support.title}
+                    description={
+                      dictionary.carrierNetwork.statBoxes.support.description
+                    }
+                  />
+                </Grid>
+              </Grid>
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <StatBox
-            title={dictionary.carrierNetwork.statBoxes.fastPay.title}
-            description={dictionary.carrierNetwork.statBoxes.fastPay.description}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <StatBox
-            title={dictionary.carrierNetwork.statBoxes.support.title}
-            description={dictionary.carrierNetwork.statBoxes.support.description}
-          />
-        </Grid>
-      </div>
-    </Grid>
-  </Grid>
-</SectionContainer>
-
+      </SectionContainer>
 
       {/* CTA Section */}
       <SectionContainer

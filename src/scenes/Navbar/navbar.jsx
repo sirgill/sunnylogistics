@@ -31,7 +31,7 @@ const NavbarContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: ${(props) => (props.isMobile ? '100%' : '80%')};
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -119,7 +119,7 @@ const Navbar = () => {
         style={{ backgroundColor: "#FFFFFF", height: 60 }}
       >
         <Toolbar style={{ display: "flex", justifyContent: "center" }}>
-          <NavbarContainer>
+          <NavbarContainer isMobile={matches}>
             <Typography
               style={{
                 fontWeight: "bold",
