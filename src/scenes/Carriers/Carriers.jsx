@@ -25,7 +25,7 @@ const RequirementItem = styled.div`
 
 const Carriers = () => {
   return (
-    <>
+    <div style={{display:'flex',flex:1}}>
       {/* Hero Section */}
       <HeroSectionContainer>
         <Typography variant="overline" gutterBottom>
@@ -226,7 +226,7 @@ const Carriers = () => {
           </Grid>
         </Grid>
       </SectionContainer>
-    </>
+    </div>
   );
 };
 
