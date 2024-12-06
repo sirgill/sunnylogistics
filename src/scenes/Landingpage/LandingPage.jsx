@@ -9,6 +9,7 @@ import ServiceCard from "../components/ServiceCard";
 import { Truck, Network } from "lucide-react";
 import { MainHeading, SectionHeading, BodyText } from "../heading/index";
 import { ChevronRight } from "lucide-react";
+import dictionary from "../dictionary"; 
 
 const HeroActionButtons = styled.div`
   margin-top: 2rem;
@@ -47,6 +48,21 @@ const useStyles = makeStyles((theme) => ({
     },
     fontWeight: 400,
   },
+  requestButton: {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
+    textTransform: "none",
+    padding: 12,
+    borderRadius: 8,
+    fontSize: "16px",
+    fontFamily: "Inter, sans-serif",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.secondary.light,
+    },
+    fontWeight: 400,
+    width: 150,
+  },
 }));
 
 const LandingPage = () => {
@@ -57,12 +73,13 @@ const LandingPage = () => {
     <>
       {/* Hero Section */}
       <HeroSectionContainer backgroundColor="#141B2A">
-        <MainHeading style={{ color: "#FFFFFF", fontSize: "40px" }}>
-          Hybrid Logistics Solutions
+        <MainHeading
+          style={{ color: theme.palette.secondary.main, fontSize: "40px" }}
+        >
+          {dictionary.hero.title}
         </MainHeading>
         <SectionHeading style={{ color: "#D1D5DB" }}>
-          Asset-Based Carrier & Tech-Enabled Freight Brokerage serving the
-          Midwest since 2019
+          {dictionary.hero.subtitle}
         </SectionHeading>
         <HeroActionButtons>
           <Button
@@ -71,14 +88,14 @@ const LandingPage = () => {
             size="large"
             endIcon={<ChevronRight />}
           >
-            Ship Now
+            {dictionary.hero.shipNow}
           </Button>
           <Button
             variant="outlined"
             className={classes.outlinedButton}
             size="large"
           >
-            Join Our Network
+            {dictionary.hero.joinNetwork}
           </Button>
         </HeroActionButtons>
       </HeroSectionContainer>
@@ -94,19 +111,25 @@ const LandingPage = () => {
           <MainHeading
             style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
           >
-            Complete Logistics Solutions
+            {dictionary.about.heading}
           </MainHeading>
           <BodyText
-            style={{ color: theme.palette.text.main, fontSize: "20px" }}
+            style={{
+              color: theme.palette.text.main,
+              fontSize: "20px",
+              marginTop: 30,
+            }}
           >
-            Since 2019, we've successfully moved thousands of loads for our
-            valued customers, maintaining a 98.5% on-time delivery rate. Our
-            commitment to excellence has earned us long-term partnerships with
-            leading manufacturers and distributors across the Midwest.
+            {dictionary.about.body}
           </BodyText>
         </Grid>
         <div
-          style={{ display: "flex", justifyContent: "center", gap: "2rem",marginTop:30 }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "2rem",
+            marginTop: 30,
+          }}
         >
           <StatBox title="10,000+" description="Loads Delivered" />
           <StatBox title="1:1" description="Single Point of Contact" />
@@ -117,38 +140,30 @@ const LandingPage = () => {
 
       {/* Services Section */}
       <SectionContainer background="#fff">
-        <MainHeading style={{ color: theme.palette.darkGrey.main }}>
+        <MainHeading
+          style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
+        >
           Our Services
         </MainHeading>
-        <Grid container style={{ justifyContent: "center" }}>
-          <Grid item xs={12} md={8} style={{ width: "100%" }}>
+        <Grid container style={{ justifyContent: "center", marginTop: 20 }}>
+          <Grid item xs={12} md={9} style={{ width: "100%" }}>
             <ServiceCard
               icon={<Truck />}
-              title="For Shippers"
-              description="Service, responsiveness and consistent results"
-              features={[
-                "Dedicated capacity",
-                "Real-time tracking",
-                "Analytics dashboard",
-                "24/7 support",
-              ]}
-              buttonText="Learn More"
-              buttonLink="/shippers"
+              title={dictionary.services.forShippers.title}
+              description={dictionary.services.forShippers.description}
+              features={dictionary.services.forShippers.features}
+              buttonText={dictionary.services.forShippers.buttonText}
+              buttonLink={dictionary.services.forShippers.buttonLink}
             />
           </Grid>
-          <Grid item xs={12} md={8} style={{ width: "100%" }}>
+          <Grid item xs={12} md={9} style={{ width: "100%" }}>
             <ServiceCard
               icon={<Network />}
-              title="For Carriers"
-              description="The support you need to be successful"
-              features={[
-                "Consistent freight",
-                "Quick pay options",
-                "Digital load booking",
-                "Dedicated support",
-              ]}
-              buttonText="Learn More"
-              buttonLink="/carriers"
+              title={dictionary.services.forCarriers.title}
+              description={dictionary.services.forCarriers.description}
+              features={dictionary.services.forCarriers.features}
+              buttonText={dictionary.services.forCarriers.buttonText}
+              buttonLink={dictionary.services.forCarriers.buttonLink}
             />
           </Grid>
         </Grid>
@@ -156,92 +171,82 @@ const LandingPage = () => {
 
       {/* Technology Platform */}
       <SectionContainer>
-        <MainHeading style={{ color: theme.palette.darkGrey.main }}>
-          Carrier Network
-        </MainHeading>
-        <Typography variant="h6" align="center" gutterBottom>
-          Our carrier network is powered by freightdok capacity network,
-          providing cutting-edge technology and seamless operations
-        </Typography>
-        <Grid
-          container
-          spacing={4}
-          justifyContent="center"
-          style={{ marginTop: "2rem" }}
-        >
-          <Grid item xs={12} md={8}>
-            <Grid container spacing={3}>
-              <Grid item xs={6}>
-                <StatBox
-                  title="Digital Booking"
-                  description="Instant load booking"
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox
-                  title="Real-Time Updates"
-                  description="Automated notifications"
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="Fast Pay" description="Quick payment options" />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="24/7 Support" description="Always available" />
-              </Grid>
-            </Grid>
-          </Grid>
+  <MainHeading style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}>
+    {dictionary.carrierNetwork.main}
+  </MainHeading>
+  <SectionHeading style={{ color: theme.palette.darkGrey }}>
+    {dictionary.carrierNetwork.description}
+  </SectionHeading>
+  <Grid container spacing={4} justifyContent="center" style={{ marginTop: "2rem" }}>
+    <Grid item xs={12} md={8}>
+      <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginTop: 30 }}>
+        <Grid item xs={6}>
+          <StatBox
+            title={dictionary.carrierNetwork.statBoxes.digitalBooking.title}
+            description={dictionary.carrierNetwork.statBoxes.digitalBooking.description}
+          />
         </Grid>
-      </SectionContainer>
+        <Grid item xs={7}>
+          <StatBox
+            title={dictionary.carrierNetwork.statBoxes.realTimeUpdates.title}
+            description={dictionary.carrierNetwork.statBoxes.realTimeUpdates.description}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <StatBox
+            title={dictionary.carrierNetwork.statBoxes.fastPay.title}
+            description={dictionary.carrierNetwork.statBoxes.fastPay.description}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <StatBox
+            title={dictionary.carrierNetwork.statBoxes.support.title}
+            description={dictionary.carrierNetwork.statBoxes.support.description}
+          />
+        </Grid>
+      </div>
+    </Grid>
+  </Grid>
+</SectionContainer>
+
 
       {/* CTA Section */}
       <SectionContainer
         style={{ padding: "5%" }}
         background={theme.palette.primary.main}
       >
-        <MainHeading style={{ color: "#FFFFFF", fontSize: "40px" }}>
-          Ready to Streamline. Connect. Deliver?
+        <MainHeading
+          style={{ color: theme.palette.secondary.main, fontSize: "40px" }}
+        >
+          {dictionary.cta.main}
         </MainHeading>
         <BodyText
           style={{
             textAlign: "center",
             marginTop: "20px",
-            color: "#FFFFFF",
+            color: theme.palette.secondary.main,
             fontSize: "20px",
           }}
         >
-          Experience the power of hybrid logistics solutions
+          {dictionary.cta.body}
         </BodyText>
-        <Grid
-          container
-          justifyContent="center"
-          spacing={2}
-          style={{ marginTop: "2rem" }}
-        >
-          {[
-            { text: "Request a Quote", variant: "contained", color: "#FFFFFF" },
-            { text: "Contact Sales", variant: "outlined", color: "#FFFFFF" },
-          ].map((cta, index) => (
-            <Grid item key={index}>
-              <Button
-                variant={cta.variant}
-                style={{
-                  backgroundColor:
-                    cta.variant === "contained" ? "#FFFFFF" : "transparent",
-                  color:
-                    cta.variant === "contained"
-                      ? theme.palette.primary.main
-                      : "#FFFFFF",
-                  borderColor: "#FFFFFF",
-                  textTransform: "none",
-                }}
-                size="large"
-              >
-                {cta.text}
-              </Button>
-            </Grid>
-          ))}
-        </Grid>
+
+        <HeroActionButtons>
+          <Button
+            variant="contained"
+            className={classes.requestButton}
+            size="large"
+          >
+            {dictionary.cta.requestQuote}
+          </Button>
+          <Button
+            variant="outlined"
+            className={classes.outlinedButton}
+            size="large"
+          >
+            {dictionary.cta.contactSales}
+          </Button>
+        </HeroActionButtons>
       </SectionContainer>
     </>
   );

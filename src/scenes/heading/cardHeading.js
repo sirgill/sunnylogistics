@@ -7,11 +7,11 @@ const CardHeading = ({ children, style }) => {
 
   return (
     <div
-      className="text-4xl md:text-6xl font-bold"
       style={{
-        fontFamily: 'Inter, Arial, sans-serif',
-        fontWeight: theme.typography.h4.fontWeight,
-        ...style,
+        fontFamily: theme.typography.fontFamily,
+        color: style.color || "#000",
+        fontSize: style.fontSize,
+        fontWeight:'bold'
       }}
     >
       {children}
@@ -21,12 +21,18 @@ const CardHeading = ({ children, style }) => {
 
 CardHeading.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.object,
+  style: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.string,
+  }),
 };
 
 CardHeading.defaultProps = {
-  style: { color: '#000' },
+  style: { color: "#000" }, // Default color is black
 };
 
 export default CardHeading;
+
+
+
 

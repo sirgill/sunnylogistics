@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Typography } from "@material-ui/core";
 import { ChevronRight } from "lucide-react";
 import { useTheme } from "@material-ui/core/styles";
 import CardHeading from "../heading/cardHeading";
+import { BodyText } from "../heading";
 
 const IconWrapper = styled.div`
   margin-bottom: 1.5rem;
@@ -33,37 +33,15 @@ const FeatureItem = styled.li`
 
 const ServiceCardContainer = styled.div`
   background-color: #ffffff;
-  padding: 8px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border: 1px solid #f0f0f0;
   transition: box-shadow 0.2s;
-  &:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-  }
   margin-top: 10px;
-  width:100%
 `;
 
-const Title = styled.h3`
-  font-size: 2em;
-  font-weight: bold;
-  margin-bottom: 8px;
-`;
-
-const Description = styled.p`
-  color: #666666;
-  margin-bottom: 8px;
-`;
-
-const ServiceCard = ({
-  icon,
-  title,
-  description,
-  features,
-  buttonText,
-  buttonLink,
-}) => {
+const ServiceCard = ({ icon, title, description, features }) => {
   const theme = useTheme();
 
   return (
@@ -73,8 +51,10 @@ const ServiceCard = ({
           {icon}
         </IconWrapper>
       )}
-      <CardHeading style={{fontSize:'20px'}}>{title}</CardHeading>
-      <Description>{description}</Description>
+      <CardHeading style={{ fontSize: "24px" }}>{title}</CardHeading>
+      <BodyText style={{ color: theme.palette.text.main, fontSize: "16px", marginTop:20 }}>
+        {description}
+      </BodyText>
       {features && (
         <FeatureList>
           {features.map((feature, index) => (
@@ -84,7 +64,15 @@ const ServiceCard = ({
                 color={theme.palette.primary.main}
                 style={{ marginRight: 8 }}
               />
-              <Typography variant="body2">{feature}</Typography>
+              <BodyText
+                style={{
+                  color: theme.palette.text.main,
+                  fontSize: "16px",
+                  marginTop:0
+                }}
+              >
+                {feature}
+              </BodyText>
             </FeatureItem>
           ))}
         </FeatureList>

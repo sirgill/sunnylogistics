@@ -11,7 +11,7 @@ const BodyText = ({ children, style }) => {
         fontFamily: theme.typography.fontFamily,
         color: style.color || "#000",
         fontSize: style.fontSize,
-        marginTop:30
+        marginTop:style.marginTop
       }}
     >
       {children}
@@ -24,6 +24,7 @@ BodyText.propTypes = {
   style: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.string,
+    marginTop:PropTypes.string
   }),
 };
 
