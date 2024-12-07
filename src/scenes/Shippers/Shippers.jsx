@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Grid, Typography, Button } from "@material-ui/core";
-import HeroSectionContainer from "../components/HeroSectionContainer";
-import SectionContainer from "../components/SectionContainer";
+import HeroSectionContainer from "../components/LandingPage/HeroSectionContainer";
+import SectionContainer from "../components/LandingPage/SectionContainer";
 import StatBox from "../cards/StatBox";
-import ServiceCard from "../components/ServiceCard";
+import ServiceCard from "../components/LandingPage/ServiceCard";
 import FeatureCard from "../cards/FeatureCard";
 import { Truck, Network, Shield, Clock, Target, Box, BarChart } from "lucide-react";
 

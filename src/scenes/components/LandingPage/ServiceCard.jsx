@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, CheckCircle } from "lucide-react";
 import { useTheme } from "@material-ui/core/styles";
-import CardHeading from "../heading/cardHeading";
-import { BodyText } from "../heading";
+import CardHeading from "../../heading/cardHeading";
+import { BodyText } from "../../heading";
 
 const IconWrapper = styled.div`
   margin-bottom: 1.5rem;
@@ -49,7 +49,16 @@ const ServiceCardContainer = styled.div`
   }
 `;
 
-const ServiceCard = ({ icon, title, description, features }) => {
+const ServiceCard = ({
+  icon,
+  title,
+  description,
+  features,
+  titleFontSize = "24px",
+  descriptionFontSize = "16px",
+  featureFontSize = "16px",
+  useCheckCircle = false, // New prop to control which icon to display
+}) => {
   const theme = useTheme();
 
   return (
@@ -59,23 +68,45 @@ const ServiceCard = ({ icon, title, description, features }) => {
           {icon}
         </IconWrapper>
       )}
-      <CardHeading style={{ fontSize: "24px", textAlign: "left" }}>{title}</CardHeading>
-      <BodyText style={{ color: theme.palette.text.main, fontSize: "16px", marginTop: 20, textAlign: "left" }}>
+      <CardHeading
+        style={{
+          fontSize: titleFontSize,
+          textAlign: "left",
+        }}
+      >
+        {title}
+      </CardHeading>
+      <BodyText
+        style={{
+          color: theme.palette.text.main,
+          fontSize: descriptionFontSize,
+          marginTop: 20,
+          textAlign: "left",
+        }}
+      >
         {description}
       </BodyText>
       {features && (
         <FeatureList>
           {features.map((feature, index) => (
             <FeatureItem key={index}>
-              <ChevronRight
-                size={16}
-                color={theme.palette.primary.main}
-                style={{ marginRight: 8 }}
-              />
+              {useCheckCircle ? (
+                <CheckCircle
+                  size={16}
+                  color={theme.palette.primary.main}
+                  style={{ marginRight: 8 }}
+                />
+              ) : (
+                <ChevronRight
+                  size={16}
+                  color={theme.palette.primary.main}
+                  style={{ marginRight: 8 }}
+                />
+              )}
               <BodyText
                 style={{
                   color: theme.palette.text.main,
-                  fontSize: "16px",
+                  fontSize: featureFontSize,
                   marginTop: 0,
                 }}
               >

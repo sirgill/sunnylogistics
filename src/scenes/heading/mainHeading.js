@@ -13,6 +13,7 @@ const MainHeading = ({ children, style }) => {
         color: style.color || "#000",
         letterSpacing: "1px",
         fontSize: style.fontSize,
+        textAlign:style.textAlign
       }}
     >
       {children}
@@ -25,6 +26,7 @@ MainHeading.propTypes = {
   style: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.string,
+    textAlign: PropTypes.string
   }),
 };
 

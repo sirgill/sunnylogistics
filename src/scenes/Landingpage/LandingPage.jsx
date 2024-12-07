@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Grid, Typography, Button } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import HeroSectionContainer from "../components/HeroSectionContainer";
-import SectionContainer from "../components/SectionContainer";
-import StatBox from "../components/StatBox";
-import ServiceCard from "../components/ServiceCard";
+import HeroSectionContainer from "../components/LandingPage/HeroSectionContainer";
+import SectionContainer from "../components/LandingPage/SectionContainer";
+import StatBox from "../components/LandingPage/StatBox";
+import ServiceCard from "../components/LandingPage/ServiceCard";
 import { Truck, Network } from "lucide-react";
 import { MainHeading, SectionHeading, BodyText } from "../heading/index";
 import { ChevronRight } from "lucide-react";
 import dictionary from "../dictionary";
+import Footer from "../Footer/Footer";
 
 const HeroActionButtons = styled.div`
   margin-top: 2rem;
@@ -116,12 +117,7 @@ const LandingPage = () => {
 
       {/* About Section */}
       <SectionContainer background={theme.palette.secondary.main}>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          style={{ textAlign: "center"}}
-        >
+        <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
           <MainHeading
             style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
           >
@@ -165,6 +161,9 @@ const LandingPage = () => {
               features={dictionary.services.forShippers.features}
               buttonText={dictionary.services.forShippers.buttonText}
               buttonLink={dictionary.services.forShippers.buttonLink}
+              titleFontSize="24px"
+              descriptionFontSize="16px"
+              featureFontSize="14px"
             />
           </Grid>
           <Grid item xs={12} md={9} style={{ width: "100%" }}>
@@ -175,6 +174,9 @@ const LandingPage = () => {
               features={dictionary.services.forCarriers.features}
               buttonText={dictionary.services.forCarriers.buttonText}
               buttonLink={dictionary.services.forCarriers.buttonLink}
+              titleFontSize="24px"
+              descriptionFontSize="16px"
+              featureFontSize="14px"
             />
           </Grid>
         </Grid>
@@ -251,43 +253,12 @@ const LandingPage = () => {
       </SectionContainer>
 
       {/* CTA Section */}
-      <SectionContainer
-        style={{ padding: "5%" }}
-        background={theme.palette.primary.main}
-      >
-        <MainHeading
-          style={{ color: theme.palette.secondary.main, fontSize: "40px" }}
-        >
-          {dictionary.cta.main}
-        </MainHeading>
-        <BodyText
-          style={{
-            textAlign: "center",
-            marginTop: "20px",
-            color: theme.palette.secondary.main,
-            fontSize: "20px",
-          }}
-        >
-          {dictionary.cta.body}
-        </BodyText>
-
-        <HeroActionButtons>
-          <Button
-            variant="contained"
-            className={classes.requestButton}
-            size="large"
-          >
-            {dictionary.cta.requestQuote}
-          </Button>
-          <Button
-            variant="outlined"
-            className={classes.outlinedButton}
-            size="large"
-          >
-            {dictionary.cta.contactSales}
-          </Button>
-        </HeroActionButtons>
-      </SectionContainer>
+      <Footer
+        title={dictionary.cta.main}
+        description={dictionary.cta.body}
+        buttonOne={dictionary.cta.requestQuote}
+        buttonTwo={dictionary.cta.contactSales}
+      />
     </>
   );
 };

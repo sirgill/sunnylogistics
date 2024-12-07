@@ -1,68 +1,107 @@
 import React from "react";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { MainHeading, SectionHeading, BodyText } from "../heading";
+import SectionContainer from "../components/CarrierPage/SectionContainer";
+import { Button } from "@material-ui/core";
 import styled from "@emotion/styled";
-import { Typography } from "@material-ui/core";
-import { colors } from "../assets/colors/colors";
-import { Heading } from "../components/Heading";
-import ButtonsContainer from "../components/ButtonsContainer";
-import StyledButton from "../components/StyledButton";
 
-const FooterContainer = styled.div`
-  background-color: ${colors.theme};
-  max-width: 100%;
-  max-height: 600px;
+const HeroActionButtons = styled.div`
+  margin-top: 2rem;
   display: flex;
+  gap: 1rem;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 4%;
-  text-align: center;
-  border-radius: 5px;
 `;
 
-const WhiteTypography = styled(Typography)`
-  color: #ffffff;
-`;
+const useStyles = makeStyles((theme) => ({
+  Button: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
+    textTransform: "none",
+    padding: 12,
+    borderRadius: 8,
+    fontSize: "16px",
+    fontFamily: "Inter, sans-serif",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.secondary.light,
+    },
+    fontWeight: 400,
+    width: 150,
+  },
+  outlinedButton: {
+    color: theme.palette.secondary.main,
+    borderColor: theme.palette.secondary.main,
+    textTransform: "none",
+    borderRadius: 8,
+    fontSize: "16px",
+    fontFamily: "Inter, sans-serif",
+    borderWidth: 2,
+    "&:hover": {
+      borderColor: theme.palette.secondary.main,
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+    },
+    fontWeight: 400,
+  },
+  requestButton: {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
+    textTransform: "none",
+    padding: 12,
+    borderRadius: 8,
+    fontSize: "16px",
+    fontFamily: "Inter, sans-serif",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.secondary.light,
+    },
+    fontWeight: 400,
+    width: 150,
+  },
+}));
 
-const CustomStyledButton = styled(StyledButton)`
-  &.MuiButton-containedPrimary {
-    background-color: #ffffff;
-    color: ${colors.theme};
-    padding: 15px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    box-shadow: none;
-    margin: 10px;
-  }
-  &.MuiButton-outlinedSecondary {
-    color: #ffffff;
-    border-color: #ffffff;
-    padding: 15px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    box-shadow: none;
-    margin: 10px;
-  }
-`;
+const Footer = ({ title, description, buttonOne, buttonTwo }) => {
 
-const Footer = () => {
+  const classes = useStyles();
+  const theme = useTheme(); 
+
   return (
-    <FooterContainer>
-      <Heading>Ready to Streamline. Connect. Deliver?</Heading>
-      <WhiteTypography
-        variant="body1"
-        style={{ marginTop: "10px", fontWeight: 400, letterSpacing: 1, color:'#FFFFFF' }}
+    <SectionContainer
+      style={{ padding: "5%" }}
+      background={theme.palette.primary.main}
+    >
+      <MainHeading
+        style={{ color: theme.palette.secondary.main, fontSize: "40px" }}
       >
-        Experience the power of hybrid logistics solutions
-      </WhiteTypography>
-      <ButtonsContainer>
-        <CustomStyledButton variant="contained" color="primary" style={{textTransform:'none'}}>
-          Request a Quote
-        </CustomStyledButton>
-        <CustomStyledButton variant="outlined" color="secondary" style={{textTransform:'none'}}>
-          Contact Sales
-        </CustomStyledButton>
-      </ButtonsContainer>
-    </FooterContainer>
+        {title}
+      </MainHeading>
+      <BodyText
+        style={{
+          textAlign: "center",
+          marginTop: "20px",
+          color: theme.palette.secondary.main,
+          fontSize: "20px",
+        }}
+      >
+        {description}
+      </BodyText>
+
+      <HeroActionButtons>
+        <Button
+          variant="contained"
+          className={classes.requestButton}
+          size="large"
+        >
+          {buttonOne}
+        </Button>
+        <Button
+          variant="outlined"
+          className={classes.outlinedButton}
+          size="large"
+        >
+          {buttonTwo}
+        </Button>
+      </HeroActionButtons>
+    </SectionContainer>
   );
 };
 

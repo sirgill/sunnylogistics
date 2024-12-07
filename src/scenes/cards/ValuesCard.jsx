@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Card, CardContent, Typography } from "@material-ui/core";
 import ShieldOutlinedIcon from "@material-ui/icons/Security";
-import { CardsHeading } from "../components/Heading";
+import { CardsHeading } from "../components/CarrierPage/Heading";
 import { colors } from "../assets/colors/colors";
 
 const CardContainer = styled(Card)`

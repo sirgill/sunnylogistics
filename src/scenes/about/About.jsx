@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Grid, Typography } from "@material-ui/core";
-import HeroSectionContainer from "../components/HeroSectionContainer";
-import SectionContainer from "../components/SectionContainer";
+import HeroSectionContainer from "../components/LandingPage/HeroSectionContainer";
+import SectionContainer from "../components/LandingPage/SectionContainer";
 import ValuesCard from "../cards/ValuesCard";
 import { Shield, TrendingUp, Heart } from "lucide-react";
 
