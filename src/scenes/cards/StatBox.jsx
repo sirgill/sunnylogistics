@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Typography } from "@material-ui/core";
+import { useTheme } from '@material-ui/core/styles';
 
 const StatContainer = styled.div`
   text-align: center;
@@ -17,7 +18,6 @@ const StatContainer = styled.div`
 `;
 
 const StatValue = styled(Typography)`
-  color: ${props => props.theme.palette.primary.main};
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 1.2;
@@ -25,18 +25,19 @@ const StatValue = styled(Typography)`
 `;
 
 const StatLabel = styled(Typography)`
-  color: ${props => props.theme.palette.text.secondary};
   font-size: 1rem;
   font-weight: 500;
 `;
 
 const StatBox = ({ title, description }) => {
+  const theme = useTheme();
+
   return (
     <StatContainer>
-      <StatValue variant="h3">
+      <StatValue variant="h3" style={{ color: theme.palette.primary.main }}>
         {title}
       </StatValue>
-      <StatLabel variant="body1">
+      <StatLabel variant="body1" style={{ color: theme.palette.darkGrey.main }}>
         {description}
       </StatLabel>
     </StatContainer>
