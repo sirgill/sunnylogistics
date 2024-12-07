@@ -9,20 +9,6 @@ import { MainHeading, SectionHeading, BodyText } from "../heading";
 import AboutSectionContainer from "../components/AboutPage/AboutSectionContainer";
 import ServiceCard from "../components/LandingPage/ServiceCard";
 
-const TimelineContainer = styled(Paper)(({ theme }) => ({
-  padding: 10,
-  marginBottom: 10,
-}));
-
-const TimelineYear = styled(Typography)(({ theme }) => ({
-  fontWeight: "bold",
-  fontSize: "1.5rem",
-}));
-
-const TimelineContent = styled(Box)(({ theme }) => ({
-  marginTop: 10,
-}));
-
 const timelineData = [
   {
     year: "2019",
