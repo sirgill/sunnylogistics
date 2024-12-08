@@ -65,6 +65,107 @@ const dictionary = {
       },
     },
   },
+
+  // shippers 
+
+  heroSection: {
+    heading: "Shippers",
+    mainHeading: "Streamline.\nConnect.\nDeliver.",
+    bodyText: "Experience the power of hybrid logistics solutions combining asset-based reliability with tech-enabled flexibility.",
+    button: "Get Started",
+  },
+  statsSection: {
+    mainHeading: "Your Trusted Logistics Partner",
+    bodyText:
+      "Since 2019, we've been delivering excellence in freight transportation across the Midwest. Our hybrid model combines the reliability of asset-based operations with the flexibility of a tech-enabled brokerage.",
+    stats: [
+      { title: "10,000+", description: "Loads Delivered" },
+      { title: "99.5%", description: "On-Time Delivery" },
+      { title: "24/7", description: "Support" },
+      { title: "40+", description: "Trucks" },
+    ],
+  },
+  servicesSection: {
+    mainHeading: "Complete Logistics Solutions",
+    services: [
+      {
+        icon: "Truck",
+        title: "Asset-Based Services",
+        description: "Reliable capacity with our dedicated fleet",
+        features: [
+          "Dedicated equipment",
+          "Professional company drivers",
+          "Regular routes available",
+          "Temperature controlled options",
+        ],
+      },
+      {
+        icon: "Network",
+        title: "Brokerage Services",
+        description: "Flexible solutions for any shipping need",
+        features: [
+          "Nationwide coverage",
+          "Vetted carrier network",
+          "Specialized equipment",
+          "Surge capacity",
+        ],
+      },
+    ],
+  },
+  technologyPlatform: {
+    mainHeading: "Technology-Driven Solutions",
+    bodyText:
+      "Powered by freightdok, our platform provides real-time visibility and control over your shipments",
+    features: [
+      {
+        icon: "Target",
+        title: "Real-Time Tracking",
+        description:
+          "Monitor your shipments with GPS precision and receive proactive status updates",
+      },
+      {
+        icon: "Box",
+        title: "Digital Documentation",
+        description: "Access BOLs, PODs, and invoices in one centralized platform",
+      },
+      {
+        icon: "BarChart",
+        title: "Analytics Dashboard",
+        description:
+          "Gain insights into your shipping patterns and optimize your supply chain",
+      },
+    ],
+  },
+  ourEdge: {
+    mainHeading: "Our Edge",
+    features: [
+      {
+        icon: "Shield",
+        title: "Dedicated Service",
+        description: "Single point of contact for all your shipping needs with 24/7 support",
+      },
+      {
+        icon: "Clock",
+        title: "Fast Response",
+        description:
+          "Quick quotes and immediate capacity solutions when you need them",
+      },
+      {
+        icon: "Target",
+        title: "Regional Expertise",
+        description:
+          "Specialized knowledge of Midwest freight lanes and requirements",
+      },
+    ],
+  },
+  footer: {
+    title: "Ready to optimize your supply chain?",
+    description:
+      "Experience the difference of working with a logistics partner who understands your needs.",
+    buttonOne: "Request a Quote",
+    buttonTwo: "Contact Sales",
+  },
+
 };
 
 export default dictionary;
