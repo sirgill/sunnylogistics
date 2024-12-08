@@ -1,68 +1,37 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Grid, Typography, Paper, Box, Divider } from "@material-ui/core";
-import SectionContainer from "../components/LandingPage/SectionContainer";
-import { Shield, TrendingUp, Heart } from "lucide-react";
+import { Grid, Typography, Box } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import AboutSectionContainer from "../components/AboutPage/AboutSectionContainer";
+import SectionContainer from "../components/LandingPage/SectionContainer";
 import Footer from "../Footer/Footer";
 import { MainHeading, SectionHeading, BodyText } from "../heading";
-import AboutSectionContainer from "../components/AboutPage/AboutSectionContainer";
 import ServiceCard from "../components/LandingPage/ServiceCard";
-
-const timelineData = [
-  {
-    year: "2019",
-    title: "Foundation",
-    description:
-      "Started with a vision to revolutionize Midwest logistics. Founded by industry veterans who saw the need for a more innovative, technology-driven approach to transportation. Began operations with a single truck and a commitment to exceptional service.",
-  },
-  {
-    year: "2020",
-    title: "Sunny Freight Launch",
-    description:
-      "Established our trucking division to provide dedicated capacity solutions. Expanded our fleet to serve key Midwest lanes and built our initial customer base through a focus on reliability and personal service. Implemented our first digital tracking solutions.",
-  },
-  {
-    year: "2021",
-    title: "Technology Integration & Growth",
-    description:
-      "Partnered with freightdok to enhance our digital capabilities. Launched our automated booking platform, real-time tracking system, and digital documentation solutions. Expanded our carrier network to over 50 trusted partners and achieved 5,000+ successful deliveries.",
-  },
-  {
-    year: "2023",
-    title: "Network & Technology Evolution",
-    description:
-      "Reached milestone of 10,000+ loads delivered and 100+ active customers. Enhanced our freightdok integration with new features for both carriers and shippers. Expanded our trailer pool program and implemented advanced route optimization algorithms.",
-  },
-];
+import { Shield, TrendingUp, Heart } from "lucide-react";
+import dictionary from "../dictionary";
 
 const useStyles = makeStyles((theme) => ({
   outlinedButton: {
-    color: theme.palette.secondary.main,
-    borderColor: theme.palette.secondary.main,
-    textTransform: "none",
-    borderRadius: 8,
-    fontSize: "16px",
-    fontFamily: "Inter, sans-serif",
-    borderWidth: 2,
-    "&:hover": {
-      borderColor: theme.palette.secondary.main,
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-    },
-    fontWeight: 600,
-    marginTop: 30,
+    // Button styling
   },
 }));
 
 const About = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const { heroSection, missionVision, coreValues, timeline, footer } =
+    dictionary;
+
   return (
     <>
       {/* Hero Section */}
       <AboutSectionContainer backgroundColor={theme.palette.primary.main}>
         <MainHeading
-          style={{ color: theme.palette.secondary.main, fontSize: "45px" ,fontWeight:'bold'}}
+          style={{
+            color: theme.palette.secondary.main,
+            fontSize: "45px",
+            fontWeight: "bold",
+          }}
         >
           Building the
           <br />
@@ -94,7 +63,7 @@ const About = () => {
               fontWeight: "bold",
             }}
           >
-            Our Mission
+            {dictionary.missionVision.missionHeading}
           </MainHeading>
           <BodyText
             style={{
@@ -104,10 +73,7 @@ const About = () => {
               textAlign: "left",
             }}
           >
-            To create a connected freight ecosystem driven by data, automation,
-            and service. We aim to build a healthy and stable network for
-            shippers and carriers in the Midwest, fostering growth and
-            efficiency through technology and transparency.
+            {dictionary.missionVision.missionText}
           </BodyText>
         </Grid>
 
@@ -121,7 +87,7 @@ const About = () => {
               fontWeight: "bold",
             }}
           >
-            Our Vision
+            {dictionary.missionVision.visionHeading}
           </MainHeading>
           <BodyText
             style={{
@@ -131,9 +97,7 @@ const About = () => {
               textAlign: "left",
             }}
           >
-            To become the leading technology-enabled logistics provider in the
-            Midwest, setting new standards for reliability, innovation, and
-            customer service in the transportation industry.
+            {dictionary.missionVision.visionText}
           </BodyText>
         </Grid>
       </SectionContainer>
@@ -144,34 +108,30 @@ const About = () => {
           style={{
             color: theme.palette.darkGrey.main,
             fontSize: "40px",
-            textAlign: "left",
             fontWeight: "bold",
           }}
         >
-          Our Core Values
+          {coreValues.heading}
         </MainHeading>
         <Grid spacing={4} style={{ width: "75%" }}>
-          <ServiceCard
-            icon={<Shield />}
-            title="Trust"
-            description="Building lasting relationships through reliability and consistent performance"
-            titleFontSize="24px"
-            descriptionFontSize="16px"
-          />
-          <ServiceCard
-            icon={<TrendingUp />}
-            title="Transparency"
-            description="Maintaining open communication and visibility in all our operations"
-            titleFontSize="24px"
-            descriptionFontSize="16px"
-          />
-          <ServiceCard
-            icon={<Heart />}
-            title="Fairness"
-            description="Treating all partners with respect and ensuring mutual success"
-            titleFontSize="24px"
-            descriptionFontSize="16px"
-          />
+          {coreValues.values.map((value, index) => (
+            <ServiceCard
+              key={index}
+              icon={
+                index === 0 ? (
+                  <Shield />
+                ) : index === 1 ? (
+                  <TrendingUp />
+                ) : (
+                  <Heart />
+                )
+              }
+              title={value.title}
+              description={value.description}
+              titleFontSize="24px"
+              descriptionFontSize="16px"
+            />
+          ))}
         </Grid>
       </SectionContainer>
 
@@ -181,22 +141,14 @@ const About = () => {
           style={{
             color: theme.palette.darkGrey.main,
             fontSize: "40px",
-            textAlign: "left",
             fontWeight: "bold",
           }}
         >
           Our Journey
         </MainHeading>
-        {timelineData.map((item, index) => (
+        {timeline.map((item, index) => (
           <Grid item xs={12} md={9} key={index}>
-            <div
-              style={{
-                marginTop: 30,
-                display: "flex",
-                alignItems: "flex-start", // Align items to the start
-                padding: "16px",
-              }}
-            >
+            <div style={{ marginTop: 30, display: "flex", padding: "16px" }}>
               <Typography
                 style={{
                   marginRight: "20px",
@@ -212,18 +164,12 @@ const About = () => {
                   style={{
                     textAlign: "left",
                     fontWeight: "bold",
-                    fontSize: "20px", 
+                    fontSize: "20px",
                   }}
                 >
                   {item.title}
                 </Typography>
-                <Typography
-                  style={{
-                    textAlign: "left",
-                    marginTop: 10,
-                    fontSize: "16px", 
-                  }}
-                >
+                <Typography style={{ textAlign: "left", marginTop: 10 }}>
                   {item.description}
                 </Typography>
               </div>
@@ -231,11 +177,12 @@ const About = () => {
           </Grid>
         ))}
       </SectionContainer>
+
       <Footer
-        title="Want to Learn More?"
-        description="Connect with our team to learn more about our services and how we can help optimize your supply chain."
-        buttonOne="Contact Us"
-        buttonTwo="Join Our Team"
+        title={footer.title}
+        description={footer.description}
+        buttonOne={footer.buttonOne}
+        buttonTwo={footer.buttonTwo}
       />
     </>
   );
