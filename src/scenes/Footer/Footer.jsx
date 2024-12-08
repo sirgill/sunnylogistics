@@ -4,6 +4,7 @@ import { MainHeading, SectionHeading, BodyText } from "../heading";
 import SectionContainer from "../components/CarrierPage/SectionContainer";
 import { Button } from "@material-ui/core";
 import styled from "@emotion/styled";
+import { useMediaQuery } from "@material-ui/core";
 
 const HeroActionButtons = styled.div`
   margin-top: 2rem;
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
       borderColor: theme.palette.secondary.main,
       backgroundColor: "rgba(255, 255, 255, 0.1)",
     },
-    fontWeight: 400,
+    fontWeight: 500,
   },
   requestButton: {
     backgroundColor: theme.palette.secondary.main,
@@ -54,15 +55,15 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.dark,
       color: theme.palette.secondary.light,
     },
-    fontWeight: 400,
+    fontWeight: 500,
     width: 150,
   },
 }));
 
 const Footer = ({ title, description, buttonOne, buttonTwo }) => {
-
   const classes = useStyles();
-  const theme = useTheme(); 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <SectionContainer
@@ -70,7 +71,10 @@ const Footer = ({ title, description, buttonOne, buttonTwo }) => {
       background={theme.palette.primary.main}
     >
       <MainHeading
-        style={{ color: theme.palette.secondary.main, fontSize: "40px" }}
+        style={{
+          color: theme.palette.secondary.main,
+          fontSize: isMobile ? "30px" : "40px",
+        }}
       >
         {title}
       </MainHeading>
@@ -80,6 +84,7 @@ const Footer = ({ title, description, buttonOne, buttonTwo }) => {
           marginTop: "20px",
           color: theme.palette.secondary.main,
           fontSize: "20px",
+          fontWeight: 400,
         }}
       >
         {description}

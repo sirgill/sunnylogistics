@@ -6,7 +6,7 @@ import StatBox from "../components/LandingPage/StatBox";
 import FeatureCard from "../components/CarrierPage/FeatureCard";
 import ServiceCard from "../components/LandingPage/ServiceCard";
 import Footer from "../Footer/Footer";
-import { Grid, Typography, Button } from "@material-ui/core";
+import { Grid, Typography, Button, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { DollarSign, Users, CheckCircle, BarChart } from "lucide-react";
 import { MainHeading, SectionHeading, BodyText } from "../heading";
@@ -48,21 +48,44 @@ const useStyles = makeStyles((theme) => ({
 const Carriers = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
       {/* Hero Section */}
       <CarrierSectionContainer backgroundColor={theme.palette.primary.main}>
-        <SectionHeading style={{ color: theme.palette.secondary.main, marginBottom: 20, fontWeight: 400 }}>
+        <SectionHeading
+          style={{
+            color: theme.palette.secondary.main,
+            marginBottom: 20,
+            fontWeight: 400,
+          }}
+        >
           {dictionary.carrierhero.heading}
         </SectionHeading>
-        <MainHeading style={{ color: theme.palette.secondary.main, fontSize: "45px" }}>
+        <MainHeading
+          style={{
+            color: theme.palette.secondary.main,
+            fontSize: "45px",
+            fontWeight: "bold",
+          }}
+        >
           {dictionary.carrierhero.mainHeading}
         </MainHeading>
-        <BodyText style={{ color: theme.palette.secondary.main, fontSize: "20px", marginTop: 30 }}>
+        <BodyText
+          style={{
+            color: theme.palette.secondary.main,
+            fontSize: "20px",
+            marginTop: 30,
+          }}
+        >
           {dictionary.carrierhero.description}
         </BodyText>
-        <Button variant="outlined" size="large" className={classes.outlinedButton}>
+        <Button
+          variant="outlined"
+          size="large"
+          className={classes.outlinedButton}
+        >
           {dictionary.carrierhero.button}
         </Button>
       </CarrierSectionContainer>
@@ -70,10 +93,24 @@ const Carriers = () => {
       {/* Stats Section */}
       <SectionContainer background={theme.palette.secondary.main}>
         <Grid item xs={12} md={9}>
-          <MainHeading style={{ color: theme.palette.darkGrey.main, fontSize: "40px", textAlign: "left" }}>
+          <MainHeading
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: isMobile ? '30px':"40px",
+              textAlign: "left",
+            }}
+          >
             {dictionary.carrierstats.heading}
           </MainHeading>
-          <BodyText style={{ color: theme.palette.text.main, fontSize: "18px", marginTop: 30, textAlign: "left" }}>
+          <BodyText
+            style={{
+              color: theme.palette.text.main,
+              fontSize: "18px",
+              marginTop: 30,
+              textAlign: "left",
+              fontWeight: 400,
+            }}
+          >
             {dictionary.carrierstats.description}
           </BodyText>
 
@@ -108,15 +145,29 @@ const Carriers = () => {
 
       {/* Benefits Section */}
       <SectionContainer background="#F9FAFB">
-        <Grid item xs={12} md={9} style={{ width: "80%" }}>
-          <MainHeading style={{ color: theme.palette.darkGrey.main, fontSize: "40px", textAlign: "center" }}>
+        <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
+          <MainHeading
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: isMobile ? '30px':"40px",
+              textAlign: "center",
+            }}
+          >
             {dictionary.benefits.heading}
           </MainHeading>
           <StatsGrid spacing={2} style={{ marginTop: 30 }}>
             {dictionary.benefits.features.map((feature, index) => (
               <FeatureCard
                 key={index}
-                icon={feature.icon === 'DollarSign'?<DollarSign/>:feature.icon === 'BarChart'? <BarChart/> : <Users/>}
+                icon={
+                  feature.icon === "DollarSign" ? (
+                    <DollarSign />
+                  ) : feature.icon === "BarChart" ? (
+                    <BarChart />
+                  ) : (
+                    <Users />
+                  )
+                }
                 title={feature.title}
                 description={feature.description}
               />
@@ -127,11 +178,25 @@ const Carriers = () => {
 
       {/* Network Technology */}
       <SectionContainer background={theme.palette.secondary.main}>
-        <Grid item xs={12} md={9} style={{ width: "80%" }}>
-          <MainHeading style={{ color: theme.palette.darkGrey.main, fontSize: "40px", textAlign: "left" }}>
+        <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
+          <MainHeading
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: isMobile ? '30px':"40px",
+              textAlign: "left",
+            }}
+          >
             {dictionary.network.heading}
           </MainHeading>
-          <BodyText style={{ color: theme.palette.darkGrey.main, fontSize: "16px", marginTop: 30, textAlign: "left" }}>
+          <BodyText
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: "16px",
+              marginTop: 30,
+              textAlign: "left",
+              fontWeight: 400,
+            }}
+          >
             {dictionary.network.description}
           </BodyText>
           <div style={{ marginTop: 30 }}>
@@ -147,8 +212,14 @@ const Carriers = () => {
 
       {/* Requirements Section */}
       <SectionContainer background="light">
-        <Grid item xs={12} md={9} style={{ width: "80%" }}>
-          <MainHeading style={{ color: theme.palette.darkGrey.main, fontSize: "40px", textAlign: "center" }}>
+        <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
+          <MainHeading
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: isMobile ? '30px':"40px",
+              textAlign: "center",
+            }}
+          >
             {dictionary.requirements.heading}
           </MainHeading>
           {dictionary.requirements.cards.map((card, index) => (

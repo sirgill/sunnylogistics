@@ -11,7 +11,11 @@ const CarrierSectionContainerWrapper = styled(Paper)`
   justify-content: center;
   background-color: ${({ backgroundColor }) => backgroundColor || '#141B2A'} !important; 
   text-align: left;
-  padding-left:16% 
+  padding-left:16%;
+  
+   @media (max-width: 600px) { 
+    padding-left: 10%;
+  }
 `;
 
 const CarrierSectionContainer = ({ children, backgroundColor }) => {

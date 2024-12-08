@@ -89,7 +89,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <HeroSectionContainer backgroundColor="#141B2A">
         <MainHeading
-          style={{ color: theme.palette.secondary.main, fontSize: "40px" }}
+          style={{ color: theme.palette.secondary.main, fontSize: "40px",fontWeight:'bold' }}
         >
           {dictionary.hero.title}
         </MainHeading>
@@ -119,7 +119,7 @@ const LandingPage = () => {
       <SectionContainer background={theme.palette.secondary.main}>
         <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
           <MainHeading
-            style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
+            style={{ color: theme.palette.darkGrey.main, fontSize: "30px", fontWeight:'bold' }}
           >
             {dictionary.about.heading}
           </MainHeading>
@@ -148,7 +148,7 @@ const LandingPage = () => {
       {/* Services Section */}
       <SectionContainer background="#fff">
         <MainHeading
-          style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
+          style={{ color: theme.palette.darkGrey.main, fontSize: "30px", fontWeight:'bold' }}
         >
           Our Services
         </MainHeading>
@@ -191,7 +191,7 @@ const LandingPage = () => {
           style={{ textAlign: "center", margin: "0 auto" }}
         >
           <MainHeading
-            style={{ color: theme.palette.darkGrey.main, fontSize: "30px" }}
+            style={{ color: theme.palette.darkGrey.main, fontSize: "30px", fontWeight:'bold' }}
           >
             {dictionary.carrierNetwork.main}
           </MainHeading>
