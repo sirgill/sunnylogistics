@@ -1,194 +1,256 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Grid, Typography, Button } from "@material-ui/core";
-import HeroSectionContainer from "../components/LandingPage/HeroSectionContainer";
+import ShipperSectionContainer from "../components/ShippersPage/ShippersSectionContainer";
 import SectionContainer from "../components/LandingPage/SectionContainer";
-import StatBox from "../cards/StatBox";
+import StatBox from "../components/LandingPage/StatBox";
 import ServiceCard from "../components/LandingPage/ServiceCard";
-import FeatureCard from "../cards/FeatureCard";
-import { Truck, Network, Shield, Clock, Target, Box, BarChart } from "lucide-react";
+import FeatureCard from "../components/CarrierPage/FeatureCard";
+import {
+  Truck,
+  Network,
+  Shield,
+  Clock,
+  Target,
+  Box,
+  BarChart,
+} from "lucide-react";
+import { SectionHeading, BodyText, MainHeading } from "../heading";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Footer from "../Footer/Footer";
+import dictionary from "../dictionary";
 
 const StatsGrid = styled(Grid)`
   margin-top: 2rem;
 `;
 
-const FeatureIcon = styled.div`
-  color: ${props => props.theme.palette.primary.main};
-  margin-bottom: 1rem;
-`;
+const useStyles = makeStyles((theme) => ({
+  outlinedButton: {
+    color: theme.palette.secondary.main,
+    borderColor: theme.palette.secondary.main,
+    textTransform: "none",
+    borderRadius: 8,
+    fontSize: "16px",
+    fontFamily: "Inter, sans-serif",
+    borderWidth: 2,
+    "&:hover": {
+      borderColor: theme.palette.secondary.main,
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+    },
+    fontWeight: 600,
+    marginTop: 30,
+  },
+}));
 
 const Shippers = () => {
+  const classes = useStyles();
+  const theme = useTheme();
+
   return (
     <>
       {/* Hero Section */}
-      <HeroSectionContainer>
-        <Typography variant="overline" gutterBottom>
-          Shippers
-        </Typography>
-        <Typography variant="h1" gutterBottom>
-          Streamline.<br />Connect.<br />Deliver.
-        </Typography>
-        <Typography variant="h5" component="p" gutterBottom>
-          Experience the power of hybrid logistics solutions combining asset-based 
-          reliability with tech-enabled flexibility.
-        </Typography>
-        <Button variant="outlined" color="inherit" size="large">
-          Get Started
+      <ShipperSectionContainer backgroundColor={theme.palette.primary.main}>
+        <SectionHeading
+          style={{
+            color: theme.palette.secondary.main,
+            marginBottom: 20,
+            fontWeight: 400,
+          }}
+        >
+          {dictionary.heroSection.heading}
+        </SectionHeading>
+        <MainHeading
+          style={{
+            color: theme.palette.secondary.main,
+            fontSize: "45px",
+            fontWeight: "bold",
+          }}
+        >
+          Streamline.
+          <br />
+          Connect.
+          <br />
+          Deliver.
+        </MainHeading>
+        <BodyText
+          style={{
+            color: theme.palette.secondary.main,
+            fontSize: "20px",
+            marginTop: 30,
+          }}
+        >
+          {dictionary.heroSection.bodyText}
+        </BodyText>
+        <Button
+          variant="outlined"
+          size="large"
+          className={classes.outlinedButton}
+        >
+          {dictionary.heroSection.button}
         </Button>
-      </HeroSectionContainer>
+      </ShipperSectionContainer>
 
       {/* Stats Section */}
-      <SectionContainer>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Typography variant="h3" gutterBottom>
-              Your Trusted Logistics Partner
-            </Typography>
-            <Typography variant="body1">
-              Since 2019, we've been delivering excellence in freight transportation across 
-              the Midwest. Our hybrid model combines the reliability of asset-based operations 
-              with the flexibility of a tech-enabled brokerage.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <StatsGrid container spacing={3}>
-              <Grid item xs={6}>
-                <StatBox title="10,000+" description="Loads Delivered" />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="99.5%" description="On-Time Delivery" />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="24/7" description="Support" />
-              </Grid>
-              <Grid item xs={6}>
-                <StatBox title="40+" description="Trucks" />
-              </Grid>
-            </StatsGrid>
-          </Grid>
+      <SectionContainer background={theme.palette.secondary.main}>
+        <Grid item xs={12} md={9}>
+          <MainHeading
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: "40px",
+              textAlign: "left",
+              fontWeight: "bold",
+            }}
+          >
+            {dictionary.statsSection.mainHeading}
+          </MainHeading>
+          <BodyText
+            style={{
+              color: theme.palette.text.main,
+              fontSize: "18px",
+              marginTop: 30,
+              textAlign: "left",
+            }}
+          >
+            {dictionary.statsSection.bodyText}
+          </BodyText>
+
+          <StatsGrid spacing={2} style={{ marginTop: 30 }}>
+            <Grid container item xs={12} spacing={2}>
+              {dictionary.statsSection.stats.slice(0, 2).map((stat, index) => (
+                <Grid
+                  key={index}
+                  item
+                  xs={6}
+                  style={{ backgroundColor: "#F9FAFB" }}
+                >
+                  <StatBox title={stat.title} description={stat.description} />
+                </Grid>
+              ))}
+            </Grid>
+            <Grid container item xs={12} spacing={2}>
+              {dictionary.statsSection.stats.slice(2).map((stat, index) => (
+                <Grid
+                  key={index}
+                  item
+                  xs={6}
+                  style={{ backgroundColor: "#F9FAFB" }}
+                >
+                  <StatBox title={stat.title} description={stat.description} />
+                </Grid>
+              ))}
+            </Grid>
+          </StatsGrid>
         </Grid>
       </SectionContainer>
-
       {/* Services Section */}
       <SectionContainer background="light">
-        <Typography variant="h3" align="center" gutterBottom>
-          Complete Logistics Solutions
-        </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <ServiceCard
-              icon={<Truck />}
-              title="Asset-Based Services"
-              description="Reliable capacity with our dedicated fleet"
-              features={[
-                "Dedicated equipment",
-                "Professional company drivers",
-                "Regular routes available",
-                "Temperature controlled options"
-              ]}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ServiceCard
-              icon={<Network />}
-              title="Brokerage Services"
-              description="Flexible solutions for any shipping need"
-              features={[
-                "Nationwide coverage",
-                "Vetted carrier network",
-                "Specialized equipment",
-                "Surge capacity"
-              ]}
-            />
-          </Grid>
+        <MainHeading
+          style={{
+            color: theme.palette.darkGrey.main,
+            fontSize: "40px",
+            textAlign: "left",
+            fontWeight: "bold",
+          }}
+        >
+          {dictionary.servicesSection.mainHeading}
+        </MainHeading>
+        <Grid style={{ width: "75%" }}>
+          {dictionary.servicesSection.services.map((service, index) => (
+            <Grid key={index} item xs={12} md={12}>
+              <ServiceCard
+                icon={service.icon === "Truck" ? <Truck /> : <Network />}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+              />
+            </Grid>
+          ))}
         </Grid>
       </SectionContainer>
 
       {/* Technology Platform */}
       <SectionContainer>
-        <Typography variant="h3" align="center" gutterBottom>
-          Technology-Driven Solutions
-        </Typography>
-        <Typography variant="h5" align="center" gutterBottom>
-          Powered by freightdok, our platform provides real-time visibility 
-          and control over your shipments
-        </Typography>
-        <Grid container spacing={4} style={{ marginTop: '2rem' }}>
-          <Grid item xs={12} md={4}>
-            <FeatureCard
-              icon={<Target />}
-              title="Real-Time Tracking"
-              description="Monitor your shipments with GPS precision and receive proactive status updates"
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <FeatureCard
-              icon={<Box />}
-              title="Digital Documentation"
-              description="Access BOLs, PODs, and invoices in one centralized platform"
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <FeatureCard
-              icon={<BarChart />}
-              title="Analytics Dashboard"
-              description="Gain insights into your shipping patterns and optimize your supply chain"
-            />
-          </Grid>
+        <MainHeading
+          style={{
+            color: theme.palette.darkGrey.main,
+            fontSize: "40px",
+            textAlign: "left",
+            fontWeight: "bold",
+          }}
+        >
+          {dictionary.technologyPlatform.mainHeading}
+        </MainHeading>
+        <BodyText
+          style={{
+            color: theme.palette.text.main,
+            fontSize: "18px",
+            marginTop: 30,
+            textAlign: "left",
+          }}
+        >
+          {dictionary.technologyPlatform.bodyText}
+        </BodyText>
+        <Grid spacing={4} style={{ marginTop: "2rem", width: "75%" }}>
+          {dictionary.technologyPlatform.features.map((feature, index) => (
+            <Grid key={index} item xs={12} md={12}>
+              <FeatureCard
+                icon={
+                  feature.icon === "Target" ? (
+                    <Target />
+                  ) : feature.icon === "Box" ? (
+                    <Box />
+                  ) : (
+                    <BarChart />
+                  )
+                }
+                title={feature.title}
+                description={feature.description}
+              />
+            </Grid>
+          ))}
         </Grid>
       </SectionContainer>
 
       {/* Our Edge Section */}
       <SectionContainer background="light">
-        <Typography variant="h3" align="center" gutterBottom>
-          Our Edge
-        </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <FeatureCard
-              icon={<Shield />}
-              title="Dedicated Service"
-              description="Single point of contact for all your shipping needs with 24/7 support"
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <FeatureCard
-              icon={<Clock />}
-              title="Fast Response"
-              description="Quick quotes and immediate capacity solutions when you need them"
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <FeatureCard
-              icon={<Target />}
-              title="Regional Expertise"
-              description="Specialized knowledge of Midwest freight lanes and requirements"
-            />
-          </Grid>
+        <MainHeading
+          style={{
+            color: theme.palette.darkGrey.main,
+            fontSize: "40px",
+            textAlign: "left",
+            fontWeight: "bold",
+          }}
+        >
+          {dictionary.ourEdge.mainHeading}
+        </MainHeading>
+        <Grid spacing={4} style={{ marginTop: "2rem", width: "75%" }}>
+          {dictionary.ourEdge.features.map((feature, index) => (
+            <Grid key={index} item xs={12} md={12}>
+              <FeatureCard
+                icon={
+                  feature.icon === "Shield" ? (
+                    <Shield />
+                  ) : feature.icon === "Clock" ? (
+                    <Clock />
+                  ) : (
+                    <Target />
+                  )
+                }
+                title={feature.title}
+                description={feature.description}
+              />
+            </Grid>
+          ))}
         </Grid>
       </SectionContainer>
 
       {/* CTA Section */}
-      <SectionContainer background="primary">
-        <Typography variant="h3" align="center" gutterBottom>
-          Ready to optimize your supply chain?
-        </Typography>
-        <Typography variant="h5" align="center" gutterBottom>
-          Experience the difference of working with a logistics partner who understands your needs.
-        </Typography>
-        <Grid container justifyContent="center" spacing={2}>
-          <Grid item>
-            <Button variant="contained" color="secondary" size="large">
-              Request a Quote
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button variant="outlined" color="inherit" size="large">
-              Contact Sales
-            </Button>
-          </Grid>
-        </Grid>
-      </SectionContainer>
+      <Footer
+        title={dictionary.footer.title}
+        description={dictionary.footer.description}
+        buttonOne={dictionary.footer.buttonOne}
+        buttonTwo={dictionary.footer.buttonTwo}
+      />
     </>
   );
 };

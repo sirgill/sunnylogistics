@@ -15,7 +15,8 @@ const SectionHeading = ({ children, style }) => {
         letterSpacing: "1px",
         marginTop: 30,
         marginBottom: style.marginBottom,
-        textAlign:style.textAlign
+        textAlign:style.textAlign,
+        marginLeft:5
       }}
     >
       {children}
