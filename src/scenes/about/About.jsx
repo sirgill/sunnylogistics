@@ -1,7 +1,6 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { Grid, Typography, Box } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Grid, Typography, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import AboutSectionContainer from "../components/AboutPage/AboutSectionContainer";
 import SectionContainer from "../components/LandingPage/SectionContainer";
 import Footer from "../Footer/Footer";
@@ -10,17 +9,10 @@ import ServiceCard from "../components/LandingPage/ServiceCard";
 import { Shield, TrendingUp, Heart } from "lucide-react";
 import dictionary from "../dictionary";
 
-const useStyles = makeStyles((theme) => ({
-  outlinedButton: {
-    // Button styling
-  },
-}));
-
 const About = () => {
-  const classes = useStyles();
   const theme = useTheme();
-  const { heroSection, missionVision, coreValues, timeline, footer } =
-    dictionary;
+  const { coreValues, timeline, footer } = dictionary;
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
@@ -29,7 +21,7 @@ const About = () => {
         <MainHeading
           style={{
             color: theme.palette.secondary.main,
-            fontSize: "45px",
+            fontSize: isMobile? '35px':"45px",
             fontWeight: "bold",
           }}
         >
@@ -58,7 +50,7 @@ const About = () => {
           <MainHeading
             style={{
               color: theme.palette.darkGrey.main,
-              fontSize: "30px",
+              fontSize: isMobile? '25px' :"30px",
               textAlign: "left",
               fontWeight: "bold",
             }}
@@ -81,7 +73,7 @@ const About = () => {
           <MainHeading
             style={{
               color: theme.palette.darkGrey.main,
-              fontSize: "30px",
+              fontSize: isMobile? '25px' :"30px",
               textAlign: "left",
               marginTop: 30,
               fontWeight: "bold",
@@ -107,13 +99,13 @@ const About = () => {
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
-            fontSize: "40px",
+            fontSize: isMobile? '25px' :"30px",
             fontWeight: "bold",
           }}
         >
           {coreValues.heading}
         </MainHeading>
-        <Grid spacing={4} style={{ width: "75%" }}>
+        <Grid spacing={4} style={{ width:isMobile? '100%' :"75%" }}>
           {coreValues.values.map((value, index) => (
             <ServiceCard
               key={index}
@@ -140,7 +132,7 @@ const About = () => {
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
-            fontSize: "40px",
+            fontSize: isMobile? '25px' :"30px",
             fontWeight: "bold",
           }}
         >

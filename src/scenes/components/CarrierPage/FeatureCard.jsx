@@ -11,8 +11,8 @@ const Card = styled.div`
   transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
-  margin-top: 30px; /* Correct camelCase syntax */
+  align-items: flex-start; 
+  margin-top: 30px; 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
@@ -30,7 +30,7 @@ const FeatureCard = ({ icon, title, description }) => {
       )}
       
       <MainHeading
-            style={{ color: theme.palette.darkGrey.main, fontSize: "20px" }}
+            style={{ color: theme.palette.darkGrey.main, fontSize: "20px",fontWeight:'bold' }}
           >
            {title}
           </MainHeading>
@@ -40,6 +40,7 @@ const FeatureCard = ({ icon, title, description }) => {
           fontSize: "16px",
           marginTop: 20,
           textAlign: "left",
+          fontWeight:400
         }}
       >
         {description}

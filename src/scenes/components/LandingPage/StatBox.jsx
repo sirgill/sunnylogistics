@@ -42,6 +42,7 @@ const StatBox = ({ title, description }) => {
           color: theme.palette.primary.main,
           fontFamily: theme.typography.fontFamily,
           fontSize: isMobile ? "20px" : "24px",
+          fontWeight:'bold'
         }}
       >
         {title}

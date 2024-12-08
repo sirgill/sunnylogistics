@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Grid, Typography, Button } from "@material-ui/core";
+import { Grid, useMediaQuery, Button } from "@material-ui/core";
 import ShipperSectionContainer from "../components/ShippersPage/ShippersSectionContainer";
 import SectionContainer from "../components/LandingPage/SectionContainer";
 import StatBox from "../components/LandingPage/StatBox";
@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 const Shippers = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
@@ -96,7 +97,7 @@ const Shippers = () => {
           <MainHeading
             style={{
               color: theme.palette.darkGrey.main,
-              fontSize: "40px",
+              fontSize: isMobile? '30px':"40px",
               textAlign: "left",
               fontWeight: "bold",
             }}
@@ -147,14 +148,14 @@ const Shippers = () => {
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
-            fontSize: "40px",
+            fontSize: isMobile? '30px':"40px",
             textAlign: "left",
             fontWeight: "bold",
           }}
         >
           {dictionary.servicesSection.mainHeading}
         </MainHeading>
-        <Grid style={{ width: "75%" }}>
+        <Grid style={{ width: isMobile ? '100%' : '75%' }}>
           {dictionary.servicesSection.services.map((service, index) => (
             <Grid key={index} item xs={12} md={12}>
               <ServiceCard
@@ -173,7 +174,7 @@ const Shippers = () => {
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
-            fontSize: "40px",
+            fontSize: isMobile? '30px':"40px",
             textAlign: "left",
             fontWeight: "bold",
           }}
@@ -190,9 +191,9 @@ const Shippers = () => {
         >
           {dictionary.technologyPlatform.bodyText}
         </BodyText>
-        <Grid spacing={4} style={{ marginTop: "2rem", width: "75%" }}>
+        <Grid spacing={4} style={{ marginTop: "2rem", width: isMobile ? '100%' : '75%'  }}>
           {dictionary.technologyPlatform.features.map((feature, index) => (
-            <Grid key={index} item xs={12} md={12}>
+            <Grid key={index} item md={12}>
               <FeatureCard
                 icon={
                   feature.icon === "Target" ? (
@@ -216,14 +217,14 @@ const Shippers = () => {
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
-            fontSize: "40px",
+            fontSize: isMobile? '30px':"40px",
             textAlign: "left",
             fontWeight: "bold",
           }}
         >
           {dictionary.ourEdge.mainHeading}
         </MainHeading>
-        <Grid spacing={4} style={{ marginTop: "2rem", width: "75%" }}>
+        <Grid spacing={4} style={{ marginTop: "2rem", width: isMobile ? '100%' : '75%'  }}>
           {dictionary.ourEdge.features.map((feature, index) => (
             <Grid key={index} item xs={12} md={12}>
               <FeatureCard

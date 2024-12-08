@@ -13,6 +13,7 @@ const BodyText = ({ children, style }) => {
         fontSize: style.fontSize,
         marginTop: style.marginTop,
         textAlign: style.textAlign,
+        fontWeight:style.fontWeight
       }}
     >
       {children}
@@ -27,6 +28,7 @@ BodyText.propTypes = {
     fontSize: PropTypes.string,
     marginTop: PropTypes.string,
     textAlign: PropTypes.string,
+    fontWeight:PropTypes.string
   }),
 };
 
