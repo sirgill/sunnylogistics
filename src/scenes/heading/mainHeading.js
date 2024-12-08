@@ -9,11 +9,12 @@ const MainHeading = ({ children, style }) => {
     <div
       style={{
         fontFamily: theme.typography.fontFamily,
-        fontWeight: "Bold",
+        fontWeight: style.fontWeight,
         color: style.color || "#000",
         letterSpacing: "1px",
         fontSize: style.fontSize,
-        textAlign:style.textAlign
+        textAlign:style.textAlign,
+        marginTop:style.marginTop
       }}
     >
       {children}
@@ -26,7 +27,9 @@ MainHeading.propTypes = {
   style: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.string,
-    textAlign: PropTypes.string
+    textAlign: PropTypes.string,
+    marginTop:PropTypes.string,
+    fontWeight:PropTypes.string
   }),
 };
 
