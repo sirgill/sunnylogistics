@@ -21,10 +21,10 @@ const HeroActionButtons = styled.div`
 
 const useStyles = makeStyles((theme) => ({
   Button: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: '#EF4444',
     color: theme.palette.secondary.main,
     textTransform: "none",
-    padding: 12,
+    padding: '0.75rem 1.5rem',
     borderRadius: 8,
     fontSize: "16px",
     fontFamily: "Inter, sans-serif",
@@ -32,11 +32,12 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.dark,
       color: theme.palette.secondary.light,
     },
-    fontWeight: 400,
-    width: 150,
+    fontWeight: 500,
+    width: 'auto',
   },
   outlinedButton: {
     color: theme.palette.secondary.main,
+    padding: '0.75rem 1.5rem',
     borderColor: theme.palette.secondary.main,
     textTransform: "none",
     borderRadius: 8,
@@ -44,10 +45,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Inter, sans-serif",
     borderWidth: 2,
     "&:hover": {
-      borderColor: theme.palette.secondary.main,
+      borderColor: '#E5E7EB',
       backgroundColor: "rgba(255, 255, 255, 0.1)",
     },
-    fontWeight: 400,
+    fontWeight: 500,
   },
   requestButton: {
     backgroundColor: theme.palette.secondary.main,
@@ -89,7 +90,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <HeroSectionContainer backgroundColor="#141B2A">
         <MainHeading
-          style={{ color: theme.palette.secondary.main, fontSize: "40px",fontWeight:'bold' }}
+          style={{ color: theme.palette.secondary.main, fontSize: "56px",fontWeight:'700', letterSpacing: '-0.02em', marginBottom: '1rem' }}
         >
           {dictionary.hero.title}
         </MainHeading>
@@ -135,7 +136,20 @@ const LandingPage = () => {
         </Grid>
         <StatContainer className={classes.statContainer}>
           <StatRow className={classes.statRow}>
-            <StatBox title="10,000+" description="Loads Delivered" />
+            <StatBox title="10,000+" description="Loads Delivered" 
+            titleStyle={{
+    color: '#EF4444',
+    fontSize: '2.5rem',
+    fontWeight: 700,
+    marginBottom: '0.5rem'
+  }}
+  descriptionStyle={{
+    color: '#4B5563',
+    fontSize: '1rem'
+  }}
+
+
+            />
             <StatBox title="1:1" description="Single Point of Contact" />
           </StatRow>
           <StatRow className={classes.statRow}>
@@ -146,7 +160,7 @@ const LandingPage = () => {
       </SectionContainer>
 
       {/* Services Section */}
-      <SectionContainer background="#fff">
+      <SectionContainer background="#F9FAFB">
         <MainHeading
           style={{ color: theme.palette.darkGrey.main, fontSize: "30px", fontWeight:'bold' }}
         >

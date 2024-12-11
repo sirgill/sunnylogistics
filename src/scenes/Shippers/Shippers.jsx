@@ -21,7 +21,15 @@ import Footer from "../Footer/Footer";
 import dictionary from "../dictionary";
 
 const StatsGrid = styled(Grid)`
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -93,58 +101,60 @@ const Shippers = () => {
 
       {/* Stats Section */}
       <SectionContainer background={theme.palette.secondary.main}>
-        <Grid item xs={12} md={9}>
-          <MainHeading
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: isMobile? '30px':"40px",
-              textAlign: "left",
-              fontWeight: "bold",
-            }}
-          >
-            {dictionary.statsSection.mainHeading}
-          </MainHeading>
-          <BodyText
-            style={{
-              color: theme.palette.text.main,
-              fontSize: "18px",
-              marginTop: 30,
-              textAlign: "left",
-            }}
-          >
-            {dictionary.statsSection.bodyText}
-          </BodyText>
+  <Grid item xs={12} md={9}>
+    <MainHeading
+      style={{
+        color: theme.palette.darkGrey.main,
+        fontSize: isMobile ? '30px' : "40px",
+        textAlign: "left",
+        fontWeight: "bold",
+      }}
+    >
+      {dictionary.statsSection.mainHeading}
+    </MainHeading>
+    <BodyText
+      style={{
+        color: theme.palette.text.main,
+        fontSize: "18px",
+        marginTop: 30,
+        textAlign: "left",
+      }}
+    >
+      {dictionary.statsSection.bodyText}
+    </BodyText>
 
-          <StatsGrid spacing={2} style={{ marginTop: 30 }}>
-            <Grid container item xs={12} spacing={2}>
-              {dictionary.statsSection.stats.slice(0, 2).map((stat, index) => (
-                <Grid
-                  key={index}
-                  item
-                  xs={6}
-                  style={{ backgroundColor: "#F9FAFB" }}
-                >
-                  <StatBox title={stat.title} description={stat.description} />
-                </Grid>
-              ))}
-            </Grid>
-            <Grid container item xs={12} spacing={2}>
-              {dictionary.statsSection.stats.slice(2).map((stat, index) => (
-                <Grid
-                  key={index}
-                  item
-                  xs={6}
-                  style={{ backgroundColor: "#F9FAFB" }}
-                >
-                  <StatBox title={stat.title} description={stat.description} />
-                </Grid>
-              ))}
-            </Grid>
-          </StatsGrid>
-        </Grid>
-      </SectionContainer>
+    <StatsGrid>
+      {dictionary.statsSection.stats.map((stat, index) => (
+        <div
+          key={index}
+          style={{
+            backgroundColor: "#F9FAFB",
+            padding: "2rem",
+            borderRadius: "0.5rem",
+            textAlign: "center"
+          }}
+        >
+          <StatBox 
+            title={stat.title} 
+            description={stat.description}
+            titleStyle={{
+              color: '#EF4444',
+              fontSize: '2rem',
+              fontWeight: 700,
+              marginBottom: '0.5rem'
+            }}
+            descriptionStyle={{
+              color: '#4B5563',
+              fontSize: '1rem'
+            }}
+          />
+        </div>
+      ))}
+    </StatsGrid>
+  </Grid>
+</SectionContainer>
       {/* Services Section */}
-      <SectionContainer background="light">
+      <SectionContainer background="#F9FAFB">
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
@@ -213,7 +223,7 @@ const Shippers = () => {
       </SectionContainer>
 
       {/* Our Edge Section */}
-      <SectionContainer background="light">
+      <SectionContainer background="#F9FAFB">
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
