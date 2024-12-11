@@ -1,4 +1,3 @@
-// src/scenes/Navbar/navbar.js
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import {
@@ -121,12 +120,17 @@ const Navbar = () => {
         <Toolbar style={{ display: "flex", justifyContent: "center" }}>
           <NavbarContainer isMobile={matches}>
             <Typography
+            component={Link}
+             to="/home"
               style={{
                 fontWeight: "bold",
                 fontSize: "25px",
                 color: theme.palette.primary.main,
                 fontFamily: "Inter",
+                textDecoration: "none",
+                cursor: "pointer",
               }}
+              
             >
               Sunny Logistics
             </Typography>
