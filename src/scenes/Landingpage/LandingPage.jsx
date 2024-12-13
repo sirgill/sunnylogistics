@@ -1,16 +1,17 @@
-import React from "react";
+
+import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import HeroSectionContainer from "../components/LandingPage/HeroSectionContainer";
 import SectionContainer from "../components/LandingPage/SectionContainer";
 import StatBox from "../components/LandingPage/StatBox";
 import ServiceCard from "../components/LandingPage/ServiceCard";
-import { Truck, Network } from "lucide-react";
+import { Truck, Network, ChevronRight } from "lucide-react";
 import { MainHeading, SectionHeading, BodyText } from "../heading/index";
-import { ChevronRight } from "lucide-react";
 import dictionary from "../dictionary";
 import Footer from "../Footer/Footer";
+import ShipNowForm from '../ShipNow/ShipNow';
 
 const HeroActionButtons = styled.div`
   margin-top: 2rem;
@@ -49,48 +50,39 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "rgba(255, 255, 255, 0.1)",
     },
     fontWeight: 500,
-  },
-  requestButton: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.primary.main,
-    textTransform: "none",
-    padding: 12,
-    borderRadius: 8,
-    fontSize: "16px",
-    fontFamily: "Inter, sans-serif",
-    "&:hover": {
-      backgroundColor: theme.palette.primary.dark,
-      color: theme.palette.secondary.light,
-    },
-    fontWeight: 400,
-    width: 150,
-  },
+  }
 }));
 
-const StatContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-`;
+const StatsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  margin-top: 3rem;
 
-const StatRow = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: space-around;
-  margin: 10px 0;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const LandingPage = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <>
       {/* Hero Section */}
       <HeroSectionContainer backgroundColor="#141B2A">
         <MainHeading
-          style={{ color: theme.palette.secondary.main, fontSize: "56px",fontWeight:'700', letterSpacing: '-0.02em', marginBottom: '1rem' }}
+          style={{ 
+            color: theme.palette.secondary.main, 
+            fontSize: "56px",
+            fontWeight: '800', 
+            letterSpacing: '-0.02em', 
+            marginBottom: '1.5rem' 
+          }}
         >
           {dictionary.hero.title}
         </MainHeading>
@@ -103,6 +95,7 @@ const LandingPage = () => {
             className={classes.Button}
             size="large"
             endIcon={<ChevronRight />}
+            onClick={() => setIsFormOpen(true)}
           >
             {dictionary.hero.shipNow}
           </Button>
@@ -110,159 +103,169 @@ const LandingPage = () => {
             variant="outlined"
             className={classes.outlinedButton}
             size="large"
+            href="https://app.freightdok.io/federalSignup"
           >
             {dictionary.hero.joinNetwork}
           </Button>
         </HeroActionButtons>
+
+        {/* Ship Now Form */}
+        <ShipNowForm 
+          open={isFormOpen} 
+          onClose={() => setIsFormOpen(false)} 
+        />
       </HeroSectionContainer>
 
       {/* About Section */}
       <SectionContainer background={theme.palette.secondary.main}>
-        <Grid item xs={12} md={6} style={{ textAlign: "center" }}>
+        <Grid item xs={12} md={9}>
           <MainHeading
-            style={{ color: theme.palette.darkGrey.main, fontSize: "30px", fontWeight:'bold' }}
+            style={{ 
+              color: theme.palette.darkGrey.main, 
+              fontSize: isMobile ? '30px' : "40px", 
+              fontWeight: '800',
+              marginBottom: '1.5rem',
+              textAlign: "center"
+            }}
           >
             {dictionary.about.heading}
           </MainHeading>
           <BodyText
             style={{
               color: theme.palette.text.main,
-              fontSize: "20px",
-              marginTop: 30,
+              fontSize: "18px",
+              marginBottom: "3rem",
+              textAlign: "center"
             }}
           >
             {dictionary.about.body}
           </BodyText>
+          <StatsGrid>
+            {[
+              { title: "10,000+", description: "Loads Delivered" },
+              { title: "1:1", description: "Single Point of Contact" },
+              { title: "100+", description: "Active Shippers" },
+              { title: "24/7", description: "Support" }
+            ].map((stat, index) => (
+              <div
+                key={index}
+                style={{
+                  backgroundColor: "#F9FAFB",
+                  padding: "2rem",
+                  borderRadius: "0.5rem"
+                }}
+              >
+                <StatBox 
+                  title={stat.title} 
+                  description={stat.description}
+                  titleStyle={{
+                    color: '#EF4444',
+                    fontSize: '2.5rem',
+                    fontWeight: 700,
+                    marginBottom: '0.5rem'
+                  }}
+                  descriptionStyle={{
+                    color: '#4B5563',
+                    fontSize: '1rem'
+                  }}
+                />
+              </div>
+            ))}
+          </StatsGrid>
         </Grid>
-        <StatContainer className={classes.statContainer}>
-          <StatRow className={classes.statRow}>
-            <StatBox title="10,000+" description="Loads Delivered" 
-            titleStyle={{
-    color: '#EF4444',
-    fontSize: '2.5rem',
-    fontWeight: 700,
-    marginBottom: '0.5rem'
-  }}
-  descriptionStyle={{
-    color: '#4B5563',
-    fontSize: '1rem'
-  }}
-
-
-            />
-            <StatBox title="1:1" description="Single Point of Contact" />
-          </StatRow>
-          <StatRow className={classes.statRow}>
-            <StatBox title="100+" description="Active Shippers" />
-            <StatBox title="24/7" description="Support" />
-          </StatRow>
-        </StatContainer>
       </SectionContainer>
 
       {/* Services Section */}
       <SectionContainer background="#F9FAFB">
         <MainHeading
-          style={{ color: theme.palette.darkGrey.main, fontSize: "30px", fontWeight:'bold' }}
+          style={{ 
+            color: theme.palette.darkGrey.main, 
+            fontSize: isMobile ? '30px' : "40px", 
+            fontWeight: '800',
+            marginBottom: "3rem"
+          }}
         >
           Our Services
         </MainHeading>
-        <Grid container style={{ justifyContent: "center", marginTop: 20 }}>
-          <Grid item xs={12} md={9} style={{ width: "100%" }}>
-            <ServiceCard
-              icon={<Truck />}
-              title={dictionary.services.forShippers.title}
-              description={dictionary.services.forShippers.description}
-              features={dictionary.services.forShippers.features}
-              buttonText={dictionary.services.forShippers.buttonText}
-              buttonLink={dictionary.services.forShippers.buttonLink}
-              titleFontSize="24px"
-              descriptionFontSize="16px"
-              featureFontSize="14px"
-            />
-          </Grid>
-          <Grid item xs={12} md={9} style={{ width: "100%" }}>
-            <ServiceCard
-              icon={<Network />}
-              title={dictionary.services.forCarriers.title}
-              description={dictionary.services.forCarriers.description}
-              features={dictionary.services.forCarriers.features}
-              buttonText={dictionary.services.forCarriers.buttonText}
-              buttonLink={dictionary.services.forCarriers.buttonLink}
-              titleFontSize="24px"
-              descriptionFontSize="16px"
-              featureFontSize="14px"
-            />
-          </Grid>
+        <Grid item xs={12} md={9} style={{ width: "75%" }}>
+          <ServiceCard
+            icon={<Truck style={{ color: '#EF4444' }}/>}
+            title={dictionary.services.forShippers.title}
+            description={dictionary.services.forShippers.description}
+            features={dictionary.services.forShippers.features}
+            buttonText={dictionary.services.forShippers.buttonText}
+            buttonLink={dictionary.services.forShippers.buttonLink}
+            titleFontSize="24px"
+            descriptionFontSize="16px"
+            featureFontSize="14px"
+          />
+        </Grid>
+        <Grid item xs={12} md={9} style={{ width: "75%", marginTop: "2rem" }}>
+          <ServiceCard
+            icon={<Network style={{ color: '#EF4444' }}/>}
+            title={dictionary.services.forCarriers.title}
+            description={dictionary.services.forCarriers.description}
+            features={dictionary.services.forCarriers.features}
+            buttonText={dictionary.services.forCarriers.buttonText}
+            buttonLink={dictionary.services.forCarriers.buttonLink}
+            titleFontSize="24px"
+            descriptionFontSize="16px"
+            featureFontSize="14px"
+          />
         </Grid>
       </SectionContainer>
 
       {/* Technology Platform */}
       <SectionContainer background={theme.palette.secondary.main}>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          style={{ textAlign: "center", margin: "0 auto" }}
-        >
+        <Grid item xs={12} md={9} style={{ width: "75%" }}>
           <MainHeading
-            style={{ color: theme.palette.darkGrey.main, fontSize: "30px", fontWeight:'bold' }}
+            style={{ 
+              color: theme.palette.darkGrey.main, 
+              fontSize: isMobile ? '30px' : "40px", 
+              fontWeight: '800',
+              marginBottom: '1.5rem',
+              textAlign: "center"
+            }}
           >
             {dictionary.carrierNetwork.main}
           </MainHeading>
-          <SectionHeading style={{ color: theme.palette.darkGrey }}>
+          <BodyText
+            style={{
+              color: theme.palette.darkGrey.main,
+              fontSize: "18px",
+              marginBottom: "3rem",
+              textAlign: "center"
+            }}
+          >
             {dictionary.carrierNetwork.description}
-          </SectionHeading>
-        </Grid>
-        <Grid
-          container
-          spacing={4}
-          justifyContent="center"
-          style={{ marginTop: "2rem" }}
-        >
-          <Grid item xs={12} md={8}>
-            <div className={classes.statContainer}>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <StatBox
-                    title={
-                      dictionary.carrierNetwork.statBoxes.digitalBooking.title
-                    }
-                    description={
-                      dictionary.carrierNetwork.statBoxes.digitalBooking
-                        .description
-                    }
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <StatBox
-                    title={
-                      dictionary.carrierNetwork.statBoxes.realTimeUpdates.title
-                    }
-                    description={
-                      dictionary.carrierNetwork.statBoxes.realTimeUpdates
-                        .description
-                    }
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <StatBox
-                    title={dictionary.carrierNetwork.statBoxes.fastPay.title}
-                    description={
-                      dictionary.carrierNetwork.statBoxes.fastPay.description
-                    }
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <StatBox
-                    title={dictionary.carrierNetwork.statBoxes.support.title}
-                    description={
-                      dictionary.carrierNetwork.statBoxes.support.description
-                    }
-                  />
-                </Grid>
-              </Grid>
-            </div>
-          </Grid>
+          </BodyText>
+          <StatsGrid>
+            {Object.values(dictionary.carrierNetwork.statBoxes).map((box, index) => (
+              <div
+                key={index}
+                style={{
+                  backgroundColor: "#F9FAFB",
+                  padding: "2rem",
+                  borderRadius: "0.5rem"
+                }}
+              >
+                <StatBox
+                  title={box.title}
+                  description={box.description}
+                  titleStyle={{
+                    color: '#EF4444',
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    marginBottom: '0.5rem'
+                  }}
+                  descriptionStyle={{
+                    color: '#4B5563',
+                    fontSize: '1rem'
+                  }}
+                />
+              </div>
+            ))}
+          </StatsGrid>
         </Grid>
       </SectionContainer>
 

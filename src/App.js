@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 import theme from './scenes/theme/Theme';
 import Navbar from './scenes/Navbar/navbar';
 import AppRoutes from './routes';
+import Terms from "./scenes/Terms/Terms";
 
 const AppContainer = styled.div`
   padding: 5px;

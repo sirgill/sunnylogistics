@@ -13,7 +13,15 @@ import { MainHeading, SectionHeading, BodyText } from "../heading";
 import dictionary from "../dictionary";
 
 const StatsGrid = styled(Grid)`
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const RequirementItem = styled.div`
@@ -53,7 +61,7 @@ const Carriers = () => {
   return (
     <>
       {/* Hero Section */}
-      <CarrierSectionContainer backgroundColor={theme.palette.primary.main}>
+      <CarrierSectionContainer backgroundColor="#141B2A">
         <SectionHeading
           style={{
             color: theme.palette.secondary.main,
@@ -85,156 +93,182 @@ const Carriers = () => {
           variant="outlined"
           size="large"
           className={classes.outlinedButton}
+          href="https://app.freightdok.io/federalSignup"
         >
           {dictionary.carrierhero.button}
         </Button>
       </CarrierSectionContainer>
 
       {/* Stats Section */}
-      <SectionContainer background={theme.palette.secondary.main}>
-        <Grid item xs={12} md={9}>
-          <MainHeading
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: isMobile ? '30px':"40px",
-              textAlign: "left",
-            }}
-          >
-            {dictionary.carrierstats.heading}
-          </MainHeading>
-          <BodyText
-            style={{
-              color: theme.palette.text.main,
-              fontSize: "18px",
-              marginTop: 30,
-              textAlign: "left",
-              fontWeight: 400,
-            }}
-          >
-            {dictionary.carrierstats.description}
-          </BodyText>
+     {/* Stats Section */}
+<SectionContainer background={theme.palette.secondary.main}>
+  <Grid item xs={12} md={9}>
+    <MainHeading
+      style={{
+        color: theme.palette.darkGrey.main,
+        fontSize: isMobile ? '30px' : "40px",
+        textAlign: "left",
+        fontWeight: "bold",
+      }}
+    >
+      {dictionary.carrierstats.heading}
+    </MainHeading>
+    <BodyText
+      style={{
+        color: theme.palette.text.main,
+        fontSize: "18px",
+        marginTop: 30,
+        textAlign: "left",
+      }}
+    >
+      {dictionary.carrierstats.description}
+    </BodyText>
 
-          <StatsGrid spacing={2} style={{ marginTop: 30 }}>
-            <Grid container item xs={12} spacing={2}>
-              {dictionary.carrierstats.stats.slice(0, 2).map((stat, index) => (
-                <Grid
-                  key={index}
-                  item
-                  xs={6}
-                  style={{ backgroundColor: "#F9FAFB" }}
-                >
-                  <StatBox title={stat.title} description={stat.description} />
-                </Grid>
-              ))}
-            </Grid>
-            <Grid container item xs={12} spacing={2}>
-              {dictionary.carrierstats.stats.slice(2).map((stat, index) => (
-                <Grid
-                  key={index}
-                  item
-                  xs={6}
-                  style={{ backgroundColor: "#F9FAFB" }}
-                >
-                  <StatBox title={stat.title} description={stat.description} />
-                </Grid>
-              ))}
-            </Grid>
-          </StatsGrid>
-        </Grid>
-      </SectionContainer>
+    <StatsGrid>
+      {dictionary.carrierstats.stats.map((stat, index) => (
+        <div
+          key={index}
+          style={{
+            backgroundColor: "#F9FAFB",
+            padding: "2rem",
+            borderRadius: "0.5rem"
+          }}
+        >
+          <StatBox 
+            title={stat.title} 
+            description={stat.description}
+          />
+        </div>
+      ))}
+    </StatsGrid>
+  </Grid>
+</SectionContainer>
 
-      {/* Benefits Section */}
-      <SectionContainer background="#F9FAFB">
-        <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
-          <MainHeading
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: isMobile ? '30px':"40px",
-              textAlign: "center",
-            }}
-          >
-            {dictionary.benefits.heading}
-          </MainHeading>
-          <StatsGrid spacing={2} style={{ marginTop: 30 }}>
-            {dictionary.benefits.features.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                icon={
-                  feature.icon === "DollarSign" ? (
-                    <DollarSign />
-                  ) : feature.icon === "BarChart" ? (
-                    <BarChart />
-                  ) : (
-                    <Users />
-                  )
-                }
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
-          </StatsGrid>
-        </Grid>
-      </SectionContainer>
+{/* Benefits Section */}
+<SectionContainer background="#F9FAFB">
+  <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
+    <MainHeading
+      style={{
+        color: theme.palette.darkGrey.main,
+        fontSize: isMobile ? '30px' : "40px",
+        textAlign: "center",
+        fontWeight: "800",
+        marginBottom: "3rem"
+      }}
+    >
+      {dictionary.benefits.heading}
+    </MainHeading>
+    <div style={{ 
+      display: 'grid', 
+      gap: '2rem',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '2rem'
+    }}>
+      {dictionary.benefits.features.map((feature, index) => (
+        <FeatureCard
+          key={index}
+          icon={
+            feature.icon === "DollarSign" ? (
+              <DollarSign />
+            ) : feature.icon === "BarChart" ? (
+              <BarChart />
+            ) : (
+              <Users />
+            )
+          }
+          title={feature.title}
+          description={feature.description}
+        />
+      ))}
+    </div>
+  </Grid>
+</SectionContainer>
 
-      {/* Network Technology */}
-      <SectionContainer background={theme.palette.secondary.main}>
-        <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
-          <MainHeading
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: isMobile ? '30px':"40px",
-              textAlign: "left",
-            }}
-          >
-            {dictionary.network.heading}
-          </MainHeading>
-          <BodyText
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: "16px",
-              marginTop: 30,
-              textAlign: "left",
-              fontWeight: 400,
-            }}
-          >
-            {dictionary.network.description}
-          </BodyText>
-          <div style={{ marginTop: 30 }}>
-            {dictionary.network.requirements.map((requirement, index) => (
-              <RequirementItem key={index}>
-                <CheckCircle />
-                <Typography>{requirement}</Typography>
-              </RequirementItem>
-            ))}
-          </div>
-        </Grid>
-      </SectionContainer>
+{/* Network Technology */}
+<SectionContainer background={theme.palette.secondary.main}>
+  <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
+    <MainHeading
+      style={{
+        color: theme.palette.darkGrey.main,
+        fontSize: isMobile ? '30px' : "40px",
+        textAlign: "left",
+        fontWeight: "800",
+        marginBottom: "2.5rem"
+      }}
+    >
+      {dictionary.network.heading}
+    </MainHeading>
+    <BodyText
+      style={{
+        color: theme.palette.darkGrey.main,
+        fontSize: "18px",
+        marginBottom: "2.5rem",
+        textAlign: "left",
+        lineHeight: "1.6"
+      }}
+    >
+      {dictionary.network.description}
+    </BodyText>
+    <div style={{ display: 'grid', gap: '0.75rem', marginTop: "2rem" }}>
+      {dictionary.network.requirements.map((requirement, index) => (
+        <RequirementItem key={index}>
+          <CheckCircle style={{ 
+            color: '#EF4444', 
+            width: 20, // Smaller icon
+            height: 20 // Smaller icon
 
-      {/* Requirements Section */}
-      <SectionContainer background="light">
-        <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
-          <MainHeading
-            style={{
-              color: theme.palette.darkGrey.main,
-              fontSize: isMobile ? '30px':"40px",
-              textAlign: "center",
-            }}
-          >
-            {dictionary.requirements.heading}
-          </MainHeading>
-          {dictionary.requirements.cards.map((card, index) => (
-            <ServiceCard
-              key={index}
-              title={card.title}
-              features={card.features}
-              useCheckCircle={true}
-              titleFontSize="18px"
-              descriptionFontSize="16px"
-              featureFontSize="14px"
-            />
-          ))}
-        </Grid>
-      </SectionContainer>
+
+        }}/>
+          <Typography style={{ 
+            fontSize: "16px",
+            color: "#374151" }}>{requirement}</Typography>
+        </RequirementItem>
+      ))}
+    </div>
+  </Grid>
+</SectionContainer>
+
+{/* Requirements Section */}
+{/* Requirements Section */}
+<SectionContainer background="#F9FAFB">
+  <Grid item xs={12} md={9} style={{ width: isMobile ? "100%" : "80%" }}>
+    <MainHeading
+      style={{
+        color: "#111827", // Darker color for more contrast
+        fontSize: isMobile ? '30px' : "40px",
+        textAlign: "center",
+        fontWeight: "800",
+        marginBottom: "3rem"
+      }}
+    >
+      {dictionary.requirements.heading}
+    </MainHeading>
+    <div style={{ 
+      display: 'grid', 
+      gap: '2rem',
+      width: '100%' 
+    }}>
+      {dictionary.requirements.cards.map((card, index) => (
+        <ServiceCard
+          key={index}
+          title={card.title}
+          features={card.features}
+          useCheckCircle={true}
+          titleFontSize="18px" // Adjusted size
+          titleFontWeight="700"
+          descriptionFontSize="16px"
+          featureFontSize="16px"
+          cardStyle={{ 
+            backgroundColor: '#FFFFFF',
+            borderRadius: '0.5rem',
+            padding: '2rem',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+          }}
+        />
+      ))}
+    </div>
+  </Grid>
+</SectionContainer>
 
       {/* CTA Section */}
       <Footer
