@@ -17,7 +17,7 @@ const About = () => {
   return (
     <>
       {/* Hero Section */}
-      <AboutSectionContainer backgroundColor={theme.palette.primary.main}>
+      <AboutSectionContainer backgroundColor="#141B2A">
         <MainHeading
           style={{
             color: theme.palette.secondary.main,
@@ -95,17 +95,18 @@ const About = () => {
       </SectionContainer>
 
       {/* Core Values Section */}
-      <SectionContainer background="light">
+      <SectionContainer background="#F9FAFB">
         <MainHeading
           style={{
             color: theme.palette.darkGrey.main,
             fontSize: isMobile? '25px' :"30px",
-            fontWeight: "bold",
+            fontWeight: "800",
+            marginBottom: "3rem"
           }}
         >
           {coreValues.heading}
         </MainHeading>
-        <Grid spacing={4} style={{ width:isMobile? '100%' :"75%" }}>
+        <Grid spacing={4} style={{ width:isMobile? '100%' :"75%", display: 'grid', gap: '2rem', }}>
           {coreValues.values.map((value, index) => (
             <ServiceCard
               key={index}

@@ -19,6 +19,8 @@ import { SectionHeading, BodyText, MainHeading } from "../heading";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Footer from "../Footer/Footer";
 import dictionary from "../dictionary";
+import ShipNowForm from '../ShipNow/ShipNow';
+import { useState } from 'react'; 
 
 const StatsGrid = styled(Grid)`
   display: grid;
@@ -54,11 +56,12 @@ const Shippers = () => {
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <>
       {/* Hero Section */}
-      <ShipperSectionContainer backgroundColor={theme.palette.primary.main}>
+      <ShipperSectionContainer backgroundColor="#141B2A">
         <SectionHeading
           style={{
             color: theme.palette.secondary.main,
@@ -94,9 +97,16 @@ const Shippers = () => {
           variant="outlined"
           size="large"
           className={classes.outlinedButton}
+          onClick={() => setIsFormOpen(true)}
         >
           {dictionary.heroSection.button}
         </Button>
+
+        <ShipNowForm 
+          open={isFormOpen} 
+          onClose={() => setIsFormOpen(false)} 
+        />
+        
       </ShipperSectionContainer>
 
       {/* Stats Section */}
@@ -160,12 +170,13 @@ const Shippers = () => {
             color: theme.palette.darkGrey.main,
             fontSize: isMobile? '30px':"40px",
             textAlign: "left",
-            fontWeight: "bold",
+            fontWeight: "800",
+            marginBottom: "3rem"
           }}
         >
           {dictionary.servicesSection.mainHeading}
         </MainHeading>
-        <Grid style={{ width: isMobile ? '100%' : '75%' }}>
+        <Grid style={{ width: isMobile ? '100%' : '75%', display: 'grid', gap: '2rem', }}>
           {dictionary.servicesSection.services.map((service, index) => (
             <Grid key={index} item xs={12} md={12}>
               <ServiceCard
@@ -186,7 +197,8 @@ const Shippers = () => {
             color: theme.palette.darkGrey.main,
             fontSize: isMobile? '30px':"40px",
             textAlign: "left",
-            fontWeight: "bold",
+            fontWeight: "800",
+
           }}
         >
           {dictionary.technologyPlatform.mainHeading}

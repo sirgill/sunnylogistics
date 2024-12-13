@@ -6,7 +6,7 @@ import { useTheme } from "@material-ui/core/styles";
 const StatContainer = styled.div`
   text-align: center;
   padding: 1.5rem;
-  background-color: white;
+  // Remove background-color: white
 
   @media (max-width: 600px) {
     padding: 1rem;
@@ -15,16 +15,18 @@ const StatContainer = styled.div`
 
 const StatValue = styled(Typography)`
   font-weight: bold;
-  font-size: 24px;
+  font-size: 2rem; // Increased font size to match design
+  margin-bottom: 0.5rem; // Add spacing between value and label
 
   @media (max-width: 600px) {
-    font-size: 20px;
+    font-size: 1.75rem;
   }
 `;
 
 const StatLabel = styled(Typography)`
   font-size: 1rem;
   font-weight: 500;
+  color: #4B5563; // Match the gray color from design
 
   @media (max-width: 600px) {
     font-size: 0.875rem;
@@ -39,17 +41,17 @@ const StatBox = ({ title, description }) => {
     <StatContainer>
       <StatValue
         style={{
-          color: theme.palette.primary.main,
+          color: '#EF4444', // Red color from design
           fontFamily: theme.typography.fontFamily,
-          fontSize: isMobile ? "20px" : "24px",
-          fontWeight:'bold'
+          fontSize: isMobile ? "1.75rem" : "2rem",
+          fontWeight: '700' // Bolder weight to match design
         }}
       >
         {title}
       </StatValue>
       <StatLabel
         style={{
-          color: theme.palette.text.primary,
+          color: '#4B5563', // Gray color from design
           fontSize: isMobile ? "14px" : "16px",
         }}
       >

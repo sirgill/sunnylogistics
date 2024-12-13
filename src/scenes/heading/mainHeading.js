@@ -14,7 +14,8 @@ const MainHeading = ({ children, style }) => {
         letterSpacing: "1px",
         fontSize: style.fontSize,
         textAlign:style.textAlign,
-        marginTop:style.marginTop
+        marginTop:style.marginTop,
+        marginBottom: style.marginBottom, 
       }}
     >
       {children}
@@ -29,6 +30,7 @@ MainHeading.propTypes = {
     fontSize: PropTypes.string,
     textAlign: PropTypes.string,
     marginTop:PropTypes.string,
+    marginBottom: PropTypes.string,  
     fontWeight:PropTypes.string
   }),
 };
