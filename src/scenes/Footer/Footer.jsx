@@ -85,15 +85,7 @@ const Footer = () => {
             }}
 
           >Register as a Carrier</FooterLink>
-          <FooterLink href="https://app.freightdok.io/federalSignup"
-          style={{ 
-              color: '#FFFFFF',
-              marginBottom: '0.5rem',
-              fontSize: '1rem',
-              fontFamily: 'Inter, sans-serif'
-            }}
-
-          >Contact us</FooterLink>
+          
         </FooterSection>
 
         {/* Company Info Section */}

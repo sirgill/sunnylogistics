@@ -234,7 +234,7 @@ const dictionary = {
       "Since 2019, we've been delivering excellence in freight transportation across the Midwest. Our hybrid model combines the reliability of asset-based operations with the flexibility of a tech-enabled brokerage.",
     stats: [
       { title: "10,000+", description: "Loads Delivered" },
-      { title: "99.5%", description: "On-Time Delivery" },
+      { title: "98.5%", description: "On-Time Delivery" },
       { title: "24/7", description: "Support" },
       { title: "40+", description: "Trucks" },
     ],
